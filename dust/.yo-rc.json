@@ -1,0 +1,13 @@
+{
+  "generator-kraken": {
+    "taskModule": "grunt",
+    "description": "data base",
+    "author": "1322931",
+    "templateModule": "dustjs",
+    "i18n": false,
+    "componentPackager": "bower",
+    "cssModule": "less",
+    "jsModule": "browserify",
+    "useJson": null
+  }
+}
