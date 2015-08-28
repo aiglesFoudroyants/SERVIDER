@@ -24,7 +24,7 @@ build/Release
 
 # Dependency directory
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
-node_modules
-Servider.njsproj
-Servider.sln
-Servider.v12.suo
+Servider/node_modules
+Servider/Servider.njsproj
+Servider/Servider.sln
+Servider/Servider.v12.suo
