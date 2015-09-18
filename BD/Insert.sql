@@ -122,7 +122,7 @@ insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAu
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(3,4,4,4,null,null);
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(3,4,4,3,null,null);
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(3,4,4,1,null,null);
-insert into message(utilisateurId,contratId,sContenu,dEnvoie,bVisible) values(2,1, 'Plombe moi', sysdate(),true);
-insert into message(utilisateurId,contratId,sContenu,dEnvoie,bVisible) values(1,2, 'Chauffe moi', '2015-09-09',true);
-insert into message(utilisateurId,contratId,sContenu,dEnvoie,bVisible) values(4,3, 'Électrise moi', '2015-09-08',true);
-insert into message(utilisateurId,contratId,sContenu,dEnvoie,bVisible) values(3,4, 'Nettoie moi', '2015-09-07',false);
+insert into message(envoyeurId,receveurId,contratId,sContenu,dEnvoie,bVisible) values(2,1,1, 'Plombe moi', sysdate(),true);
+insert into message(envoyeurId,receveurId,contratId,sContenu,dEnvoie,bVisible) values(1,2,2, 'Chauffe moi', '2015-09-09',true);
+insert into message(envoyeurId,receveurId,contratId,sContenu,dEnvoie,bVisible) values(4,3,3, 'Électrise moi', '2015-09-08',true);
+insert into message(envoyeurId,receveurId,contratId,sContenu,dEnvoie,bVisible) values(3,4,4, 'Nettoie moi', '2015-09-07',false);

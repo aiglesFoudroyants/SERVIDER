@@ -301,46 +301,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `ServiderBd`.`CommentaireUtilisateur`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ServiderBd`.`CommentaireUtilisateur` (
-  `idcommentaireUtilisateur` INT NOT NULL AUTO_INCREMENT COMMENT '',
-  `Contrat_idContrat` INT NOT NULL COMMENT '',
-  `respectEngagement` VARCHAR(45) NOT NULL COMMENT '',
-  `ponctualite` VARCHAR(45) NOT NULL COMMENT '',
-  `communication` VARCHAR(45) NOT NULL COMMENT '',
-  `reconmander` TINYINT(1) NOT NULL COMMENT '',
-  PRIMARY KEY (`idcommentaireUtilisateur`)  COMMENT '',
-  INDEX `fk_commentaireUtilisateur_Contrat_idx` (`Contrat_idContrat` ASC)  COMMENT '',
-  CONSTRAINT `fk_commentaireUtilisateur_Contrat`
-    FOREIGN KEY (`Contrat_idContrat`)
-    REFERENCES `ServiderBd`.`Contrat` (`idContrat`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `ServiderBd`.`CommentaireService`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `ServiderBd`.`CommentaireService` (
-  `idcommentaireService` INT NOT NULL AUTO_INCREMENT COMMENT '',
-  `Contrat_idContrat` INT NOT NULL COMMENT '',
-  `qualite` VARCHAR(45) NOT NULL COMMENT '',
-  `ponctualite` VARCHAR(45) NOT NULL COMMENT '',
-  `communication` VARCHAR(45) NOT NULL COMMENT '',
-  `recommander` TINYINT(1) NOT NULL COMMENT '',
-  PRIMARY KEY (`idcommentaireService`)  COMMENT '',
-  INDEX `fk_commentaireService_Contrat1_idx` (`Contrat_idContrat` ASC)  COMMENT '',
-  CONSTRAINT `fk_commentaireService_Contrat1`
-    FOREIGN KEY (`Contrat_idContrat`)
-    REFERENCES `ServiderBd`.`Contrat` (`idContrat`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `ServiderBd`.`ville`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ServiderBd`.`ville` (
@@ -374,22 +334,29 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `ServiderBd`.`message` (
   `idMessage` INT NOT NULL AUTO_INCREMENT COMMENT '',
-  `utilisateurId` INT NOT NULL COMMENT '',
+  `envoyeurId` INT NOT NULL COMMENT '',
+  `receveurId` INT NOT NULL COMMENT '',
   `contratId` INT NOT NULL COMMENT '',
   `bVisible` TINYINT(1) NOT NULL COMMENT '',
   `sContenu` LONGTEXT NULL COMMENT '',
   `dEnvoie` DATETIME NULL COMMENT '',
   PRIMARY KEY (`idMessage`)  COMMENT '',
-  INDEX `fk_message_Utilisateur1_idx` (`utilisateurId` ASC)  COMMENT '',
+  INDEX `fk_message_Utilisateur1_idx` (`envoyeurId` ASC)  COMMENT '',
   INDEX `fk_message_Contrat1_idx` (`contratId` ASC)  COMMENT '',
+  INDEX `fk_message_Utilisateur2_idx` (`receveurId` ASC)  COMMENT '',
   CONSTRAINT `fk_message_Utilisateur1`
-    FOREIGN KEY (`utilisateurId`)
+    FOREIGN KEY (`envoyeurId`)
     REFERENCES `ServiderBd`.`Utilisateur` (`idUtilisateur`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_message_Contrat1`
     FOREIGN KEY (`contratId`)
     REFERENCES `ServiderBd`.`Contrat` (`idContrat`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_message_Utilisateur2`
+    FOREIGN KEY (`receveurId`)
+    REFERENCES `ServiderBd`.`Utilisateur` (`idUtilisateur`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
