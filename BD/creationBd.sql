@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS `ServiderBd`.`Utilisateur` (
   `statusUtilisateurId` INT NOT NULL COMMENT '',
   `sexeId` INT NOT NULL COMMENT '',
   `langueId` INT NOT NULL COMMENT '',
+  `sNomCompagnie` VARCHAR(45) NULL COMMENT '',
   `sNom` VARCHAR(45) NOT NULL COMMENT '',
   `sPrenom` VARCHAR(45) NOT NULL COMMENT '',
   `sPassword` VARCHAR(45) NOT NULL COMMENT '',
@@ -103,8 +104,10 @@ CREATE TABLE IF NOT EXISTS `ServiderBd`.`Utilisateur` (
   `sAdresse` VARCHAR(45) NULL COMMENT '',
   `sCodePostal` VARCHAR(10) NULL COMMENT '',
   `sVille` VARCHAR(45) NULL COMMENT '',
+  `dLastConnected` DATETIME NULL COMMENT '',
   `dlRatingClient` DOUBLE NULL COMMENT '',
   `dlRatingService` DOUBLE NULL COMMENT '',
+  `sCheminImgProfile` VARCHAR(255) NULL COMMENT '',
   PRIMARY KEY (`idUtilisateur`)  COMMENT '',
   INDEX `fk_utilisateur_Pays1_idx` (`paysId` ASC)  COMMENT '',
   INDEX `fk_utilisateur_province1_idx` (`provinceId` ASC)  COMMENT '',
@@ -266,6 +269,8 @@ CREATE TABLE IF NOT EXISTS `ServiderBd`.`Contrat` (
   `dlPrixEstime` DOUBLE NULL COMMENT '',
   `dDateProposition` DATETIME NULL COMMENT '',
   `dDateAcceptation` DATETIME NULL COMMENT '',
+  `dHeureDebut` DATETIME NULL COMMENT '',
+  `dHeureFin` DATETIME NULL COMMENT '',
   PRIMARY KEY (`idContrat`)  COMMENT '',
   INDEX `fk_Contrat_serviceUtilisateur1_idx` (`annonceId` ASC)  COMMENT '',
   INDEX `fk_Contrat_utilisateur1_idx` (`clientId` ASC)  COMMENT '',
@@ -364,6 +369,15 @@ ENGINE = InnoDB;
 USE `ServiderBd`;
 
 DELIMITER $$
+USE `ServiderBd`$$
+CREATE DEFINER = CURRENT_USER TRIGGER `ServiderBd`.`Utilisateur_BEFORE_UPDATE` BEFORE UPDATE ON `Utilisateur` FOR EACH ROW
+BEGIN
+	if new.statusUtilisateurId = 2 then
+		set new.dLastConnected = sysdate();
+    end if;
+END
+$$
+
 USE `ServiderBd`$$
 CREATE DEFINER = CURRENT_USER TRIGGER `ServiderBd`.`Commentaire_AFTER_INSERT` AFTER INSERT ON `Commentaire` FOR EACH ROW
 BEGIN
