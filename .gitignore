@@ -27,3 +27,5 @@ build/Release
 Servider/.idea
 Servider/*.iml
 Servider/nbproject
+servider_java/nbproject/private/
+servider_java/build/
