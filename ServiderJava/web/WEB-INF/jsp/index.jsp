@@ -7,7 +7,7 @@
 	<!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Home | Gallaxy Responsive HTML5/CSS3 Template | FIFO THEMES</title>
+        <title>Servider | Accueil</title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
         <!-- Mobile Metas -->
@@ -34,6 +34,10 @@
         <!-- Switcher CSS -->
         <link href="resources/css/switcher.css" rel="stylesheet">
         <link href="resources/css/spectrum.css" rel="stylesheet">
+        <!-- JQuery-ui -->
+        <link rel="stylesheet" href="resources/css/jquery-ui.min.css">
+        <link rel="stylesheet" href="resources/css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="resources/css/jquery-ui.theme.min.css">
         <!-- Favicons -->
         <link rel="shortcut icon" href="resources/img/ico/favicon.ico">
         <link rel="apple-touch-icon" href="resources/img/ico/apple-touch-icon.png">
@@ -74,11 +78,14 @@
                         <!-- /Logo -->
                         <!-- Mobile Menu -->
                         <div class="mobile navbar-header">
-                            <a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse">
-                            <i class="fa fa-bars fa-2x"></i>
-                            </a> 
+                            <!--<a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse">
+                                <i class="fa fa-bars fa-2x"></i>
+                            </a> -->
+                            <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border navbar-toggle">
+                                <i class="fa fa-3x fa-user clean"></i>
+                            </a>
                         </div>
-                        <!-- /Mobile Menu -->
+                         <!--/Mobile Menu -->
                         <!-- Menu Start -->
                         <nav class="collapse navbar-collapse menu">
                             <ul class="nav navbar-nav sf-menu">
@@ -98,15 +105,15 @@
             <!-- Main Section -->
             <section id="main">
                 <!-- Main Content -->
-                <div class="main-content viewHeightContent">
-                    <div class="container fillParentHeight">
-                        <div class="row fillParentHeight">
-                            <ul class="searchDiv">
+                <div class="main-content no-padding no-margin">
+                    <div class="row vertical-center menu">
+                        <div class="container">
+                            <ul>
                                 <li class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <input class="form-control search-text-box" id="search" name="search" type="text" placeholder="Search" value="" required="">
+                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="Search" value="" required="">
                                 </li>
-                                <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-xs-push-2">
-                                    <button class="btn btn-color submit" type="submit">Publish an offer</button>
+                                <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-lg-push-0 col-md-push-0 col-sm-push-0 col-xs-push-2">
+                                    <button class="form-control btn btn-color submit" type="submit">Publish an offer</button>
                                 </li>
                             </ul>
                         </div>
@@ -128,11 +135,6 @@
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. 
                                     </p>
                                 </section>
-                                <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-two wow fadeIn">
-                                    <h3 class="light">Twitter Stream</h3>
-                                    <ul id="tweets">
-                                    </ul>
-                                </section>
                                 <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-three wow fadeIn">
                                     <h3 class="light">Contact Us</h3>
                                     <ul class="contact-us">
@@ -150,6 +152,17 @@
                                         <li>
                                             <i class="fa fa-envelope"></i>
                                             <p><strong>Email:</strong><a href="mailto:support@fifothemes.com">support@fifothemes.com</a></p>
+                                        </li>
+                                    </ul>
+                                </section>
+                                <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-two wow fadeIn">
+                                    <h3 class="light">Language</h3>
+                                    <ul id="language">
+                                        <li>
+                                            <select class="form-control">
+                                                <option value="francais">Français</option>
+                                                <option value="anglais">English</option>
+                                            </select>
                                         </li>
                                     </ul>
                                 </section>
@@ -243,6 +256,7 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
+        <script src="resources/js/home.js"></script>
     </body>
 </html>
 
