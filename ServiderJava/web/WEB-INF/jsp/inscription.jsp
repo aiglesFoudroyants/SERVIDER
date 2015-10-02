@@ -7,7 +7,7 @@
 	<!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Servider | Accueil</title>
+        <title>Servider | Inscriptio</title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
         <!-- Mobile Metas -->
@@ -93,15 +93,7 @@
                                     <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border">
                                         <i class="fa fa-3x fa-user"></i>
                                     </a>
-                                    
-                                       
                                 </li>
-                                <li>
-                                       <a href="inscription.htm">inscription</a> 
-                                </li>
-                               
-                                
-                                
                             </ul>
                         </nav>
                         <!-- /Menu --> 
@@ -111,24 +103,11 @@
             </header>
             <!-- /Header --> 
             <!-- Main Section -->
-            <section id="main">
-                <!-- Main Content -->
-                <div class="main-content no-padding no-margin">
-                    <div class="row vertical-center menu">
-                        <div class="container">
-                            <ul>
-                                <li class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="Search" value="" required="">
-                                </li>
-                                <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-lg-push-0 col-md-push-0 col-sm-push-0 col-xs-push-2">
-                                    <button class="form-control btn btn-color submit" type="submit">Publish an offer</button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Main Content -->
-            </section>
+         
+            
+            
+            
+            
             <!-- /Main Section -->
             <!-- Footer -->
             <footer id="footer">
