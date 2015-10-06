@@ -1,14 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/include.jsp" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="localisation.messages"/>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  
-<html> 
+<html lang="${language}"> 
 	<!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Servider | Accueil</title>
+        <title><fmt:message key="title"/></title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
         <!-- Mobile Metas -->
@@ -55,10 +58,11 @@
         <![endif]-->
     </head>
     <body class="home">
+     
         <div class="page-mask">
             <div class="page-loader">
                 <div class="spinner"></div>
-                Loading...
+                <fmt:message key="loading"/>
             </div>
         </div>
         <!-- Wrap -->
@@ -119,10 +123,10 @@
                         <div class="container">
                             <ul>
                                 <li class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="Search" value="" required="">
+                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="<fmt:message key="searchBar"/>" value="" required="">
                                 </li>
                                 <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-lg-push-0 col-md-push-0 col-sm-push-0 col-xs-push-2">
-                                    <button class="form-control btn btn-color submit" type="submit">Publish an offer</button>
+                                    <button class="form-control btn btn-color submit" type="submit"><fmt:message key="offerButton"/></button>
                                 </li>
                             </ul>
                         </div>
@@ -139,39 +143,41 @@
                         <div class="container">
                             <div class="row">
                                 <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-one wow fadeIn">
-                                    <h3 class="light">About</h3>
+                                    <h3 class="light"><fmt:message key="aboutTitle"/></h3>
                                     <p> 
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. 
+                                        <fmt:message key="aboutContent"/> 
                                     </p>
                                 </section>
                                 <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-three wow fadeIn">
-                                    <h3 class="light">Contact Us</h3>
+                                    <h3 class="light"><fmt:message key="contactTitle"/></h3>
                                     <ul class="contact-us">
                                         <li>
                                             <i class="fa fa-map-marker"></i>
                                             <p> 
-                                                <strong class="contact-pad">Address:</strong> House: 325, Road: 2,<br> Mirpur DOHS <br>
-                                                Dhaka, Bangladesh 
+                                                <strong class="contact-pad"><fmt:message key="addressLabel"/></strong> <fmt:message key="addressStreet"/><br> <fmt:message key="addressTownProvinceCountry"/> <br>
+                                                <fmt:message key="addressPostalCode"/> 
                                             </p>
                                         </li>
                                         <li>
                                             <i class="fa fa-phone"></i>
-                                            <p><strong>Phone:</strong> +880 111-111-111</p>
+                                            <p><strong><fmt:message key="phoneLabel"/></strong> +1 (514) 332-3000</p>
                                         </li>
                                         <li>
                                             <i class="fa fa-envelope"></i>
-                                            <p><strong>Email:</strong><a href="mailto:support@fifothemes.com">support@fifothemes.com</a></p>
+                                            <p><strong><fmt:message key="emailLabel"/></strong><a href="mailto:support@fifothemes.com">1302743@bdeb.qc.ca</a></p>
                                         </li>
                                     </ul>
                                 </section>
                                 <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-two wow fadeIn">
-                                    <h3 class="light">Language</h3>
+                                    <h3 class="light"><fmt:message key="languageTitle"/></h3>
                                     <ul id="language">
                                         <li>
-                                            <select class="form-control">
-                                                <option value="francais">Français</option>
-                                                <option value="anglais">English</option>
-                                            </select>
+                                            <form>
+                                                <select id="language" name="language" class="form-control" onchange="submit()">
+                                                    <option  value="fr" ${language == 'fr' ? 'selected' : ''}>Français</option>
+                                                    <option value="en" ${language == 'en' ? 'selected' : ''}>English</option>
+                                                </select>
+                                            </form>
                                         </li>
                                     </ul>
                                 </section>
@@ -184,7 +190,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
-                                    <p class="credits">&copy; Copyright 2014 by <a href="#">FIFOLAB</a>. All Rights Reserved. </p>
+                                    <p class="credits">&copy; <fmt:message key="copyright"/> </p>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
                                     <ul class="social social-icons-footer-bottom">
