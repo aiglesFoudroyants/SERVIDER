@@ -30,5 +30,6 @@ public class AppController {
 
         return new ModelAndView("inscription");
     }
+    
 
 }

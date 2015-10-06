@@ -1,9 +1,14 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/jsp/include.jsp" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="localisation.messages"/>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  
-<html> 
+<html lang="${language}"> 
+    
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
@@ -88,7 +93,7 @@
                                     <div class="featured-box featured-box-secundary default info-content">
                                         <h2 class="form-signin-heading">Create An Account</h2>
                                         <div class="box-content">
-                                            <form id="signup" method="post" action="#">
+                                            <form id="signup" th:action method="post" action="#">
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
