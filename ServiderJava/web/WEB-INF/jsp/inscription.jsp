@@ -1,10 +1,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/jsp/include.jsp" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="localisation.messages"/>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  
-<html> 
-	<!--<![endif]-->
+<html lang="${language}"> 
+    
+    <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <title>Servider | Inscriptio</title>
@@ -66,11 +71,135 @@
             <%@ include file="partials/header.jsp" %>      
             <!-- /Header --> 
             <!-- Main Section -->
-         
-            
-            
-            
-            
+
+
+            <section id="main">
+                <div class="breadcrumb-wrapper">
+                    <div class="pattern-overlay">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <h2 class="title">Register</h2>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content margin-top60 margin-bottom60">
+                    <div class="container">
+                        <div class="row">
+                            <div class="featured-boxes login">
+                                <div class="col-md-8 col-md-push-2">
+                                    <div class="featured-box featured-box-secundary default info-content">
+                                        <h2 class="form-signin-heading">Create An Account</h2>
+                                        <div class="box-content">
+                                            <form id="signup" th:action method="post" action="#">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="email" placeholder="Email Address" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="password" placeholder="Password" value="">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="password" placeholder="Confirm Password" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="text" placeholder="First Name" value="">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="text" placeholder="Last Name" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="text" placeholder="Address" value="">
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <select class="form-control">
+                                                                <option value="1">Can</option>
+                                                                <option value="2">US</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select class="form-control">
+                                                                <option value="1">QC</option>
+                                                                <option value="2">ON</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" type="text" placeholder="City" value="">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input class="form-control" type="text" placeholder="Postal/ZIP code" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <span class="remember-box checkbox">
+                                                        <label for="profil_affaires">
+                                                            <input id="profil_affaires" type="checkbox" name="profil_affaires">
+                                                            Business profile
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="text" placeholder="Compagny Name" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <span class="remember-box checkbox">
+                                                        <label for="fournisseur_service">
+                                                            <input id="fournisseur_service" type="checkbox" name="fournisseur_service">
+                                                            Service provider
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="text" placeholder="Service" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 pull-right">
+                                                        <input class="btn btn-color push-bottom" type="submit" data-loading-text="Loading..." value="Register">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <!-- /Main Section -->
             <!-- Footer -->            
             <%@ include file="partials/footer.jsp" %>  

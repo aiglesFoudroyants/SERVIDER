@@ -1,14 +1,17 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="/WEB-INF/jsp/include.jsp" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="localisation.messages"/>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  
-<html> 
-    <!--<![endif]-->
+<html lang="${language}"> 
+	<!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Servider | Accueil</title>
+        <title><fmt:message key="title"/></title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
         <!-- Mobile Metas -->
@@ -57,10 +60,11 @@
         <![endif]-->
     </head>
     <body class="home">
+     
         <div class="page-mask">
             <div class="page-loader">
                 <div class="spinner"></div>
-                Loading...
+                <fmt:message key="loading"/>
             </div>
         </div>
         <!-- Wrap -->
@@ -76,10 +80,10 @@
                         <div class="container">
                             <ul>
                                 <li class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="Search" value="" required="">
+                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="<fmt:message key="searchBar"/>" value="" required="">
                                 </li>
                                 <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-lg-push-0 col-md-push-0 col-sm-push-0 col-xs-push-2">
-                                    <button class="form-control btn btn-color submit" type="submit">Publish an offer</button>
+                                    <button class="form-control btn btn-color submit" type="submit"><fmt:message key="offerButton"/></button>
                                 </li>
                             </ul>
                         </div>
@@ -89,7 +93,42 @@
             </section>
             <!-- /Main Section -->
             <!-- Footer -->
-            <%@ include file="partials/footer.jsp" %>             
+            <%@ include file="partials/footer.jsp" %>  
+            <!-- Modal -->
+            <section id="modals">
+                <!-- Login Modal -->
+                <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h2 class="form-signin-heading modal-title" id="myModalLabel">Login</h2>
+                            </div>
+                            <form method="post" id="login">
+                                <div class="modal-body">
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <input class="form-control" id="username" name="username" type="text" placeholder="Username" value="" required>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="" required>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="password-recovery.html" class="pull-left">(Lost Password?)</a>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-color">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Logan Modal -->
+            </section>
             <!-- Scroll To Top --> 
             <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
         </div>

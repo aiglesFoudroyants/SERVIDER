@@ -15,7 +15,7 @@
 
     <mvc:annotation-driven />
     <context:component-scan base-package="controller" />
-    <bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>
+
 
     <!--
     Most controllers will use the ControllerClassNameHandlerMapping above, but
@@ -42,4 +42,9 @@
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index" />
 
+    
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="localisation/messages"/>
+    </bean>
+    
 </beans>
