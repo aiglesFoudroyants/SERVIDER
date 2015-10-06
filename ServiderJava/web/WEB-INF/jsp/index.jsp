@@ -31,6 +31,8 @@
         <!-- Theme CSS -->
         <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="resources/css/main.css">
+        <!-- Icons CSS -->
+        <link rel="stylesheet" href="resources/css/icon_color.css">
         <!-- Skin -->
         <link rel="stylesheet" href="resources/css/colors/green.css" class="colors">
         <!-- Responsive CSS -->
@@ -67,53 +69,8 @@
         </div>
         <!-- Wrap -->
         <div class="wrap">
-            <!-- Header -->
-            <header id="header">
-                <!-- Main Header -->
-                <div class="main-header">
-                    <div class="container">
-                        <!-- Logo -->
-                        <div class="logo pull-left">
-                            <h1>
-                                <a href="index.html">
-                                <img class="logo-color" src="resources/img/logos/logo_green.png" alt="gallaxy" width="160" height="60">
-                                </a>
-                            </h1>
-                        </div>
-                        <!-- /Logo -->
-                        <!-- Mobile Menu -->
-                        <div class="mobile navbar-header">
-                            <!--<a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse">
-                                <i class="fa fa-bars fa-2x"></i>
-                            </a> -->
-                            <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border navbar-toggle">
-                                <i class="fa fa-3x fa-user clean"></i>
-                            </a>
-                        </div>
-                         <!--/Mobile Menu -->
-                        <!-- Menu Start -->
-                        <nav class="collapse navbar-collapse menu">
-                            <ul class="nav navbar-nav sf-menu">
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border">
-                                        <i class="fa fa-3x fa-user"></i>
-                                    </a>
-                                    
-                                       
-                                </li>
-                                <li>
-                                       <a href="inscription.htm">inscription</a> 
-                                </li>
-                               
-                                
-                                
-                            </ul>
-                        </nav>
-                        <!-- /Menu --> 
-                    </div>
-                </div>
-                <!-- /Main Header -->
-            </header>
+            <!-- Header -->           
+            <%@ include file="partials/header.jsp" %> 
             <!-- /Header --> 
             <!-- Main Section -->
             <section id="main">

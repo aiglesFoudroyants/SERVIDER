@@ -4,7 +4,7 @@
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  
 <html> 
-	<!--<![endif]-->
+    <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <title>Servider | Inscriptio</title>
@@ -62,156 +62,143 @@
         </div>
         <!-- Wrap -->
         <div class="wrap">
-            <!-- Header -->
-            <header id="header">
-                <!-- Main Header -->
-                <div class="main-header">
-                    <div class="container">
-                        <!-- Logo -->
-                        <div class="logo pull-left">
-                            <h1>
-                                <a href="index.html">
-                                <img class="logo-color" src="resources/img/logos/logo_green.png" alt="gallaxy" width="160" height="60">
-                                </a>
-                            </h1>
-                        </div>
-                        <!-- /Logo -->
-                        <!-- Mobile Menu -->
-                        <div class="mobile navbar-header">
-                            <!--<a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse">
-                                <i class="fa fa-bars fa-2x"></i>
-                            </a> -->
-                            <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border navbar-toggle">
-                                <i class="fa fa-3x fa-user clean"></i>
-                            </a>
-                        </div>
-                         <!--/Mobile Menu -->
-                        <!-- Menu Start -->
-                        <nav class="collapse navbar-collapse menu">
-                            <ul class="nav navbar-nav sf-menu">
-                                <li>
-                                    <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border">
-                                        <i class="fa fa-3x fa-user"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!-- /Menu --> 
-                    </div>
-                </div>
-                <!-- /Main Header -->
-            </header>
+            <!-- Header -->      
+            <%@ include file="partials/header.jsp" %>      
             <!-- /Header --> 
             <!-- Main Section -->
-         
-            
-            
-            
-            
-            <!-- /Main Section -->
-            <!-- Footer -->
-            <footer id="footer">
-                <div class="pattern-overlay">
-                    <!-- Footer Top -->
-                    <div class="footer-top">
+
+
+            <section id="main">
+                <div class="breadcrumb-wrapper">
+                    <div class="pattern-overlay">
                         <div class="container">
                             <div class="row">
-                                <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-one wow fadeIn">
-                                    <h3 class="light">About</h3>
-                                    <p> 
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. 
-                                    </p>
-                                </section>
-                                <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-three wow fadeIn">
-                                    <h3 class="light">Contact Us</h3>
-                                    <ul class="contact-us">
-                                        <li>
-                                            <i class="fa fa-map-marker"></i>
-                                            <p> 
-                                                <strong class="contact-pad">Address:</strong> House: 325, Road: 2,<br> Mirpur DOHS <br>
-                                                Dhaka, Bangladesh 
-                                            </p>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-phone"></i>
-                                            <p><strong>Phone:</strong> +880 111-111-111</p>
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-envelope"></i>
-                                            <p><strong>Email:</strong><a href="mailto:support@fifothemes.com">support@fifothemes.com</a></p>
-                                        </li>
-                                    </ul>
-                                </section>
-                                <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-two wow fadeIn">
-                                    <h3 class="light">Language</h3>
-                                    <ul id="language">
-                                        <li>
-                                            <select class="form-control">
-                                                <option value="francais">Français</option>
-                                                <option value="anglais">English</option>
-                                            </select>
-                                        </li>
-                                    </ul>
-                                </section>
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <h2 class="title">Register</h2>
+                                </div>                                
                             </div>
-                        </div>
-                    </div>
-                    <!-- /Footer Top --> 
-                    <!-- Footer Bottom -->
-                    <div class="footer-bottom">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
-                                    <p class="credits">&copy; Copyright 2014 by <a href="#">FIFOLAB</a>. All Rights Reserved. </p>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
-                                    <ul class="social social-icons-footer-bottom">
-                                        <li class="facebook"><a href="#" data-toggle="tooltip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="twitter"><a href="#" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="linkedin"><a href="#" data-toggle="tooltip" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /Footer Bottom -->
-                </div>
-            </footer>
-            <!-- Modal -->
-            <section id="modals">
-                <!-- Login Modal -->
-                <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2 class="form-signin-heading modal-title" id="myModalLabel">Login</h2>
-                            </div>
-                            <form method="post" id="login">
-                                <div class="modal-body">
-                                    <fieldset>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <input class="form-control" id="username" name="username" type="text" placeholder="Username" value="" required>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="" required>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="password-recovery.html" class="pull-left">(Lost Password?)</a>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-color">Login</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
-                <!-- /Logan Modal -->
+                <div class="content margin-top60 margin-bottom60">
+                    <div class="container">
+                        <div class="row">
+                            <div class="featured-boxes login">
+                                <div class="col-md-8 col-md-push-2">
+                                    <div class="featured-box featured-box-secundary default info-content">
+                                        <h2 class="form-signin-heading">Create An Account</h2>
+                                        <div class="box-content">
+                                            <form id="signup" method="post" action="#">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="email" placeholder="Email Address" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="password" placeholder="Password" value="">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="password" placeholder="Confirm Password" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="text" placeholder="First Name" value="">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" type="text" placeholder="Last Name" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="text" placeholder="Address" value="">
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <select class="form-control">
+                                                                <option value="1">Can</option>
+                                                                <option value="2">US</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select class="form-control">
+                                                                <option value="1">QC</option>
+                                                                <option value="2">ON</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-8">
+                                                            <input class="form-control" type="text" placeholder="City" value="">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input class="form-control" type="text" placeholder="Postal/ZIP code" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <span class="remember-box checkbox">
+                                                        <label for="profil_affaires">
+                                                            <input id="profil_affaires" type="checkbox" name="profil_affaires">
+                                                            Business profile
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="text" placeholder="Compagny Name" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <span class="remember-box checkbox">
+                                                        <label for="fournisseur_service">
+                                                            <input id="fournisseur_service" type="checkbox" name="fournisseur_service">
+                                                            Service provider
+                                                        </label>
+                                                    </span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input class="form-control" type="text" placeholder="Service" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-3 pull-right">
+                                                        <input class="btn btn-color push-bottom" type="submit" data-loading-text="Loading..." value="Register">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
+
+
+            <!-- /Main Section -->
+            <!-- Footer -->            
+            <%@ include file="partials/footer.jsp" %>  
+            <!-- /Footer -->
             <!-- Scroll To Top --> 
             <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
         </div>
