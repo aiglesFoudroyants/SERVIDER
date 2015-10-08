@@ -30,4 +30,30 @@ public class TypeService implements Serializable {
     
     @Column(name = "sTypeEn", nullable = false)
     private String typeEn;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getTypeFr() {
+        return typeFr;
+    }
+
+    public void setTypeFr(String typeFr) {
+        this.typeFr = typeFr;
+    }
+
+    public String getTypeEn() {
+        return typeEn;
+    }
+
+    public void setTypeEn(String typeEn) {
+        this.typeEn = typeEn;
+    }
+    
+    
 }
