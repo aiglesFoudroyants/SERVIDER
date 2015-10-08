@@ -31,5 +31,10 @@ public class AppController {
         return new ModelAndView("inscription");
     }
     
+ @RequestMapping("/profil")
+    public ModelAndView profi() {
 
+        return new ModelAndView("profil");
+    }
+    
 }

@@ -8,10 +8,11 @@
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  
 <html lang="${language}"> 
-	<!--<![endif]-->
+
+    <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title><fmt:message key="title"/></title>
+        <title>Servider | Profil</title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
         <!-- Mobile Metas -->
@@ -31,8 +32,6 @@
         <!-- Theme CSS -->
         <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="resources/css/main.css">
-        <!-- Icons CSS -->
-        <link rel="stylesheet" href="resources/css/icon_color.css">
         <!-- Skin -->
         <link rel="stylesheet" href="resources/css/colors/green.css" class="colors">
         <!-- Responsive CSS -->
@@ -60,75 +59,59 @@
         <![endif]-->
     </head>
     <body class="home">
-     
         <div class="page-mask">
             <div class="page-loader">
                 <div class="spinner"></div>
-                <fmt:message key="loading"/>
+                Loading...
             </div>
         </div>
         <!-- Wrap -->
         <div class="wrap">
-            <!-- Header -->           
-            <%@ include file="partials/header.jsp" %> 
+            <!-- Header -->      
+            <%@ include file="partials/header.jsp" %>      
             <!-- /Header --> 
             <!-- Main Section -->
+
+
             <section id="main">
-                <!-- Main Content -->
-                <div class="main-content no-padding no-margin">
-                    <div class="row vertical-center menu">
-                        <div class="container">
-                            <ul>
-                                <li class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="<fmt:message key="searchBar"/>" value="" required="">
-                                </li>
-                                <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-lg-push-0 col-md-push-0 col-sm-push-0 col-xs-push-2">
-                                    <button class="form-control btn btn-color submit" type="submit"><fmt:message key="offerButton"/></button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Main Content -->
-            </section>
-            <!-- /Main Section -->
-            <!-- Footer -->
-            <%@ include file="partials/footer.jsp" %>  
-            <!-- Modal -->
-            <section id="modals">
-                <!-- Login Modal -->
-                <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2 class="form-signin-heading modal-title" id="myModalLabel">Login</h2>
+                <div class="content-about margin-top60">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="posts-block col-md-3">  
+                                <h2>Carlos Gringo</h2>
+                                <img class="logo-color" src="resources/img/client1.jpg" alt="profil picture" >
+                                <div class = "btn contact col-md-12">
+
+                                    <div><p style="float: left;"><img src="resources/img/offline.png" ></p>
+                                        <p>offline</p>
+                                    </div>
+
+
+                                    <input type="submit" value="<fmt:message key="btnContacter"/>" data-loading-text="Loading..." class="btn btn-color push-bottom col-md-12">
+                                </div>
                             </div>
-                            <form method="post" id="login">
-                                <div class="modal-body">
-                                    <fieldset>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <input class="form-control" id="username" name="username" type="text" placeholder="Username" value="" required>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="" required>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="password-recovery.html" class="pull-left">(Lost Password?)</a>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-color">Login</button>
-                                </div>
-                            </form>
+                            <div class="posts-block col-lg-9">
+                                <h2>Bio</h2>
+                                <p>Carlos, de son vrai nom Yvan-Chrysostome Dolto, est un chanteur, acteur et fantaisiste français né le 20 février 1943 dans le 5e arrondissement de Paris1,2, et mort à Clichy le 17 janvier 2008. Incarnant la variété populaire, il fut un ami proche de Dorothée, d'Eddie Barclay, de Chantal Goya, de Sim, de Dave, d'Annie Cordy, de Johnny Hallyday, de Joe Dassin, de Jeane Manson, de Coluche et surtout de Sylvie Vartan qui lui permit de faire ses premiers pas sur scène à ses côtés.
+
+                                    Son vaste répertoire est enjoué et festif, avec souvent une connotation grivoise ludique, comme Le Tirelipimpon ou Papayou. Doté d'un fort embonpoint et d'un visage naturellement débonnaire et jovial, Carlos a rapidement adopté une allure propre (colliers de fleurs, chemises hawaïennes) similaire à celle d'un autre chanteur français, 
+                                </p>
+
+                            </div>
                         </div>
-                    </div>
+
+                    </div>   
+
                 </div>
-                <!-- /Logan Modal -->
+
             </section>
+
+
+            <!-- /Main Section -->
+            <!-- Footer -->            
+            <%@ include file="partials/footer.jsp" %>  
+            <!-- /Footer -->
             <!-- Scroll To Top --> 
             <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
         </div>
@@ -143,7 +126,7 @@
         <script src="resources/js/jquery.parallax.js"></script>
         <script src="resources/js/jquery.wait.js"></script>
         <script src="resources/js/fappear.js"></script> 
-       
+        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
         <script src="resources/js/jquery.bxslider.min.js"></script>
         <script src="resources/js/jquery.prettyPhoto.js"></script>
         <script src="resources/js/superfish.js"></script>

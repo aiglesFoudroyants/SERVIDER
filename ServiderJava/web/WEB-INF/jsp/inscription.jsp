@@ -218,7 +218,7 @@
         <script src="resources/js/jquery.parallax.js"></script>
         <script src="resources/js/jquery.wait.js"></script>
         <script src="resources/js/fappear.js"></script> 
-        <script src="resources/js/modernizr-2.6.2.min.js"></script>
+        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
         <script src="resources/js/jquery.bxslider.min.js"></script>
         <script src="resources/js/jquery.prettyPhoto.js"></script>
         <script src="resources/js/superfish.js"></script>
