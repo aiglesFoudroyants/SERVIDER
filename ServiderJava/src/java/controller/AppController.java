@@ -5,8 +5,12 @@
  */
 package controller;
 
+import hibernate.DBHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -31,10 +35,18 @@ public class AppController {
         return new ModelAndView("inscription");
     }
     
+
  @RequestMapping("/profil")
     public ModelAndView profi() {
 
         return new ModelAndView("profil");
     }
     
+
+    @RequestMapping(value="/typesServices", method=RequestMethod.GET)
+    public @ResponseBody String[] getTousTypesService(@RequestParam String entree, @RequestParam String langue){
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getListeTousTypesService(entree, langue);
+    }
+
 }
