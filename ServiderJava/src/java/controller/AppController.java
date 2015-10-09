@@ -35,9 +35,18 @@ public class AppController {
         return new ModelAndView("inscription");
     }
     
+
+ @RequestMapping("/profil")
+    public ModelAndView profi() {
+
+        return new ModelAndView("profil");
+    }
+    
+
     @RequestMapping(value="/typesServices", method=RequestMethod.GET)
     public @ResponseBody String[] getTousTypesService(@RequestParam String entree, @RequestParam String langue){
         DBHelper helper = DBHelper.getInstance();
         return helper.getListeTousTypesService(entree, langue);
     }
+
 }
