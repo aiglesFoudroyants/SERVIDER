@@ -7,6 +7,7 @@ package hibernate;
 
 import hibernate.model.TypeService;
 import java.util.List;
+import org.hibernate.Query;
 import org.hibernate.Session;
 
 /**
@@ -14,10 +15,10 @@ import org.hibernate.Session;
  * @author 1322931
  */
 public class DBHelper {
-    
+
     private static DBHelper instance = new DBHelper();
-    
-    public static DBHelper getInstance(){
+
+    public static DBHelper getInstance() {
         return instance;
     }
 
@@ -26,17 +27,23 @@ public class DBHelper {
         List<TypeService> listeTousTypesService;
 
         session.beginTransaction();
-        listeTousTypesService = (List<TypeService>) session.createQuery("from typeservice where sType" + langue + " like " + entree + "*").list();
+//        Query query = session.createSQLQuery("select * from typeservice where :colonne like :entree")
+//                .addEntity(TypeService.class)
+//                .setParameter("colonne", ("sType" + langue))
+//                .setParameter("entree", ("'" + entree + "*'"));
+        Query query = session.createSQLQuery("select * from typeservice")
+                .addEntity(TypeService.class);
+        listeTousTypesService = (List<TypeService>) query.list();
 
         session.getTransaction().commit();
         session.close();
-        
+
         return genererTableauLangue(listeTousTypesService, langue);
     }
-    
-    private String[] genererTableauLangue(List<TypeService> listeTousTypesService, String langue){
+
+    private String[] genererTableauLangue(List<TypeService> listeTousTypesService, String langue) {
         String[] tabStringLangue = new String[listeTousTypesService.size()];
-        
+
         for (int i = 0; i < tabStringLangue.length; i++) {
             String typeService = "";
 
@@ -51,7 +58,7 @@ public class DBHelper {
 
             tabStringLangue[i] = typeService;
         }
-        
+
         return tabStringLangue;
     }
 }

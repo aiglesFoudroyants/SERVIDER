@@ -8,9 +8,11 @@ $( document ).ready(function() {
                 data:{entree: $("#search").val(), langue: $("#language  option:selected").val()},
                 success: function(data) {
                     $('input.suggest-user').removeClass('ui-autocomplete-loading');
+                    console.log("data " + data);
                     response(data);
                 },
                 error: function(data) {
+                    console.log("error");
                     $('input.suggest-user').removeClass('ui-autocomplete-loading');  
                 }
             });
