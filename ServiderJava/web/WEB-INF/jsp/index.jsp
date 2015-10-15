@@ -62,6 +62,7 @@
     <body class="home">
      
         <div class="page-mask">
+            
             <div class="page-loader">
                 <div class="spinner"></div>
                 <fmt:message key="loading"/>
@@ -70,7 +71,7 @@
         <!-- Wrap -->
         <div class="wrap">
             <!-- Header -->           
-            <%@ include file="partials/header.jsp" %> 
+            <%@ include file="partials/header.jsp" %>
             <!-- /Header --> 
             <!-- Main Section -->
             <section id="main">
@@ -94,41 +95,7 @@
             <!-- /Main Section -->
             <!-- Footer -->
             <%@ include file="partials/footer.jsp" %>  
-            <!-- Modal -->
-            <section id="modals">
-                <!-- Login Modal -->
-                <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h2 class="form-signin-heading modal-title" id="myModalLabel">Login</h2>
-                            </div>
-                            <form method="post" id="login">
-                                <div class="modal-body">
-                                    <fieldset>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <input class="form-control" id="username" name="username" type="text" placeholder="Username" value="" required>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="" required>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="modal-footer">
-                                    <a href="password-recovery.html" class="pull-left">(Lost Password?)</a>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-color">Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Logan Modal -->
-            </section>
+            
             <!-- Scroll To Top --> 
             <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
         </div>
