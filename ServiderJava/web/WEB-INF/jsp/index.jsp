@@ -62,6 +62,7 @@
     <body class="home">
      
         <div class="page-mask">
+            
             <div class="page-loader">
                 <div class="spinner"></div>
                 <fmt:message key="loading"/>
@@ -70,7 +71,7 @@
         <!-- Wrap -->
         <div class="wrap">
             <!-- Header -->           
-            <%@ include file="partials/header.jsp" %> 
+            <%@ include file="partials/header.jsp" %>
             <!-- /Header --> 
             <!-- Main Section -->
             <section id="main">

@@ -6,6 +6,7 @@
 package hibernate;
 
 import hibernate.model.TypeService;
+import java.util.Arrays;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -27,14 +28,11 @@ public class DBHelper {
         List<TypeService> listeTousTypesService;
 
         session.beginTransaction();
-//        Query query = session.createSQLQuery("select * from typeservice where :colonne like :entree")
-//                .addEntity(TypeService.class)
-//                .setParameter("colonne", ("sType" + langue))
-//                .setParameter("entree", ("'" + entree + "*'"));
-        Query query = session.createSQLQuery("select * from typeservice")
+        Query query = session.createSQLQuery("select * from typeservice where sType"  + langue + " like '" + entree + "%'")
                 .addEntity(TypeService.class);
+//        Query query = session.createSQLQuery("select * from typeservice")
+//                .addEntity(TypeService.class);
         listeTousTypesService = (List<TypeService>) query.list();
-
         session.getTransaction().commit();
         session.close();
 
@@ -58,7 +56,7 @@ public class DBHelper {
 
             tabStringLangue[i] = typeService;
         }
-
+        System.out.println("ICIIIIIIIIIIIIIIIIIIIIIII " + Arrays.toString(tabStringLangue));
         return tabStringLangue;
     }
 }

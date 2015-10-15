@@ -6,6 +6,7 @@
 package controller;
 
 import hibernate.DBHelper;
+import java.nio.charset.Charset;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,9 +45,11 @@ public class AppController {
     
 
     @RequestMapping(value="/typesServices", method=RequestMethod.GET)
-    public @ResponseBody String[] getTousTypesService(@RequestParam String entree, @RequestParam String langue){
+    public @ResponseBody String getTousTypesService(@RequestParam String entree, @RequestParam String langue){
         DBHelper helper = DBHelper.getInstance();
-        return helper.getListeTousTypesService(entree, langue);
+        String typesServices = String.join(",", helper.getListeTousTypesService(entree, langue));
+        System.out.println("In String " + typesServices);
+        return typesServices;
     }
 
 }
