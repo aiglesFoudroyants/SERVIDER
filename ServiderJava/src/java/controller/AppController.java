@@ -8,7 +8,7 @@ package controller;
 import hibernate.DBHelper;
 
 import java.util.ArrayList;
-import modele.ModelCommentaire;
+import hibernate.model.ModelCommentaire;
 import java.nio.charset.Charset;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
