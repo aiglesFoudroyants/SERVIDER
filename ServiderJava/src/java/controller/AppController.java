@@ -6,6 +6,8 @@
 package controller;
 
 import hibernate.DBHelper;
+import java.util.ArrayList;
+import modele.ModelCommentaire;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +33,8 @@ public class AppController {
 
     @RequestMapping("/inscription")
     public ModelAndView inscription() {
+        
+        
 
         return new ModelAndView("inscription");
     }
@@ -38,8 +42,11 @@ public class AppController {
 
  @RequestMapping("/profil")
     public ModelAndView profi() {
+        ArrayList<ModelCommentaire> list = new ArrayList<>();
+        list.add(new ModelCommentaire("Bob Lelouch", "le meilleur chanteur mexicain au monde 8/8"));
+        list.add(new ModelCommentaire("John Doe", "parfait!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"));
 
-        return new ModelAndView("profil");
+        return new ModelAndView("profil","nameList",list);
     }
     
 
