@@ -49,7 +49,7 @@
         </div>
         <!-- /Main Header -->
     </header>
-    
+
     <section id="modals">
         <!-- Login Modal -->
         <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
@@ -79,13 +79,15 @@
                         <div class="modal-footer">
                             <a href="password-recovery.html" class="pull-left"><fmt:message key="loginLblLost"/></a>
                             <form action="inscription.htm">
-                                <input type="button" class="btn btn-default" onclick="location.href='inscription.htm';" value="<fmt:message key="loginBtnRegister"/>" />
+                                <input type="button" class="btn btn-default" onclick="location.href = 'inscription.htm';" value="<fmt:message key="loginBtnRegister"/>" />
                             </form>
                             <button id="btnLogin" type="button" class="btn btn-color"><fmt:message key="loginBtnLogin"/></button>
                         </div>
                     </form>
                 </div>
             </div>
+            <span id="loginValide" style="display:none"><fmt:message key='loginValide'/></span>
+            <span id="loginInvalide" style="display:none"><fmt:message key='logiInvalide'/></span>
         </div>
         <!-- /Logan Modal -->
     </section>
