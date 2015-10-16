@@ -59,5 +59,5 @@ public class DBHelper {
         System.out.println("ICIIIIIIIIIIIIIIIIIIIIIII " + Arrays.toString(tabStringLangue));
         return tabStringLangue;
     }
-    public 
+    
 }
