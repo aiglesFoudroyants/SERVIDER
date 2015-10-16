@@ -61,4 +61,15 @@ public class AppController {
         return typesServices;
     }
 
+    @RequestMapping(value="/pays", method=RequestMethod.GET)
+    public @ResponseBody String getAllPays(){
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllPays();
+    }
+    
+    @RequestMapping(value="/province", method=RequestMethod.GET)
+    public @ResponseBody String getAllProvinces(){
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllProvinces();
+    }
 }

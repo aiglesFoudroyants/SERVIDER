@@ -123,6 +123,20 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
+                                                        <div id="gender" class="col-md-6">
+                                                            <select class="form-control">
+                                                                <option value="0"><fmt:message key="plhGender"/></option>
+                                                            </select>
+                                                        </div>
+                                                        <div id="preferredLanguage" class="col-md-6">
+                                                            <select class="form-control">
+                                                                <option value="0"><fmt:message key="plhPreferredLanguage"/></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
                                                         <div class="col-md-12">
                                                             <input class="form-control" type="text" placeholder="<fmt:message key="plhAddress"/>" value="">
                                                         </div>
@@ -131,12 +145,12 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-6">
-                                                            <select class="form-control">
+                                                            <select id="country" class="form-control">
                                                                 <option value="0"><fmt:message key="plhCountry"/></option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <select class="form-control">
+                                                            <select id="state" class="form-control">
                                                                 <option value="0"><fmt:message key="plhState"/></option>
                                                             </select>
                                                         </div>
@@ -233,7 +247,7 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
-        <script src="resources/js/home.js"></script>
+        <script src="resources/js/inscription.js"></script>
     </body>
 </html>
 

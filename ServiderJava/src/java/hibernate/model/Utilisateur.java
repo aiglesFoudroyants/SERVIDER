@@ -32,7 +32,7 @@ public class Utilisateur {
     private int provinceID;
     @Column(name = "StatusUtilisateur", nullable = false)
     private int StatusUtilisateur;
-    @Column(name = "StatusUtilisateur", nullable = false)
+    @Column(name = "sexeId", nullable = false)
     private int sexeID;
     @Column(name = "langueID", nullable = false)
     private int langueID;
