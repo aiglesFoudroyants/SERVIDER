@@ -6,6 +6,7 @@
 package hibernate;
 
 import hibernate.model.TypeService;
+import hibernate.model.Utilisateur;
 import java.util.Arrays;
 import java.util.List;
 import org.hibernate.Query;
@@ -28,7 +29,7 @@ public class DBHelper {
         List<TypeService> listeTousTypesService;
 
         session.beginTransaction();
-        Query query = session.createSQLQuery("select * from typeservice where sType"  + langue + " like '" + entree + "%'")
+        Query query = session.createSQLQuery("select * from typeservice where sType" + langue + " like '" + entree + "%'")
                 .addEntity(TypeService.class);
 //        Query query = session.createSQLQuery("select * from typeservice")
 //                .addEntity(TypeService.class);
@@ -59,4 +60,23 @@ public class DBHelper {
         System.out.println("ICIIIIIIIIIIIIIIIIIIIIIII " + Arrays.toString(tabStringLangue));
         return tabStringLangue;
     }
+
+    public int authentification(String email, String password) {
+        int idUser = -1;
+
+        Utilisateur utilisateur;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createSQLQuery(
+                "select idUtilisateur from utilisateur where sCourriel = '"
+                + email + "' and sPassword = '" + password + "';"
+        ).addEntity(Utilisateur.class);
+        utilisateur = (Utilisateur) query.uniqueResult();
+        if (utilisateur != null) {
+            idUser = utilisateur.getIdUtilisateur();
+        }
+
+        return idUser;
+    }
+
 }

@@ -77,7 +77,7 @@ public class Utilisateur {
     @Column(name = "sCheminImgProfile", nullable = true)
     private String sCheminImgProfile;
 
-    public Utilisateur(int paysID, int provinceID, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, String sAdresse, String sCodePostal, String sVile) {
+    public Utilisateur(int paysID, int provinceID, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, String sAdresse, String sCodePostal, String sVille) {
         this.paysID = paysID;
         this.provinceID = provinceID;
         this.sexeID = sexeID;
@@ -89,13 +89,13 @@ public class Utilisateur {
         this.sCourriel = sCourriel;
         this.sAdresse = sAdresse;
         this.sCodePostal = sCodePostal;
-        this.sVille = sVile;
+        this.sVille = sVille;
     }
     
     
     
 
-    public Utilisateur(int idUtilisateur, int paysID, int provinceID, int StatusUtilisateur, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, boolean bVerifCouriel, boolean bVerifFacebook, boolean bVerifLinkedIn, boolean bVerifTwitter, String sFacebook, String sLinkedIn, String sTwitter, String sTelephone, String sAdresse, String sCodePostal, String sVile, Date dLastConnected, double dlRaitingClient, double dlRaitingServices, String sCheminImgProfile) {
+    public Utilisateur(int idUtilisateur, int paysID, int provinceID, int StatusUtilisateur, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, boolean bVerifCouriel, boolean bVerifFacebook, boolean bVerifLinkedIn, boolean bVerifTwitter, String sFacebook, String sLinkedIn, String sTwitter, String sTelephone, String sAdresse, String sCodePostal, String sVille, Date dLastConnected, double dlRaitingClient, double dlRaitingServices, String sCheminImgProfile) {
         this.idUtilisateur = idUtilisateur;
         this.paysID = paysID;
         this.provinceID = provinceID;
@@ -117,7 +117,7 @@ public class Utilisateur {
         this.sTelephone = sTelephone;
         this.sAdresse = sAdresse;
         this.sCodePostal = sCodePostal;
-        this.sVille = sVile;
+        this.sVille = sVille;
         this.dLastConnected = dLastConnected;
         this.dlRaitingClient = dlRaitingClient;
         this.dlRaitingServices = dlRaitingServices;
