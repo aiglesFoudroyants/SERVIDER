@@ -32,7 +32,6 @@ $(document).ready(function(){
 
 
 //Product Display
-<!--
 function display(view) {
     if (view == 'list') {
         $('.product-grid').attr('class', 'product-list');
