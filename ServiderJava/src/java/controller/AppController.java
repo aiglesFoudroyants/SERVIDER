@@ -64,5 +64,14 @@ public class AppController {
         int idUser = helper.authentification(email, password);
         return idUser > 0 ? "true" : "false";
     }
-
-}
+    @RequestMapping(value="/pays", method=RequestMethod.GET)
+    public @ResponseBody String getAllPays(){
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllPays();
+    }
+    
+    @RequestMapping(value="/province", method=RequestMethod.GET)
+    public @ResponseBody String getAllProvinces(){
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllProvinces();
+    }}
