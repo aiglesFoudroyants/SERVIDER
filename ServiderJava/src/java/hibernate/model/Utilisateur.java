@@ -66,8 +66,8 @@ public class Utilisateur {
     private String sAdresse;
     @Column(name = "sCodePostal", nullable = true)
     private String sCodePostal;
-    @Column(name = "sVile", nullable = true)
-    private String sVile;
+    @Column(name = "sVille", nullable = true)
+    private String sVille;
     @Column(name = "dLastConnected", nullable = true)
     private Date dLastConnected;
     @Column(name = "dlRaitingClient", nullable = true)
@@ -77,7 +77,25 @@ public class Utilisateur {
     @Column(name = "sCheminImgProfile", nullable = true)
     private String sCheminImgProfile;
 
-    public Utilisateur(int idUtilisateur, int paysID, int provinceID, int StatusUtilisateur, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, boolean bVerifCouriel, boolean bVerifFacebook, boolean bVerifLinkedIn, boolean bVerifTwitter, String sFacebook, String sLinkedIn, String sTwitter, String sTelephone, String sAdresse, String sCodePostal, String sVile, Date dLastConnected, double dlRaitingClient, double dlRaitingServices, String sCheminImgProfile) {
+    public Utilisateur(int paysID, int provinceID, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, String sAdresse, String sCodePostal, String sVille) {
+        this.paysID = paysID;
+        this.provinceID = provinceID;
+        this.sexeID = sexeID;
+        this.langueID = langueID;
+        this.sNomCompagnie = sNomCompagnie;
+        this.sNom = sNom;
+        this.sPrenom = sPrenom;
+        this.sPassword = sPassword;
+        this.sCourriel = sCourriel;
+        this.sAdresse = sAdresse;
+        this.sCodePostal = sCodePostal;
+        this.sVille = sVille;
+    }
+    
+    
+    
+
+    public Utilisateur(int idUtilisateur, int paysID, int provinceID, int StatusUtilisateur, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, boolean bVerifCouriel, boolean bVerifFacebook, boolean bVerifLinkedIn, boolean bVerifTwitter, String sFacebook, String sLinkedIn, String sTwitter, String sTelephone, String sAdresse, String sCodePostal, String sVille, Date dLastConnected, double dlRaitingClient, double dlRaitingServices, String sCheminImgProfile) {
         this.idUtilisateur = idUtilisateur;
         this.paysID = paysID;
         this.provinceID = provinceID;
@@ -99,12 +117,13 @@ public class Utilisateur {
         this.sTelephone = sTelephone;
         this.sAdresse = sAdresse;
         this.sCodePostal = sCodePostal;
-        this.sVile = sVile;
+        this.sVille = sVille;
         this.dLastConnected = dLastConnected;
         this.dlRaitingClient = dlRaitingClient;
         this.dlRaitingServices = dlRaitingServices;
         this.sCheminImgProfile = sCheminImgProfile;
     }
+    
     
     
     
@@ -278,11 +297,11 @@ public class Utilisateur {
     }
 
     public String getsVile() {
-        return sVile;
+        return sVille;
     }
 
     public void setsVile(String sVile) {
-        this.sVile = sVile;
+        this.sVille = sVile;
     }
 
     public Date getdLastConnected() {

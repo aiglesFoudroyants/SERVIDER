@@ -35,25 +35,21 @@ public class AppController {
 
     @RequestMapping("/inscription")
     public ModelAndView inscription() {
-        
-        
-
         return new ModelAndView("inscription");
     }
-    
 
- @RequestMapping("/profil")
+    @RequestMapping("/profil")
     public ModelAndView profi() {
         ArrayList<ModelCommentaire> list = new ArrayList<>();
         list.add(new ModelCommentaire("Bob Lelouch", "le meilleur chanteur mexicain au monde 8/8"));
         list.add(new ModelCommentaire("John Doe", "parfait!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"));
 
-        return new ModelAndView("profil","nameList",list);
+        return new ModelAndView("profil", "nameList", list);
     }
-    
 
-    @RequestMapping(value="/typesServices", method=RequestMethod.GET)
-    public @ResponseBody String getTousTypesService(@RequestParam String entree, @RequestParam String langue) throws UnsupportedEncodingException{
+    @RequestMapping(value = "/typesServices", method = RequestMethod.GET)
+    public @ResponseBody
+    String getTousTypesService(@RequestParam String entree, @RequestParam String langue) throws UnsupportedEncodingException {
         DBHelper helper = DBHelper.getInstance();
         String typesServices = String.join(",", helper.getListeTousTypesService(entree, langue));
         typesServices = new String(typesServices.getBytes("UTF-8"), "UTF-8");
@@ -61,6 +57,13 @@ public class AppController {
         return typesServices;
     }
 
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public @ResponseBody
+    String getIdLogin(@RequestParam String email, @RequestParam String password) throws UnsupportedEncodingException {
+        DBHelper helper = DBHelper.getInstance();
+        int idUser = helper.authentification(email, password);
+        return idUser > 0 ? "true" : "false";
+    }
     @RequestMapping(value="/pays", method=RequestMethod.GET)
     public @ResponseBody String getAllPays(){
         DBHelper helper = DBHelper.getInstance();
@@ -71,5 +74,4 @@ public class AppController {
     public @ResponseBody String getAllProvinces(){
         DBHelper helper = DBHelper.getInstance();
         return helper.getAllProvinces();
-    }
-}
+    }}
