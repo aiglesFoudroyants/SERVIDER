@@ -6,7 +6,7 @@
 package controller;
 
 import hibernate.DBHelper;
-
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import hibernate.model.ModelCommentaire;
 import java.nio.charset.Charset;
@@ -53,9 +53,10 @@ public class AppController {
     
 
     @RequestMapping(value="/typesServices", method=RequestMethod.GET)
-    public @ResponseBody String getTousTypesService(@RequestParam String entree, @RequestParam String langue){
+    public @ResponseBody String getTousTypesService(@RequestParam String entree, @RequestParam String langue) throws UnsupportedEncodingException{
         DBHelper helper = DBHelper.getInstance();
         String typesServices = String.join(",", helper.getListeTousTypesService(entree, langue));
+        typesServices = new String(typesServices.getBytes("UTF-8"), "UTF-8");
         System.out.println("In String " + typesServices);
         return typesServices;
     }
