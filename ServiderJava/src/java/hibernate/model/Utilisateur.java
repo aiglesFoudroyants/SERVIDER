@@ -5,6 +5,7 @@
  */
 package hibernate.model;
 
+import java.io.Serializable;
 import java.sql.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,7 +20,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "Utilisateur")
-public class Utilisateur {
+public class Utilisateur implements Serializable {
     
 
     @Id
@@ -30,8 +31,8 @@ public class Utilisateur {
     private int paysID;
     @Column(name = "provinceID", nullable = false)
     private int provinceID;
-    @Column(name = "StatusUtilisateur", nullable = false)
-    private int StatusUtilisateur;
+    @Column(name = "statusUtilisateurId", nullable = false)
+    private int statusUtilisateurId;
     @Column(name = "sexeId", nullable = false)
     private int sexeID;
     @Column(name = "langueID", nullable = false)
@@ -46,8 +47,8 @@ public class Utilisateur {
     private String sPassword;
     @Column(name = "sCourriel", nullable = false)
     private String sCourriel;
-    @Column(name = "bVerifCouriel", nullable = false)
-    private boolean bVerifCouriel;
+    @Column(name = "bVerifCourriel", nullable = false)
+    private boolean bVerifCourriel;
     @Column(name = "bVerifFacebook", nullable = false)
     private boolean bVerifFacebook;
     @Column(name = "bVerifLinkedIn", nullable = false)
@@ -70,10 +71,10 @@ public class Utilisateur {
     private String sVille;
     @Column(name = "dLastConnected", nullable = true)
     private Date dLastConnected;
-    @Column(name = "dlRaitingClient", nullable = true)
-    private double dlRaitingClient;
-    @Column(name = "dlRaitingServices", nullable = true)
-    private double dlRaitingServices;
+    @Column(name = "dlRatingClient", nullable = true)
+    private double dlRatingClient;
+    @Column(name = "dlRatingService", nullable = true)
+    private double dlRatingService;
     @Column(name = "sCheminImgProfile", nullable = true)
     private String sCheminImgProfile;
 
@@ -99,7 +100,7 @@ public class Utilisateur {
         this.idUtilisateur = idUtilisateur;
         this.paysID = paysID;
         this.provinceID = provinceID;
-        this.StatusUtilisateur = StatusUtilisateur;
+        this.statusUtilisateurId = StatusUtilisateur;
         this.sexeID = sexeID;
         this.langueID = langueID;
         this.sNomCompagnie = sNomCompagnie;
@@ -107,7 +108,7 @@ public class Utilisateur {
         this.sPrenom = sPrenom;
         this.sPassword = sPassword;
         this.sCourriel = sCourriel;
-        this.bVerifCouriel = bVerifCouriel;
+        this.bVerifCourriel = bVerifCouriel;
         this.bVerifFacebook = bVerifFacebook;
         this.bVerifLinkedIn = bVerifLinkedIn;
         this.bVerifTwitter = bVerifTwitter;
@@ -119,14 +120,13 @@ public class Utilisateur {
         this.sCodePostal = sCodePostal;
         this.sVille = sVille;
         this.dLastConnected = dLastConnected;
-        this.dlRaitingClient = dlRaitingClient;
-        this.dlRaitingServices = dlRaitingServices;
+        this.dlRatingClient = dlRaitingClient;
+        this.dlRatingService = dlRaitingServices;
         this.sCheminImgProfile = sCheminImgProfile;
     }
-    
-    
-    
-    
+
+    public Utilisateur() {
+    }
 
     public int getIdUtilisateur() {
         return idUtilisateur;
@@ -153,11 +153,11 @@ public class Utilisateur {
     }
 
     public int getStatusUtilisateur() {
-        return StatusUtilisateur;
+        return statusUtilisateurId;
     }
 
     public void setStatusUtilisateur(int StatusUtilisateur) {
-        this.StatusUtilisateur = StatusUtilisateur;
+        this.statusUtilisateurId = StatusUtilisateur;
     }
 
     public int getSexeID() {
@@ -217,11 +217,11 @@ public class Utilisateur {
     }
 
     public boolean isbVerifCouriel() {
-        return bVerifCouriel;
+        return bVerifCourriel;
     }
 
     public void setbVerifCouriel(boolean bVerifCouriel) {
-        this.bVerifCouriel = bVerifCouriel;
+        this.bVerifCourriel = bVerifCouriel;
     }
 
     public boolean isbVerifFacebook() {
@@ -313,19 +313,19 @@ public class Utilisateur {
     }
 
     public double getDlRaitingClient() {
-        return dlRaitingClient;
+        return dlRatingClient;
     }
 
     public void setDlRaitingClient(double dlRaitingClient) {
-        this.dlRaitingClient = dlRaitingClient;
+        this.dlRatingClient = dlRaitingClient;
     }
 
     public double getDlRaitingServices() {
-        return dlRaitingServices;
+        return dlRatingService;
     }
 
     public void setDlRaitingServices(double dlRaitingServices) {
-        this.dlRaitingServices = dlRaitingServices;
+        this.dlRatingService = dlRaitingServices;
     }
 
     public String getsCheminImgProfile() {
