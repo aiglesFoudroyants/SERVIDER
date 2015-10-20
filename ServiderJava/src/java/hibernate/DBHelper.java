@@ -66,7 +66,7 @@ public class DBHelper {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Query query = session.createSQLQuery(
-                "select * from utilisateur where sCourriel = '"
+                "select * utilisateur where sCourriel = '"
                 + email + "' and sPassword = '" + password + "';"
         ).addEntity(Utilisateur.class);
         utilisateur = (Utilisateur) query.uniqueResult();
@@ -76,8 +76,8 @@ public class DBHelper {
 
         return idUser;
     }
-    
-    public String getAllPays(){
+
+    public String getAllPays() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Pays> listePays;
         StringBuilder xml = new StringBuilder("<root><paysGroup>");
@@ -88,7 +88,7 @@ public class DBHelper {
         listePays = (List<Pays>) query.list();
         session.getTransaction().commit();
         session.close();
-        
+
         for (Pays pays : listePays) {
             xml.append(pays.getXml());
         }
@@ -96,8 +96,8 @@ public class DBHelper {
 
         return xml.toString();
     }
-    
-    public String getAllProvinces(){
+
+    public String getAllProvinces() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Province> listeProvinces;
         StringBuilder xml = new StringBuilder("<root><provinces>");
@@ -108,11 +108,64 @@ public class DBHelper {
         listeProvinces = (List<Province>) query.list();
         session.getTransaction().commit();
         session.close();
-        
+
         for (Province province : listeProvinces) {
             xml.append(province.getXml());
         }
         xml.append("</provinces></root>");
 
         return xml.toString();
-    }}
+    }
+
+    public String getAllGenres() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Genre> listeGenres;
+        StringBuilder xml = new StringBuilder("<root><genres>");
+
+        session.beginTransaction();
+        Query query = session.createSQLQuery("select * from sexe")
+                .addEntity(Genre.class);
+        listeGenres = (List<Genre>) query.list();
+        session.getTransaction().commit();
+        session.close();
+
+        for (Genre genre : listeGenres) {
+            xml.append(genre.getXml());
+        }
+        xml.append("</genres></root>");
+
+        return xml.toString();
+    }
+
+    public String getAllLangues() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Langue> listeLangues;
+        StringBuilder xml = new StringBuilder("<root><langues>");
+
+        session.beginTransaction();
+        Query query = session.createSQLQuery("select * from langue")
+                .addEntity(Langue.class);
+        listeLangues = (List<Langue>) query.list();
+        session.getTransaction().commit();
+        session.close();
+
+        for (Langue langue : listeLangues) {
+            xml.append(langue.getXml());
+        }
+        xml.append("</langues></root>");
+
+        return xml.toString();
+    }
+
+    public int insererUtilisateur(Utilisateur utilisateur) {
+        int id;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+
+        session.beginTransaction();
+        id = (int) session.save(utilisateur);
+        session.getTransaction().commit();
+        session.close();
+
+        return id;
+    }
+}

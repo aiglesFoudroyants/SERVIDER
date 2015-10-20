@@ -76,8 +76,8 @@
                                 </div>
                             </fieldset>
                         </div>
-                        <div class="modal-footer">
-                            <a href="password-recovery.html" class="pull-left"><fmt:message key="loginLblLost"/></a>
+                        <div class="modal-footer">                   
+                            <a href="recuperation.htm" class="pull-left"><fmt:message key="loginLblLost"/></a>
                             <form action="inscription.htm">
                                 <input type="button" class="btn btn-default" onclick="location.href = 'inscription.htm';" value="<fmt:message key="loginBtnRegister"/>" />
                             </form>

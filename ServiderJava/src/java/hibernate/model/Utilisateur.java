@@ -83,6 +83,7 @@ public class Utilisateur implements Serializable {
         this.provinceID = provinceID;
         this.sexeID = sexeID;
         this.langueID = langueID;
+        this.statusUtilisateurId = 1;
         this.sNomCompagnie = sNomCompagnie;
         this.sNom = sNom;
         this.sPrenom = sPrenom;
@@ -336,6 +337,4 @@ public class Utilisateur implements Serializable {
         this.sCheminImgProfile = sCheminImgProfile;
     }
     
-    
-
 }
