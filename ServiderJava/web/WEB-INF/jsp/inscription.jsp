@@ -12,7 +12,7 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Servider | Inscriptio</title>
+        <title><fmt:message key="pageTitleInscription"/></title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
         <!-- Mobile Metas -->
@@ -79,7 +79,7 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
-                                    <h2 class="title">Register</h2>
+                                    <h2 class="title"><fmt:message key="titleInscription"/></h2>
                                 </div>                                
                             </div>
                         </div>
@@ -91,55 +91,67 @@
                             <div class="featured-boxes login">
                                 <div class="col-md-8 col-md-push-2">
                                     <div class="featured-box featured-box-secundary default info-content">
-                                        <h2 class="form-signin-heading">Create An Account</h2>
+                                        <h2 class="form-signin-heading"><fmt:message key="titleInscription"/></h2>
                                         <div class="box-content">
                                             <form id="signup" th:action method="post" action="#">
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="email" placeholder="Email Address" value="">
+                                                            <input id="txtCourriel" class="form-control" type="email" placeholder="<fmt:message key="plhEmail"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="password" placeholder="Password" value="">
+                                                            <input id="txtPassword" class="form-control" type="password" placeholder="<fmt:message key="plhPassword"/>" value="">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="password" placeholder="Confirm Password" value="">
+                                                            <input id="txtConfirmerPass" class="form-control" type="password" placeholder="<fmt:message key="plhConfirmPassword"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="text" placeholder="First Name" value="">
+                                                            <input id="txtPrenom" class="form-control" type="text" placeholder="<fmt:message key="plhFirstName"/>" value="">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="text" placeholder="Last Name" value="">
+                                                            <input id="txtNom"  class="form-control" type="text" placeholder="<fmt:message key="plhLastName"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <select id="gender" class="form-control">
+                                                                <option value="0"><fmt:message key="plhGender"/></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select id="preferredLanguage" class="form-control">
+                                                                <option value="0"><fmt:message key="plhPreferredLanguage"/></option>
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="text" placeholder="Address" value="">
+                                                            <input id="txtAdresse" class="form-control" type="text" placeholder="<fmt:message key="plhAddress"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div> 
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-6">
-                                                            <select class="form-control">
-                                                                <option value="1">Can</option>
-                                                                <option value="2">US</option>
+                                                            <select id="country" class="form-control">
+                                                                <option value="0"><fmt:message key="plhCountry"/></option>
                                                             </select>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <select class="form-control">
-                                                                <option value="1">QC</option>
-                                                                <option value="2">ON</option>
+                                                            <select id="state" class="form-control">
+                                                                <option value="0"><fmt:message key="plhState"/></option>
                                                             </select>
                                                         </div>
                                                     </div>
@@ -147,46 +159,46 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-8">
-                                                            <input class="form-control" type="text" placeholder="City" value="">
+                                                            <input id="txtVille" class="form-control" type="text" placeholder="<fmt:message key="plhCity"/>" value="">
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input class="form-control" type="text" placeholder="Postal/ZIP code" value="">
+                                                            <input id="txtCode" class="form-control" type="text" placeholder="<fmt:message key="plhPostal"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <span class="remember-box checkbox">
                                                         <label for="profil_affaires">
-                                                            <input id="profil_affaires" type="checkbox" name="profil_affaires">
-                                                            Business profile
+                                                            <input id="chkCompagnie" type="checkbox" name="profil_affaires">
+                                                            <fmt:message key="chkBusiness"/>
                                                         </label>
                                                     </span>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="text" placeholder="Compagny Name" value="">
+                                                            <input id="txtCompagnie" class="form-control" type="text" placeholder="<fmt:message key="plhBusiness"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <span class="remember-box checkbox">
                                                         <label for="fournisseur_service">
-                                                            <input id="fournisseur_service" type="checkbox" name="fournisseur_service">
-                                                            Service provider
+                                                            <input id="chkService" type="checkbox" name="fournisseur_service">
+                                                            <fmt:message key="chkService"/>
                                                         </label>
                                                     </span>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="text" placeholder="Service" value="">
+                                                            <input id="txtService" class="form-control" type="text" placeholder="<fmt:message key="plhService"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3 pull-right">
-                                                        <input class="btn btn-color push-bottom" type="submit" data-loading-text="Loading..." value="Register">
+                                                        <input id="btnRegister" class="btn btn-color push-bottom" type="button" data-loading-text="Loading..." value="<fmt:message key="btnRegister"/>">
                                                     </div>
                                                 </div>
                                             </form>
@@ -235,7 +247,7 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
-        <script src="resources/js/home.js"></script>
+        <script src="resources/js/inscription.js"></script>
     </body>
 </html>
 

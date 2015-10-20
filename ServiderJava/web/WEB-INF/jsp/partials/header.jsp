@@ -49,7 +49,7 @@
         </div>
         <!-- /Main Header -->
     </header>
-    
+
     <section id="modals">
         <!-- Login Modal -->
         <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
@@ -66,26 +66,28 @@
                             <fieldset>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <input class="form-control" id="username" name="username" type="text" placeholder="Username" value="" required>
+                                        <input class="form-control" id="txtEmail" name="username" type="text" placeholder="<fmt:message key="loginUsername"/>" value="" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <input class="form-control" type="email" id="email" name="email" placeholder="Email" value="" required>
+                                        <input class="form-control" type="email" id="txtPass" name="email" placeholder="<fmt:message key="loginPassword"/>" value="" required>
                                     </div>
                                 </div>
                             </fieldset>
                         </div>
-                        <div class="modal-footer">
-                            <a href="password-recovery.html" class="pull-left">Lost Password</a>
+                        <div class="modal-footer">                   
+                            <a href="recuperation.htm" class="pull-left"><fmt:message key="loginLblLost"/></a>
                             <form action="inscription.htm">
-                                <input type="button" class="btn btn-default" onclick="location.href='inscription.htm';" value="Register" />
+                                <input type="button" class="btn btn-default" onclick="location.href = 'inscription.htm';" value="<fmt:message key="loginBtnRegister"/>" />
                             </form>
-                            <button type="button" class="btn btn-color">Login</button>
+                            <button id="btnLogin" type="button" class="btn btn-color"><fmt:message key="loginBtnLogin"/></button>
                         </div>
                     </form>
                 </div>
             </div>
+            <span id="loginValide" style="display:none"><fmt:message key='loginValide'/></span>
+            <span id="loginInvalide" style="display:none"><fmt:message key='logiInvalide'/></span>
         </div>
         <!-- /Logan Modal -->
     </section>

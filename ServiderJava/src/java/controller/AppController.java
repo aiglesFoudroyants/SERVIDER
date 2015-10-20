@@ -6,6 +6,10 @@
 package controller;
 
 import hibernate.DBHelper;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import hibernate.model.ModelCommentaire;
+import hibernate.model.Utilisateur;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,22 +35,81 @@ public class AppController {
 
     @RequestMapping("/inscription")
     public ModelAndView inscription() {
-
         return new ModelAndView("inscription");
     }
-    
 
- @RequestMapping("/profil")
-    public ModelAndView profi() {
+    @RequestMapping("/profil")
+    public ModelAndView profil() {
+//        ArrayList<ModelCommentaire> list = new ArrayList<>();
+//        list.add(new ModelCommentaire("Bob Lelouch", "le meilleur chanteur mexicain au monde 8/8"));
+//        list.add(new ModelCommentaire("John Doe", "parfait!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"));
 
         return new ModelAndView("profil");
     }
-    
 
-    @RequestMapping(value="/typesServices", method=RequestMethod.GET)
-    public @ResponseBody String[] getTousTypesService(@RequestParam String entree, @RequestParam String langue){
-        DBHelper helper = DBHelper.getInstance();
-        return helper.getListeTousTypesService(entree, langue);
+    @RequestMapping("/recuperation")
+    public ModelAndView  recuprationMotDePasse(){
+    return new ModelAndView("recuperation");
     }
 
+    @RequestMapping(value = "/typesServices", method = RequestMethod.GET)
+    public @ResponseBody
+    String getTousTypesService(@RequestParam String entree, @RequestParam String langue) throws UnsupportedEncodingException {
+        DBHelper helper = DBHelper.getInstance();
+        String typesServices = String.join(",", helper.getListeTousTypesService(entree, langue));
+        typesServices = new String(typesServices.getBytes("UTF-8"), "UTF-8");
+        System.out.println("In String " + typesServices);
+        return typesServices;
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    public @ResponseBody
+    String getIdLogin(@RequestParam String email, @RequestParam String password) throws UnsupportedEncodingException {
+        DBHelper helper = DBHelper.getInstance();
+        int idUser = helper.authentification(email, password);
+        return idUser > 0 ? "true" : "false";
+    }
+
+    @RequestMapping(value = "/pays", method = RequestMethod.GET)
+    public @ResponseBody
+    String getAllPays() {
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllPays();
+    }
+
+    @RequestMapping(value = "/province", method = RequestMethod.GET)
+    public @ResponseBody
+    String getAllProvinces() {
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllProvinces();
+    }
+
+    @RequestMapping(value = "/genre", method = RequestMethod.GET)
+    public @ResponseBody
+    String getAllGenres() {
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllGenres();
+    }
+
+    @RequestMapping(value = "/langue", method = RequestMethod.GET)
+    public @ResponseBody
+    String getAllLangues() {
+        DBHelper helper = DBHelper.getInstance();
+        return helper.getAllLangues();
+    }
+
+    @RequestMapping(value = "/insertUtilisateur", method = RequestMethod.POST)
+    public @ResponseBody
+    String insertUtilisateur(@RequestParam String paysID, @RequestParam String provinceID,
+            @RequestParam String sexeID, @RequestParam String langueID,
+            @RequestParam String sNomCompagnie, @RequestParam String sNom,
+            @RequestParam String sPrenom, @RequestParam String sPassword,
+            @RequestParam String sCourriel, @RequestParam String sAdresse,
+            @RequestParam String sCodePostal, @RequestParam String sVille) {
+        DBHelper helper = DBHelper.getInstance();
+        return String.valueOf(helper.insererUtilisateur(new Utilisateur(Integer.parseInt(paysID),
+                Integer.parseInt(provinceID), Integer.parseInt(sexeID),
+                Integer.parseInt(langueID), sNomCompagnie, sNom, sPrenom,
+                sPassword, sCourriel, sAdresse, sCodePostal, sVille)));
+    }
 }
