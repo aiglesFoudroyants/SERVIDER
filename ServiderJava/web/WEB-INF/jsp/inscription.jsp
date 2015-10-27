@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="resources/css/main.css">
         <!-- Skin -->
-        <link rel="stylesheet" href="resources/css/colors/green.css" class="colors">
+        <link rel="stylesheet" href="resources/css/colors/orange.css" class="colors">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="resources/css/theme-responsive.css">
         <!-- Switcher CSS -->

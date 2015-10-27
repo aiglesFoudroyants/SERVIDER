@@ -19,7 +19,7 @@
                 <div class="logo pull-left">
                     <h1>
                         <a href="index.html">
-                            <img class="logo-color" src="resources/img/logos/logo_green.png" alt="gallaxy" width="160" height="60">
+                            <img class="logo-color" src="resources/img/logos/logo_orange.png" alt="gallaxy" width="160" height="60">
                         </a>
                     </h1>
                 </div>
@@ -57,7 +57,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <a href="#" class="pull-right" data-dismiss="modal">
-                            <i class="fa fa-close"  style="color:black; font-size:30px;"  ></i>
+                            <i class="fa fa-close fa-lg"  style="color:white; margin: 10px;"  ></i>
                         </a>
                         <h2 class="form-signin-heading modal-title" id="myModalLabel">Login</h2>
                     </div>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <span id="loginValide" style="display:none"><fmt:message key='loginValide'/></span>
-            <span id="loginInvalide" style="display:none"><fmt:message key='logiInvalide'/></span>
+            <span id="loginInvalide" style="display:none"><fmt:message key='loginInvalide'/></span>
         </div>
         <!-- /Logan Modal -->
     </section>

@@ -34,7 +34,7 @@
         <!-- Icons CSS -->
         <link rel="stylesheet" href="resources/css/icon_color.css">
         <!-- Skin -->
-        <link rel="stylesheet" href="resources/css/colors/green.css" class="colors">
+        <link rel="stylesheet" href="resources/css/colors/orange.css" class="colors">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="resources/css/theme-responsive.css">
         <!-- Switcher CSS -->
