@@ -32,6 +32,13 @@ public class AppController {
                 + "</div><br><br>";
         return new ModelAndView("welcome", "message", message);
     }
+    @RequestMapping("/index")
+public ModelAndView index(){
+
+    return  new ModelAndView("index");
+}
+
+
 
     @RequestMapping("/inscription")
     public ModelAndView inscription() {
