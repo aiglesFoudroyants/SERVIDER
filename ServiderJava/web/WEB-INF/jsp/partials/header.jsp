@@ -18,7 +18,7 @@
                 <!-- Logo -->
                 <div class="logo pull-left">
                     <h1>
-                        <a href="index.html">
+                        <a href="index.htm">
                             <img class="logo-color" src="resources/img/logos/logo_orange.png" alt="gallaxy" width="160" height="60">
                         </a>
                     </h1>
