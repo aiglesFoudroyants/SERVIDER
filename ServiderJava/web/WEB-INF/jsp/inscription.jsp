@@ -97,39 +97,39 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="email" placeholder="<fmt:message key="plhEmail"/>" value="">
+                                                            <input id="txtCourriel" class="form-control" type="email" placeholder="<fmt:message key="plhEmail"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="password" placeholder="<fmt:message key="plhPassword"/>" value="">
+                                                            <input id="txtPassword" class="form-control" type="password" placeholder="<fmt:message key="plhPassword"/>" value="">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="password" placeholder="<fmt:message key="plhConfirmPassword"/>" value="">
+                                                            <input id="txtConfirmerPass" class="form-control" type="password" placeholder="<fmt:message key="plhConfirmPassword"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="text" placeholder="<fmt:message key="plhFirstName"/>" value="">
+                                                            <input id="txtPrenom" class="form-control" type="text" placeholder="<fmt:message key="plhFirstName"/>" value="">
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input class="form-control" type="text" placeholder="<fmt:message key="plhLastName"/>" value="">
+                                                            <input id="txtNom"  class="form-control" type="text" placeholder="<fmt:message key="plhLastName"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
-                                                        <div id="gender" class="col-md-6">
-                                                            <select class="form-control">
+                                                        <div class="col-md-6">
+                                                            <select id="gender" class="form-control">
                                                                 <option value="0"><fmt:message key="plhGender"/></option>
                                                             </select>
                                                         </div>
-                                                        <div id="preferredLanguage" class="col-md-6">
-                                                            <select class="form-control">
+                                                        <div class="col-md-6">
+                                                            <select id="preferredLanguage" class="form-control">
                                                                 <option value="0"><fmt:message key="plhPreferredLanguage"/></option>
                                                             </select>
                                                         </div>
@@ -138,7 +138,7 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="text" placeholder="<fmt:message key="plhAddress"/>" value="">
+                                                            <input id="txtAdresse" class="form-control" type="text" placeholder="<fmt:message key="plhAddress"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div> 
@@ -159,17 +159,17 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-8">
-                                                            <input class="form-control" type="text" placeholder="<fmt:message key="plhCity"/>" value="">
+                                                            <input id="txtVille" class="form-control" type="text" placeholder="<fmt:message key="plhCity"/>" value="">
                                                         </div>
                                                         <div class="col-md-4">
-                                                            <input class="form-control" type="text" placeholder="<fmt:message key="plhPostal"/>" value="">
+                                                            <input id="txtCode" class="form-control" type="text" placeholder="<fmt:message key="plhPostal"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <span class="remember-box checkbox">
                                                         <label for="profil_affaires">
-                                                            <input id="profil_affaires" type="checkbox" name="profil_affaires">
+                                                            <input id="chkCompagnie" type="checkbox" name="profil_affaires">
                                                             <fmt:message key="chkBusiness"/>
                                                         </label>
                                                     </span>
@@ -177,14 +177,14 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="text" placeholder="<fmt:message key="plhBusiness"/>" value="">
+                                                            <input id="txtCompagnie" class="form-control" type="text" placeholder="<fmt:message key="plhBusiness"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <span class="remember-box checkbox">
                                                         <label for="fournisseur_service">
-                                                            <input id="fournisseur_service" type="checkbox" name="fournisseur_service">
+                                                            <input id="chkService" type="checkbox" name="fournisseur_service">
                                                             <fmt:message key="chkService"/>
                                                         </label>
                                                     </span>
@@ -192,13 +192,13 @@
                                                 <div class="row">
                                                     <div class="form-group">
                                                         <div class="col-md-12">
-                                                            <input class="form-control" type="text" placeholder="<fmt:message key="plhService"/>" value="">
+                                                            <input id="txtService" class="form-control" type="text" placeholder="<fmt:message key="plhService"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3 pull-right">
-                                                        <input class="btn btn-color push-bottom" type="submit" data-loading-text="Loading..." value="<fmt:message key="btnRegister"/>">
+                                                        <input id="btnRegister" class="btn btn-color push-bottom" type="button" data-loading-text="Loading..." value="<fmt:message key="btnRegister"/>">
                                                     </div>
                                                 </div>
                                             </form>

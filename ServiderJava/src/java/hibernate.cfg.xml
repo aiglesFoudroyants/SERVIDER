@@ -14,5 +14,8 @@
     <mapping class="hibernate.model.Utilisateur"/>
     <mapping class="hibernate.model.Pays"/>
     <mapping class="hibernate.model.Province"/>
+    <mapping class="hibernate.model.Genre"/>
+    <mapping class="hibernate.model.Langue"/>
+    
   </session-factory>
 </hibernate-configuration>
