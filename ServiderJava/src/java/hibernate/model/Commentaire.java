@@ -51,6 +51,172 @@ public class Commentaire  implements  Serializable{
     private boolean bRecommendation;
     @Column(name = "dDateCommentaire", nullable = false)
     private Date dDateCommentaire;
+
+    public Commentaire(int idCommentaire, int receveurId, int commentateurId, int typeServiceId, boolean bReceveurClientOuService, String lCommentaire, String lReponse, String lPrive, int iCritere1, int iCritere2, int iCritere3, double dlCritereAvg, boolean bRecommendation, Date dDateCommentaire) {
+        this.idCommentaire = idCommentaire;
+        this.receveurId = receveurId;
+        this.commentateurId = commentateurId;
+        this.typeServiceId = typeServiceId;
+        this.bReceveurClientOuService = bReceveurClientOuService;
+        this.lCommentaire = lCommentaire;
+        this.lReponse = lReponse;
+        this.lPrive = lPrive;
+        this.iCritere1 = iCritere1;
+        this.iCritere2 = iCritere2;
+        this.iCritere3 = iCritere3;
+        this.dlCritereAvg = dlCritereAvg;
+        this.bRecommendation = bRecommendation;
+        this.dDateCommentaire = dDateCommentaire;
+    }
+
+    public Commentaire(int receveurId, int commentateurId, int typeServiceId, boolean bReceveurClientOuService, String lReponse, String lPrive, int iCritere1, int iCritere2, int iCritere3, double dlCritereAvg, boolean bRecommendation, Date dDateCommentaire) {
+        this.receveurId = receveurId;
+        this.commentateurId = commentateurId;
+        this.typeServiceId = typeServiceId;
+        this.bReceveurClientOuService = bReceveurClientOuService;
+        this.lReponse = lReponse;
+        this.lPrive = lPrive;
+        this.iCritere1 = iCritere1;
+        this.iCritere2 = iCritere2;
+        this.iCritere3 = iCritere3;
+        this.dlCritereAvg = dlCritereAvg;
+        this.bRecommendation = bRecommendation;
+        this.dDateCommentaire = dDateCommentaire;
+    }
+
+    public Commentaire(int receveurId, int commentateurId, int typeServiceId, boolean bReceveurClientOuService, int iCritere1, int iCritere2, int iCritere3, double dlCritereAvg, boolean bRecommendation, Date dDateCommentaire) {
+        this.receveurId = receveurId;
+        this.commentateurId = commentateurId;
+        this.typeServiceId = typeServiceId;
+        this.bReceveurClientOuService = bReceveurClientOuService;
+        this.iCritere1 = iCritere1;
+        this.iCritere2 = iCritere2;
+        this.iCritere3 = iCritere3;
+        this.dlCritereAvg = dlCritereAvg;
+        this.bRecommendation = bRecommendation;
+        this.dDateCommentaire = dDateCommentaire;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    public int getIdCommentaire() {
+        return idCommentaire;
+    }
+
+    public void setIdCommentaire(int idCommentaire) {
+        this.idCommentaire = idCommentaire;
+    }
+
+    public int getReceveurId() {
+        return receveurId;
+    }
+
+    public void setReceveurId(int receveurId) {
+        this.receveurId = receveurId;
+    }
+
+    public int getCommentateurId() {
+        return commentateurId;
+    }
+
+    public void setCommentateurId(int commentateurId) {
+        this.commentateurId = commentateurId;
+    }
+
+    public int getTypeServiceId() {
+        return typeServiceId;
+    }
+
+    public void setTypeServiceId(int typeServiceId) {
+        this.typeServiceId = typeServiceId;
+    }
+
+    public boolean isbReceveurClientOuService() {
+        return bReceveurClientOuService;
+    }
+
+    public void setbReceveurClientOuService(boolean bReceveurClientOuService) {
+        this.bReceveurClientOuService = bReceveurClientOuService;
+    }
+
+    public String getlCommentaire() {
+        return lCommentaire;
+    }
+
+    public void setlCommentaire(String lCommentaire) {
+        this.lCommentaire = lCommentaire;
+    }
+
+    public String getlReponse() {
+        return lReponse;
+    }
+
+    public void setlReponse(String lReponse) {
+        this.lReponse = lReponse;
+    }
+
+    public String getlPrive() {
+        return lPrive;
+    }
+
+    public void setlPrive(String lPrive) {
+        this.lPrive = lPrive;
+    }
+
+    public int getiCritere1() {
+        return iCritere1;
+    }
+
+    public void setiCritere1(int iCritere1) {
+        this.iCritere1 = iCritere1;
+    }
+
+    public int getiCritere2() {
+        return iCritere2;
+    }
+
+    public void setiCritere2(int iCritere2) {
+        this.iCritere2 = iCritere2;
+    }
+
+    public int getiCritere3() {
+        return iCritere3;
+    }
+
+    public void setiCritere3(int iCritere3) {
+        this.iCritere3 = iCritere3;
+    }
+
+    public double getDlCritereAvg() {
+        return dlCritereAvg;
+    }
+
+    public void setDlCritereAvg(double dlCritereAvg) {
+        this.dlCritereAvg = dlCritereAvg;
+    }
+
+    public boolean isbRecommendation() {
+        return bRecommendation;
+    }
+
+    public void setbRecommendation(boolean bRecommendation) {
+        this.bRecommendation = bRecommendation;
+    }
+
+    public Date getdDateCommentaire() {
+        return dDateCommentaire;
+    }
+
+    public void setdDateCommentaire(Date dDateCommentaire) {
+        this.dDateCommentaire = dDateCommentaire;
+    }
     
     
     
