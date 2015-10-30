@@ -198,7 +198,7 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-3 pull-right">
-                                                        <input id="btnRegister" class="btn btn-color push-bottom" type="button" data-loading-text="Loading..." value="<fmt:message key="btnRegister"/>">
+                                                        <input id="btnRegister" class="btn btn-color push-bottom" style="width: 100%;" type="button" data-loading-text="Loading..." value="<fmt:message key="btnRegister"/>">
                                                     </div>
                                                 </div>
                                             </form>

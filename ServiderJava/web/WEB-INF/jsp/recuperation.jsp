@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="resources/css/main.css">
         <!-- Skin -->
-        <link rel="stylesheet" href="resources/css/colors/green.css" class="colors">
+        <link rel="stylesheet" href="resources/css/colors/orange.css" class="colors">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="resources/css/theme-responsive.css">
         <!-- Switcher CSS -->
@@ -87,37 +87,20 @@
                 </div>
                 <div class="content margin-top60 margin-bottom60">
                     <div class="container">
-                        <div class="row">
-                            <div class="featured-boxes login">
-                                <div class="col-md-8 col-md-push-2">
-                                    <div class="featured-box featured-box-secundary default info-content">
-                                        <h2 class="form-signin-heading"><fmt:message key="passwordRecovery"/></h2>
-                                        <div class="box-content">
-                                            <form id="signup" th:action method="post" action="#">
-                                                <div class="row">
-                                                    <div class="form-group">
-                                                        <div class="col-md-12">
-                                                            <input id="txtCourriel" class="form-control" type="email" placeholder="<fmt:message key="plhEmail"/>" value="">
-                                                        </div>
-                                                    </div>
-                                                </div>
-
+                        <div class="row vertical-center-bar">
+                            <div class="col-md-8 col-md-push-2">
+                                <div class="box-content">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input id="txtCourriel" class="form-control" type="email" placeholder="<fmt:message key="plhEmail"/>" value="">
+                                            </div>
                                         </div>
-
-
-
+                                                
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3 pull-right">
+                                        <input id="btnRegister" class="btn btn-color push-bottom" style="width: 100%;" type="button" data-loading-text="Loading..." value="<fmt:message key="btnSend"/>">
                                     </div>
-
-
-
-
-
-                                    <div class="row">
-                                        <div class="col-md-3 pull-right">
-                                            <input id="btnRegister" class="btn btn-color push-bottom" type="button" data-loading-text="Loading..." value="<fmt:message key="btnSend"/>">
-                                        </div>
-                                    </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>

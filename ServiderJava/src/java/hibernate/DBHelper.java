@@ -107,7 +107,7 @@ public class DBHelper {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Query query = session.createSQLQuery(
-                "select * utilisateur where sCourriel = '"
+                "select * from utilisateur where sCourriel = '"
                 + email + "' and sPassword = '" + password + "';"
         ).addEntity(Utilisateur.class);
         utilisateur = (Utilisateur) query.uniqueResult();

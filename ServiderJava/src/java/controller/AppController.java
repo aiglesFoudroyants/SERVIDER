@@ -37,7 +37,6 @@ public class AppController {
 
     @RequestMapping("/index")
     public ModelAndView index() {
-        
         return new ModelAndView("index");
     }
 
@@ -70,8 +69,7 @@ public class AppController {
     public @ResponseBody
     String getIdLogin(@RequestParam String email, @RequestParam String password) throws UnsupportedEncodingException {
         DBHelper helper = DBHelper.getInstance();
-        int idUser = helper.authentification(email, password);
-        return idUser > 0 ? "true" : "false";
+        return String.valueOf(helper.authentification(email, password));
     }
 
     @RequestMapping(value = "/pays", method = RequestMethod.GET)
