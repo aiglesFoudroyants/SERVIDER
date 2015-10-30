@@ -24,14 +24,4 @@ $(document).ready(function () {
             }
         }
     });
-
-    $("#btnLogin").bind("click", function () {
-        $.get("login.htm", {email: $("#txtEmail").val(), password: $("#txtPass").val()}).done(function(data){
-           if (data === "true"){
-               alert($("#loginValide").text());
-           } else {
-               alert($("#loginInvalide").text());               
-           }
-        });
-    });
 });

@@ -32,13 +32,12 @@ public class AppController {
                 + "</div><br><br>";
         return new ModelAndView("welcome", "message", message);
     }
+
     @RequestMapping("/index")
-public ModelAndView index(){
-
-    return  new ModelAndView("index");
-}
-
-
+    public ModelAndView index() {
+        //System.out.println("ICIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII" + courant != null ? courant.getsNom() : "NULL");
+        return new ModelAndView("index");
+    }
 
     @RequestMapping("/inscription")
     public ModelAndView inscription() {
@@ -55,8 +54,8 @@ public ModelAndView index(){
     }
 
     @RequestMapping("/recuperation")
-    public ModelAndView  recuprationMotDePasse(){
-    return new ModelAndView("recuperation");
+    public ModelAndView recuprationMotDePasse() {
+        return new ModelAndView("recuperation");
     }
 
     @RequestMapping(value = "/typesServices", method = RequestMethod.GET)
@@ -73,8 +72,7 @@ public ModelAndView index(){
     public @ResponseBody
     String getIdLogin(@RequestParam String email, @RequestParam String password) throws UnsupportedEncodingException {
         DBHelper helper = DBHelper.getInstance();
-        int idUser = helper.authentification(email, password);
-        return idUser > 0 ? "true" : "false";
+        return String.valueOf(helper.authentification(email, password));
     }
 
     @RequestMapping(value = "/pays", method = RequestMethod.GET)

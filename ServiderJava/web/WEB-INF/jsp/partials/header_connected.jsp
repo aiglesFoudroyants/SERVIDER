@@ -1,12 +1,15 @@
 <%-- 
-    Document   : header
+    Document   : header_connected
     Created on : 2-Oct-2015, 10:53:22 AM
-    Author     : hugo
+    Author     : gabriel
 --%>
-
+<%@include file="/WEB-INF/jsp/include.jsp" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="localisation.messages"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="${language}">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Header</title>
@@ -17,7 +20,7 @@
         <div class="main-header">
             <div class="container">
                 <!-- Logo -->
-                <div class="logo pull-left">
+                <div class="logo pull-left vertical-center-logo">
                     <h1>
                         <a href="index.htm">
                             <img class="logo-color" src="resources/img/logos/logo_orange.png" alt="gallaxy" width="160" height="60">
@@ -27,21 +30,50 @@
                 <!-- /Logo -->
                 <!-- Mobile Menu -->
                 <div class="mobile navbar-header">
-                    <!--<a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse">
-                        <i class="fa fa-bars fa-2x"></i>
-                    </a> -->
-                    <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border navbar-toggle">
-                        <i class="fa fa-3x fa-user clean"></i>
-                    </a>
+                    <!--<a class="navbar-toggle" data-toggle="collapse-mobile" href=".navbar-collapse-mobile">
+                        <img src="resources/img/team/team-member-1.jpg" style="width:4em"/>
+                        <span class="sf-sub-indicator">
+                            <i class="fa fa-angle-down "></i>
+                        </span>
+                    </a>-->
+                    <nav class=" navbar-collapse menu navbar-toggle">
+                        <ul class="nav navbar-nav sf-menu">
+                            <li style="width: 100%;">
+                                <a id="current" href="#">
+                                    <img src="resources/img/team/team-member-1.jpg" style="width:4em"/>
+                                    <span class="sf-sub-indicator">
+                                        <i class="fa fa-angle-down "></i>
+                                    </span>
+                                </a>
+                                <ul>
+                                    <li><a href="index.html" class="sf-with-ul"><fmt:message key="menuOptionProfile"/></a></li>
+                                    <li><a href="index-2.html" class="sf-with-ul"><fmt:message key="menuOptionSettings"/></a></li>
+                                    <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMailbox"/></a></li>
+                                    <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMyAdds"/></a></li>
+                                    <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionDisconnect"/></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
                 <!--/Mobile Menu -->
                 <!-- Menu Start -->
                 <nav class="collapse navbar-collapse menu">
                     <ul class="nav navbar-nav sf-menu">
                         <li>
-                            <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border">
-                                <i class="fa fa-3x fa-user"></i>
+                            <a id="current" href="#">
+                                <img src="resources/img/team/team-member-1.jpg" style="width:4em"/>
+                                <span class="sf-sub-indicator">
+                                    <i class="fa fa-angle-down "></i>
+                                </span>
                             </a>
+                            <ul>
+                                <li><a href="index.html" class="sf-with-ul"><fmt:message key="menuOptionProfile"/></a></li>
+                                <li><a href="index-2.html" class="sf-with-ul"><fmt:message key="menuOptionSettings"/></a></li>
+                                <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMailbox"/></a></li>
+                                <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMyAdds"/></a></li>
+                                <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionDisconnect"/></a></li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>
