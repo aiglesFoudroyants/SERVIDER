@@ -33,7 +33,7 @@
         <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="resources/css/main.css">
         <!-- Skin -->
-        <link rel="stylesheet" href="resources/css/colors/green.css" class="colors">
+        <link rel="stylesheet" href="resources/css/colors/orange.css" class="colors">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="resources/css/theme-responsive.css">
         <!-- Switcher CSS -->
@@ -112,77 +112,18 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Star -->  
-                        <!--                        <div class="row text-center-sm">
-                                                    <div class="col-md-2 col-sm-12">
-                                                        <div class="avatar-wrapper">
-                                                            <a class="text-muted" href="/users/show/4230528">
-                                                                <div class="media-photo media-round row-space-1">
-                                                                    <img width="68" height="68" title="Fabian" src="https://a2.muscache.com/ac/users/4230528/profile_pic/1353775271/original.jpg?interpolation=lanczos-none&amp;crop=w:w;*,*&amp;crop=h:h;*,*&amp;resize=68:*&amp;output-format=jpg&amp;output-quality=70" data-original="https://a2.muscache.com/ac/users/4230528/profile_pic/1353775271/original.jpg?interpolation=lanczos-none&amp;crop=w:w;*,*&amp;crop=h:h;*,*&amp;resize=68:*&amp;output-format=jpg&amp;output-quality=70" class="lazy" alt="Fabian" style="display: inline;">
-                                                                </div>
-                                                                <div class="text-center profile-name text-wrap">
-                                                                    Fabian
-                                                                </div>
-                                                            </a>          <div class="text-muted date show-sm">septembre 2015</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-10 col-sm-12">
-                                                        <div class="row-space-2">
-                                                            <div %="" class="comment-container expandable expandable-trigger-more row-space-2 expanded">
-                                                                <div class="expandable-content">
-                                                                    <p>I had a great stay in this cool condo. Thanks Maika &amp; Magalie</p>
-                                                                    <div class="expandable-indicator"></div>
-                                                                </div>
-                                                                <a href="#" class="expandable-trigger-more text-muted">
-                                                                    <strong>+ Plus</strong>
-                                                                </a>
-                                                            </div>
-                                                            <div class="text-muted date hide-sm pull-left">
-                                                                De <a class="link-reset" href="/s/Zurich--Suisse">Zurich, Suisse</a> ·
-                                                                septembre 2015
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-
-                        <c:forEach items="${nameList}" var="item">
-                            <div class="row">
-
-                                <div class="media-photo-badge col-md-2" >
+                        <c:forEach items="${commentaires}" var="item">
+                            <div class="row col-xs-12" >
+                                <div class="media-photo-badge col-xs-2" >
                                     <img  alt="shared.user_profile_image" data-pin-nopin="true" src="resources/img/team/team-member-1.jpg" title="image du profil" >
-                                    <p>${item.nom}</p>
-
+                                    <p>${item.getsNom()}</p>
                                 </div> 
                                 <div class="avatar-wrapper "></div>
-                                <div class="media-photo-badge col-md-10" >
-                                    <p>Les meileur commentaires du monde sont les commentaires les plus long parceque,les meileur commentaires du monde sont les commentaires les plus long.
-                                        Les meileur commentaires du monde sont les commentaires les plus long parceque,les meileur commentaires du monde sont les commentaires les plus long.</p>
+                                <div class="media-photo-badge col-xs-10" >
+                                    <p>${item.getlCommentaire()}</p>
                                 </div> 
                             </div>
                         </c:forEach>
-
-
-
-                        <!--                        <div class="row">
-                        
-                        
-                                                    <div class="avatar-wrapper col-md-1">
-                        
-                                                        <img  alt="shared.user_profile_image" data-pin-nopin="true" src="resources/img/team/team-member-1.jpg" title="image du profil" >
-                                                        <p>Jonh Doe</p>
-                        
-                                                    </div>
-                                                           
-                                                    <div class="media-photo-badge col-md-11" >
-                                                        <p>Les meileur commentaires du monde sont les commentaires les plus long parceque,les meileur commentaires du monde sont les commentaires les plus long.
-                                                            Les meileur commentaires du monde sont les commentaires les plus long parceque,les meileur commentaires du monde sont les commentaires les plus long.</p>
-                                                    </div> 
-                        
-                        
-                                                </div>-->
-
-
-
                         <!-- Star-->
                         <div class="star">
                             <div class="row">
@@ -201,20 +142,15 @@
                             <form class="reply" id="reply">
                                 <fieldset>
                                     <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                        <div>
                                             <input class="form-control" type="text" value="" placeholder="Name" required>
+
                                         </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                            <input class="form-control" type="text" value="" placeholder="Email" required>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                            <input class="form-control" type="text" placeholder="Website" value="">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <textarea class="form-control" rows="3" cols="40" placeholder="Comment" required></textarea>
-                                        </div>
+                                        
+                                            <div >
+                                                <textarea class="form-control" rows="3" cols="40" placeholder="Comment" required></textarea>
+                                            </div>
+                                  
                                     </div>
                                 </fieldset>
                                 <button class="btn btn-color pull-right" type="submit">Post Reply</button>
