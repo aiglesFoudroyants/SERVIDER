@@ -38,6 +38,47 @@ public class DBHelper {
         return genererTableauLangue(listeTousTypesService, langue);
     }
 
+    public Commentaire[] getListeTousCommentaires() {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Commentaire> listeCommentaires;
+
+        session.beginTransaction();
+        Query query = session.createSQLQuery("select commentaire.*, utilisateur.sNom "
+                + " from Commentaire "
+                + " join utilisateur "
+                + " on utilisateur.idutilisateur = commentaire.commentateurid")
+                .addEntity(Commentaire.class);
+        listeCommentaires = (List<Commentaire>) query.list();
+        session.getTransaction().commit();
+        session.close();
+        return listeCommentaires.toArray(new Commentaire[listeCommentaires.size()]);
+    }
+    
+//    public Commentaire[] getListeTousCommentaires() {
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        List<Commentaire> listeCommentaires;
+//
+//        session.beginTransaction();
+//        Query query = session.createSQLQuery("select commentaire.*, utilisateur.sNom "
+//                + " from Commentaire "
+//                + " join utilisateur "
+//                + " on utilisateur.idutilisateur = commentaire.commentateurid")
+//                .addEntity(Commentaire.class);
+//        listeCommentaires = (List<Commentaire>) query.list();
+//        session.getTransaction().commit();
+//        session.close();
+//        return listeCommentaires.toArray(new Commentaire[listeCommentaires.size()]);
+//    }
+
+//    private Commentaire[] genererTableauCommentaires(List<Commentaire> listeCommentaires) {
+//        String[] tabCommentaires = new String[listeCommentaires.size()];
+//        for (int i = 0; i < tabCommentaires.length; i++) {
+//            tabCommentaires[i] = listeCommentaires.get(i).getlCommentaire();
+//        }
+//        return tabCommentaires;
+//
+//    }
+
     private String[] genererTableauLangue(List<TypeService> listeTousTypesService, String langue) {
         String[] tabStringLangue = new String[listeTousTypesService.size()];
 
@@ -66,7 +107,7 @@ public class DBHelper {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Query query = session.createSQLQuery(
-                "select * utilisateur where sCourriel = '"
+                "select * from utilisateur where sCourriel = '"
                 + email + "' and sPassword = '" + password + "';"
         ).addEntity(Utilisateur.class);
         utilisateur = (Utilisateur) query.uniqueResult();

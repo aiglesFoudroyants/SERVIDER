@@ -19,9 +19,10 @@ import javax.persistence.Table;
  * @author hugo
  */
 @Entity
-@Table(name = "Commentaire")
-public class Commentaire  implements  Serializable{ 
-@Id
+@Table(name = "commentaire")
+public class Commentaire implements Serializable {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCommentaire", nullable = false)
     private int idCommentaire;
@@ -51,60 +52,11 @@ public class Commentaire  implements  Serializable{
     private boolean bRecommendation;
     @Column(name = "dDateCommentaire", nullable = false)
     private Date dDateCommentaire;
+    @Column(name = "sNom", nullable = false)
+    private String sNom;
 
-    public Commentaire(int idCommentaire, int receveurId, int commentateurId, int typeServiceId, boolean bReceveurClientOuService, String lCommentaire, String lReponse, String lPrive, int iCritere1, int iCritere2, int iCritere3, double dlCritereAvg, boolean bRecommendation, Date dDateCommentaire) {
-        this.idCommentaire = idCommentaire;
-        this.receveurId = receveurId;
-        this.commentateurId = commentateurId;
-        this.typeServiceId = typeServiceId;
-        this.bReceveurClientOuService = bReceveurClientOuService;
-        this.lCommentaire = lCommentaire;
-        this.lReponse = lReponse;
-        this.lPrive = lPrive;
-        this.iCritere1 = iCritere1;
-        this.iCritere2 = iCritere2;
-        this.iCritere3 = iCritere3;
-        this.dlCritereAvg = dlCritereAvg;
-        this.bRecommendation = bRecommendation;
-        this.dDateCommentaire = dDateCommentaire;
+    public Commentaire() {
     }
-
-    public Commentaire(int receveurId, int commentateurId, int typeServiceId, boolean bReceveurClientOuService, String lReponse, String lPrive, int iCritere1, int iCritere2, int iCritere3, double dlCritereAvg, boolean bRecommendation, Date dDateCommentaire) {
-        this.receveurId = receveurId;
-        this.commentateurId = commentateurId;
-        this.typeServiceId = typeServiceId;
-        this.bReceveurClientOuService = bReceveurClientOuService;
-        this.lReponse = lReponse;
-        this.lPrive = lPrive;
-        this.iCritere1 = iCritere1;
-        this.iCritere2 = iCritere2;
-        this.iCritere3 = iCritere3;
-        this.dlCritereAvg = dlCritereAvg;
-        this.bRecommendation = bRecommendation;
-        this.dDateCommentaire = dDateCommentaire;
-    }
-
-    public Commentaire(int receveurId, int commentateurId, int typeServiceId, boolean bReceveurClientOuService, int iCritere1, int iCritere2, int iCritere3, double dlCritereAvg, boolean bRecommendation, Date dDateCommentaire) {
-        this.receveurId = receveurId;
-        this.commentateurId = commentateurId;
-        this.typeServiceId = typeServiceId;
-        this.bReceveurClientOuService = bReceveurClientOuService;
-        this.iCritere1 = iCritere1;
-        this.iCritere2 = iCritere2;
-        this.iCritere3 = iCritere3;
-        this.dlCritereAvg = dlCritereAvg;
-        this.bRecommendation = bRecommendation;
-        this.dDateCommentaire = dDateCommentaire;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     public int getIdCommentaire() {
         return idCommentaire;
@@ -217,14 +169,13 @@ public class Commentaire  implements  Serializable{
     public void setdDateCommentaire(Date dDateCommentaire) {
         this.dDateCommentaire = dDateCommentaire;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public String getsNom() {
+        return sNom;
+    }
+
+    public void setsNom(String sNom) {
+        this.sNom = sNom;
+    }
+
 }

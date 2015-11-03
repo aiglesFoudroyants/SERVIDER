@@ -20,6 +20,27 @@
     .vertical-center{
         min-height: 100vh;
     } 
+}
+
+@media (min-width: 768px){
+    .vertical-center-logo{
+        height:10em; 
+        align-items:center; 
+        display:flex;
+    }
+}
+    
+
+.vertical-center-bar {
+    align-items: center;
+    display: flex;
+    min-height: 55vh;
+}
+
+@media (min-width: 768px){
+    .vertical-center-bar{
+        min-height: 75vh;
+    } 
 } 
 
 .main-content{

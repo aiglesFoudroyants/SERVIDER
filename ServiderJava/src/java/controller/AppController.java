@@ -6,10 +6,12 @@
 package controller;
 
 import hibernate.DBHelper;
+import hibernate.model.Commentaire;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import hibernate.model.ModelCommentaire;
 import hibernate.model.Utilisateur;
+import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,13 +34,11 @@ public class AppController {
                 + "</div><br><br>";
         return new ModelAndView("welcome", "message", message);
     }
+
     @RequestMapping("/index")
-public ModelAndView index(){
-
-    return  new ModelAndView("index");
-}
-
-
+    public ModelAndView index() {
+        return new ModelAndView("index");
+    }
 
     @RequestMapping("/inscription")
     public ModelAndView inscription() {
@@ -47,16 +47,13 @@ public ModelAndView index(){
 
     @RequestMapping("/profil")
     public ModelAndView profil() {
-//        ArrayList<ModelCommentaire> list = new ArrayList<>();
-//        list.add(new ModelCommentaire("Bob Lelouch", "le meilleur chanteur mexicain au monde 8/8"));
-//        list.add(new ModelCommentaire("John Doe", "parfait!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"));
-
-        return new ModelAndView("profil");
+        Commentaire[] tabCommentaires = DBHelper.getInstance().getListeTousCommentaires();
+        return new ModelAndView("profil", "commentaires", tabCommentaires);
     }
 
     @RequestMapping("/recuperation")
-    public ModelAndView  recuprationMotDePasse(){
-    return new ModelAndView("recuperation");
+    public ModelAndView recuprationMotDePasse() {
+        return new ModelAndView("recuperation");
     }
 
     @RequestMapping(value = "/typesServices", method = RequestMethod.GET)
@@ -65,7 +62,6 @@ public ModelAndView index(){
         DBHelper helper = DBHelper.getInstance();
         String typesServices = String.join(",", helper.getListeTousTypesService(entree, langue));
         typesServices = new String(typesServices.getBytes("UTF-8"), "UTF-8");
-        System.out.println("In String " + typesServices);
         return typesServices;
     }
 
@@ -73,8 +69,7 @@ public ModelAndView index(){
     public @ResponseBody
     String getIdLogin(@RequestParam String email, @RequestParam String password) throws UnsupportedEncodingException {
         DBHelper helper = DBHelper.getInstance();
-        int idUser = helper.authentification(email, password);
-        return idUser > 0 ? "true" : "false";
+        return String.valueOf(helper.authentification(email, password));
     }
 
     @RequestMapping(value = "/pays", method = RequestMethod.GET)
