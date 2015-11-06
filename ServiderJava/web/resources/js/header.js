@@ -1,4 +1,4 @@
-console.log("bob");
+
 $(document).ready(function () {
     var utilisateur;
     

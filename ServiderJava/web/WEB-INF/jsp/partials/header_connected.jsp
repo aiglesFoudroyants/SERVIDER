@@ -14,6 +14,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Header</title>
         <script src="resources/js/header.js"></script>
+        <script src="resources/js/jquery.cookie.js"></script>
+
     </head>
     <header id="header">
         <!-- Main Header -->
