@@ -5019,7 +5019,13 @@ input[type=submit].btn-block { width: 100% }
 /* ===[ Added by faruk ]===
    ==================================================
    ================================================== */
-
+.circular-profil-image-comment {
+    min-height: 35px;
+    min-width: 35px;
+    border-radius: 150px;
+    -webkit-border-radius: 150px;
+    -moz-border-radius: 150px;
+}
 .circular-knob {
     margin-bottom: 25px;
     min-height: 210px;
