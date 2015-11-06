@@ -100,15 +100,8 @@
         </div>
         <!-- Wrap -->
         <div class="wrap">
-            <!-- Header -->   
-            <c:choose>
-                <c:when test="${cookie.containsKey('servider-user-id')}">
-                    <%@ include file="partials/header_connected.jsp" %>
-                </c:when>
-                <c:otherwise>
-                    <%@ include file="partials/header.jsp" %>
-                </c:otherwise>
-            </c:choose>
+            <!-- Header -->
+            <%@ include file="partials/header.jsp" %>
             <!-- /Header --> 
             <!-- Main Section -->
             <section id="main">
