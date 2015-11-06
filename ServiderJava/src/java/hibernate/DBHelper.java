@@ -209,4 +209,17 @@ public class DBHelper {
 
         return id;
     }
+    
+    public Utilisateur getUtilisateur(int id){
+        Utilisateur utilisateur;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Query query = session.createSQLQuery(
+                "select * from utilisateur where idUtilisateur = '"
+                + id + "';"
+        ).addEntity(Utilisateur.class);
+        utilisateur = (Utilisateur) query.uniqueResult();
+
+        return utilisateur;
+    }
 }
