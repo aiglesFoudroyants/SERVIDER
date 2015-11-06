@@ -40,17 +40,17 @@
                         <ul class="nav navbar-nav sf-menu">
                             <li style="width: 100%;">
                                 <a id="current" href="#">
-                                    <img src="resources/img/team/team-member-1.jpg" style="width:4em"/>
+                                    <img id="imgUserMobile" src="resources/img/team/team-member-1.jpg" style="width:4em"/>
                                     <span class="sf-sub-indicator">
                                         <i class="fa fa-angle-down "></i>
                                     </span>
                                 </a>
                                 <ul>
-                                    <li><a href="index.html" class="sf-with-ul"><fmt:message key="menuOptionProfile"/></a></li>
+                                    <li><a href="profil.htm" class="sf-with-ul"><fmt:message key="menuOptionProfile"/></a></li>
                                     <li><a href="index-2.html" class="sf-with-ul"><fmt:message key="menuOptionSettings"/></a></li>
                                     <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMailbox"/></a></li>
                                     <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMyAdds"/></a></li>
-                                    <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionDisconnect"/></a></li>
+                                    <li><a id="btnDisconnectMobile" class="sf-with-ul"><fmt:message key="menuOptionDisconnect"/></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -62,17 +62,17 @@
                     <ul class="nav navbar-nav sf-menu">
                         <li>
                             <a id="current" href="#">
-                                <img src="resources/img/team/team-member-1.jpg" style="width:4em"/>
+                                <img id="imgUser" src="resources/img/team/team-member-1.jpg" style="width:4em"/>
                                 <span class="sf-sub-indicator">
                                     <i class="fa fa-angle-down "></i>
                                 </span>
                             </a>
                             <ul>
-                                <li><a href="index.html" class="sf-with-ul"><fmt:message key="menuOptionProfile"/></a></li>
+                                <li><a href="profil.htm" class="sf-with-ul"><fmt:message key="menuOptionProfile"/></a></li>
                                 <li><a href="index-2.html" class="sf-with-ul"><fmt:message key="menuOptionSettings"/></a></li>
                                 <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMailbox"/></a></li>
                                 <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionMyAdds"/></a></li>
-                                <li><a href="index-shop.html" class="sf-with-ul"><fmt:message key="menuOptionDisconnect"/></a></li>
+                                <li><a id="btnDisconnect" class="sf-with-ul"><fmt:message key="menuOptionDisconnect"/></a></li>
                             </ul>
                         </li>
                     </ul>

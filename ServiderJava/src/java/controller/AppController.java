@@ -5,6 +5,7 @@
  */
 package controller;
 
+import com.google.gson.Gson;
 import hibernate.DBHelper;
 import hibernate.model.Commentaire;
 import java.io.UnsupportedEncodingException;
@@ -113,5 +114,12 @@ public class AppController {
                 Integer.parseInt(provinceID), Integer.parseInt(sexeID),
                 Integer.parseInt(langueID), sNomCompagnie, sNom, sPrenom,
                 sPassword, sCourriel, sAdresse, sCodePostal, sVille)));
+    }
+    
+    @RequestMapping(value = "/getUtilisateur", method = RequestMethod.GET)
+    public @ResponseBody String getUtilisateur(@RequestParam String id){
+        DBHelper helper = DBHelper.getInstance();
+        Gson gson = new Gson();
+        return gson.toJson(helper.getUtilisateur(Integer.parseInt(id)));
     }
 }
