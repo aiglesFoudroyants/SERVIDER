@@ -57,6 +57,35 @@
         <!--[if IE]>
         <link rel="stylesheet" href="resources/css/ie.css">
         <![endif]-->
+        
+        <!-- The Scripts -->
+        <script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/jquery-migrate-1.0.0.js"></script>
+        <script src="resources/js/jquery-ui.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/revolution-slider/js/jquery.themepunch.plugins.min.js"></script> 
+        <script src="resources/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="resources/js/jquery.parallax.js"></script>
+        <script src="resources/js/jquery.wait.js"></script>
+        <script src="resources/js/fappear.js"></script> 
+        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
+        <script src="resources/js/jquery.bxslider.min.js"></script>
+        <script src="resources/js/jquery.prettyPhoto.js"></script>
+        <script src="resources/js/superfish.js"></script>
+        <script src="resources/js/tweetMachine.js"></script>
+        <script src="resources/js/tytabs.js"></script>
+        <script src="resources/js/jquery.gmap.min.js"></script>
+        <script src="resources/js/jquery.sticky.js"></script>
+        <script src="resources/js/jquery.countTo.js"></script>
+        <script src="resources/js/jflickrfeed.js"></script>
+        <script src="resources/js/imagesloaded.pkgd.min.js"></script>
+        <script src="resources/js/waypoints.min.js"></script>
+        <script src="resources/js/wow.js"></script>
+        <script src="resources/js/jquery.fitvids.js"></script>
+        <script src="resources/js/spectrum.js"></script>
+        <script src="resources/js/switcher.js"></script>
+        <script src="resources/js/custom.js"></script>
+        <script src="resources/js/inscription.js"></script>
     </head>
     <body class="home">
         <div class="page-mask">
@@ -220,34 +249,6 @@
             <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
         </div>
         <!-- /Wrap -->
-        <!-- The Scripts -->
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/jquery-migrate-1.0.0.js"></script>
-        <script src="resources/js/jquery-ui.js"></script>
-        <script src="resources/js/bootstrap.js"></script>
-        <script src="resources/js/revolution-slider/js/jquery.themepunch.plugins.min.js"></script> 
-        <script src="resources/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="resources/js/jquery.parallax.js"></script>
-        <script src="resources/js/jquery.wait.js"></script>
-        <script src="resources/js/fappear.js"></script> 
-        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
-        <script src="resources/js/jquery.bxslider.min.js"></script>
-        <script src="resources/js/jquery.prettyPhoto.js"></script>
-        <script src="resources/js/superfish.js"></script>
-        <script src="resources/js/tweetMachine.js"></script>
-        <script src="resources/js/tytabs.js"></script>
-        <script src="resources/js/jquery.gmap.min.js"></script>
-        <script src="resources/js/jquery.sticky.js"></script>
-        <script src="resources/js/jquery.countTo.js"></script>
-        <script src="resources/js/jflickrfeed.js"></script>
-        <script src="resources/js/imagesloaded.pkgd.min.js"></script>
-        <script src="resources/js/waypoints.min.js"></script>
-        <script src="resources/js/wow.js"></script>
-        <script src="resources/js/jquery.fitvids.js"></script>
-        <script src="resources/js/spectrum.js"></script>
-        <script src="resources/js/switcher.js"></script>
-        <script src="resources/js/custom.js"></script>
-        <script src="resources/js/inscription.js"></script>
     </body>
 </html>
 

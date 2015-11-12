@@ -57,6 +57,36 @@
         <!--[if IE]>
         <link rel="stylesheet" href="resources/css/ie.css">
         <![endif]-->
+        
+        
+        <!-- The Scripts -->
+        <script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/jquery-migrate-1.0.0.js"></script>
+        <script src="resources/js/jquery-ui.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/revolution-slider/js/jquery.themepunch.plugins.min.js"></script> 
+        <script src="resources/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="resources/js/jquery.parallax.js"></script>
+        <script src="resources/js/jquery.wait.js"></script>
+        <script src="resources/js/fappear.js"></script> 
+        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
+        <script src="resources/js/jquery.bxslider.min.js"></script>
+        <script src="resources/js/jquery.prettyPhoto.js"></script>
+        <script src="resources/js/superfish.js"></script>
+        <script src="resources/js/tweetMachine.js"></script>
+        <script src="resources/js/tytabs.js"></script>
+        <script src="resources/js/jquery.gmap.min.js"></script>
+        <script src="resources/js/jquery.sticky.js"></script>
+        <script src="resources/js/jquery.countTo.js"></script>
+        <script src="resources/js/jflickrfeed.js"></script>
+        <script src="resources/js/imagesloaded.pkgd.min.js"></script>
+        <script src="resources/js/waypoints.min.js"></script>
+        <script src="resources/js/wow.js"></script>
+        <script src="resources/js/jquery.fitvids.js"></script>
+        <script src="resources/js/spectrum.js"></script>
+        <script src="resources/js/switcher.js"></script>
+        <script src="resources/js/custom.js"></script>
+        <script src="resources/js/home.js"></script>
     </head>
     <body class="home">
         <div class="page-mask">
@@ -71,7 +101,7 @@
             <%@ include file="partials/header.jsp" %>      
             <!-- /Header --> 
             <!-- Main Section -->
-
+            
 
             <section id="main">
                 <div class="content-about margin-top60">
@@ -82,16 +112,14 @@
                                 <h2>Carlos Gringo</h2>
                                 <img class="logo-color" src="resources/img/client1.jpg" alt="profil picture" >
                                 <div class = "btn contact col-md-12">
-
-                                    <div><p style="float: left;"><img src="resources/img/offline.png" ></p>
-                                        <p>offline</p>
-                                    </div>
-
-
                                     <input type="submit" value="<fmt:message key="btnContacter"/>" data-loading-text="Loading..." class="btn btn-color push-bottom col-md-12">
                                 </div>
+                                <div class="row">                                   
+                                    <img  width="20px" height="20px" src="resources/img/offline.png" >
+                                    <p class="col-xs-7 col-xs-push-3">offline</p>
+                                </div>
                             </div>
-                            <div class="posts-block col-lg-9">
+                            <div class="posts-block col-md-9">
                                 <h2>Bio</h2>
                                 <p>Carlos, de son vrai nom Yvan-Chrysostome Dolto, est un chanteur, acteur et fantaisiste français né le 20 février 1943 dans le 5e arrondissement de Paris1,2, et mort à Clichy le 17 janvier 2008. Incarnant la variété populaire, il fut un ami proche de Dorothée, d'Eddie Barclay, de Chantal Goya, de Sim, de Dave, d'Annie Cordy, de Johnny Hallyday, de Joe Dassin, de Jeane Manson, de Coluche et surtout de Sylvie Vartan qui lui permit de faire ses premiers pas sur scène à ses côtés.
 
@@ -113,13 +141,12 @@
                             </div>
                         </div>
                         <c:forEach items="${commentaires}" var="item">
-                            <div class="row col-xs-12" >
-                                <div class="media-photo-badge col-xs-2" >
-                                    <img  alt="shared.user_profile_image" data-pin-nopin="true" src="resources/img/team/team-member-1.jpg" title="image du profil" >
+                            <div class="row col-xs-12">
+                                <div class="media-photo-badge col-xs-2 " >
+                                    <img  class="circular-profil-image-comment" alt="shared.user_profile_image" data-pin-nopin="true" src="resources/img/team/team-member-1.jpg" title="image du profil" >
                                     <p>${item.getsNom()}</p>
                                 </div> 
-                                <div class="avatar-wrapper "></div>
-                                <div class="media-photo-badge col-xs-10" >
+                                <div class="media-photo-badge col-xs-10 col-xs-push-2 col-sm-push-0" >
                                     <p>${item.getlCommentaire()}</p>
                                 </div> 
                             </div>
@@ -146,11 +173,11 @@
                                             <input class="form-control" type="text" value="" placeholder="Name" required>
 
                                         </div>
-                                        
-                                            <div >
-                                                <textarea class="form-control" rows="3" cols="40" placeholder="Comment" required></textarea>
-                                            </div>
-                                  
+
+                                        <div >
+                                            <textarea class="form-control" rows="3" cols="40" placeholder="Comment" required></textarea>
+                                        </div>
+
                                     </div>
                                 </fieldset>
                                 <button class="btn btn-color pull-right" type="submit">Post Reply</button>
@@ -180,34 +207,6 @@
             <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
         </div>
         <!-- /Wrap -->
-        <!-- The Scripts -->
-        <script src="resources/js/jquery.min.js"></script>
-        <script src="resources/js/jquery-migrate-1.0.0.js"></script>
-        <script src="resources/js/jquery-ui.js"></script>
-        <script src="resources/js/bootstrap.js"></script>
-        <script src="resources/js/revolution-slider/js/jquery.themepunch.plugins.min.js"></script> 
-        <script src="resources/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
-        <script src="resources/js/jquery.parallax.js"></script>
-        <script src="resources/js/jquery.wait.js"></script>
-        <script src="resources/js/fappear.js"></script> 
-        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
-        <script src="resources/js/jquery.bxslider.min.js"></script>
-        <script src="resources/js/jquery.prettyPhoto.js"></script>
-        <script src="resources/js/superfish.js"></script>
-        <script src="resources/js/tweetMachine.js"></script>
-        <script src="resources/js/tytabs.js"></script>
-        <script src="resources/js/jquery.gmap.min.js"></script>
-        <script src="resources/js/jquery.sticky.js"></script>
-        <script src="resources/js/jquery.countTo.js"></script>
-        <script src="resources/js/jflickrfeed.js"></script>
-        <script src="resources/js/imagesloaded.pkgd.min.js"></script>
-        <script src="resources/js/waypoints.min.js"></script>
-        <script src="resources/js/wow.js"></script>
-        <script src="resources/js/jquery.fitvids.js"></script>
-        <script src="resources/js/spectrum.js"></script>
-        <script src="resources/js/switcher.js"></script>
-        <script src="resources/js/custom.js"></script>
-        <script src="resources/js/home.js"></script>
     </body>
 </html>
 
