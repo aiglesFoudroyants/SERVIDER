@@ -1,16 +1,32 @@
-var stateHtml = $("#state")[0].innerHTML;
+var stateHtml = null;
+var serviceTemplate = null;
+
 
 
 $( document ).ready(function() {
-    $("#state").prop('disabled', true);
-    $("#chkService").prop('disabled', true);
-    $("#txtCompagnie").hide();
-    $("#txtService").hide();
+    stateHtml = $("#state")[0].innerHTML;
+    serviceTemplate = '<div class="row" style="display: none;">';
+    serviceTemplate += '<div class="form-group">';
+    serviceTemplate += '<div class="col-md-11">'; 
+    serviceTemplate += '<input class="form-control txtService" type="text" placeholder="' + $(".txtService").attr("placeholder") + '" value="">'; 
+    serviceTemplate += '</div>'; 
+    serviceTemplate += '<div class="col-md-1 padding0-5" style="display: flex;align-items: center;height: 4em;">'; 
+    serviceTemplate += '<i class="fa fa-2x fa-remove clean" style=\'color: red;cursor:pointer;\' onclick="removeService(event);"></i>'; 
+    serviceTemplate += '</div>';
+    serviceTemplate += '</div>';
+    serviceTemplate += '</div>';
     
     populateComboBoxes();
     bindInscription();
-    bindChkCompagnie();
+    bindChks();
+    bindAutocompleteService();
+    bindAdd();
+    
+    $("#state").prop('disabled', true);
+    $("#txtCompagnie").hide();
+    $("#serviceSection").hide();
 });
+
 
 function populateComboBoxes(){
     populateCountry();
@@ -121,8 +137,83 @@ function bindInscription(){
     });
 }
 
-function bindChkCompagnie(){
+function bindChks(){
     $("#chkCompagnie").bind('change', function(){
         $("#txtCompagnie").slideToggle();
     });
+    
+    $("#chkService").bind('change', function(){
+        $("#serviceSection").slideToggle();
+    });
+}
+
+function bindAutocompleteService(){
+    $(".txtService:first").autocomplete({
+        source: function (request, response) {
+            $.ajax({
+                dataType: "text",
+                type: 'Get',
+                contentType: 'text/plain; charset=UTF-8',
+                url: 'typesServices.htm',
+                data: {entree: $(".txtService:first").val(), langue: $("#language  option:selected").val()},
+                success: function (data) {
+                    $('input.suggest-user').removeClass('ui-autocomplete-loading');
+                    response(data.split(","));
+                },
+                error: function (data) {
+                    console.log("error");
+                    $('input.suggest-user').removeClass('ui-autocomplete-loading');
+                }
+            });
+        },
+        messages: {
+            noResults: '',
+            results: function () {
+            }
+        }
+    });
+}
+
+function bindAdd(){
+    $("#btnAddService").bind('click', function(){
+        $("#btnAddService").parents('.row').prev('.row').after(serviceTemplate);
+        $("#btnAddService").parents('.row').prev('.row').slideDown();
+        $("#serviceSection").children('.txtService:last').autocomplete({
+            source: function (request, response) {
+                $.ajax({
+                    dataType: "text",
+                    type: 'Get',
+                    contentType: 'text/plain; charset=UTF-8',
+                    url: 'typesServices.htm',
+                    data: {entree: $(".txtService:last").val(), langue: $("#language  option:selected").val()},
+                    success: function (data) {
+                        $('input.suggest-user').removeClass('ui-autocomplete-loading');
+                        response(data.split(","));
+                    },
+                    error: function (data) {
+                        console.log("error");
+                        $('input.suggest-user').removeClass('ui-autocomplete-loading');
+                    }
+                });
+            },
+            messages: {
+                noResults: '',
+                results: function () {
+                }
+            }
+        });
+    });
+}
+
+function removeService(e){
+    var deleteButton = $(e.target);
+    if((deleteButton.parents("#serviceSection").find(".row").length-1) > 1){
+        var row = deleteButton.parents(".row:first");
+        row.slideUp('slow', function(){
+            row.remove();
+        });
+    }
+    else{
+        deleteButton.parents(".row:first").find(".txtService").val("");
+    }
 }

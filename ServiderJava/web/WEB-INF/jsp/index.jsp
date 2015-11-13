@@ -89,10 +89,8 @@
         <script src="resources/js/custom.js"></script>
         <script src="resources/js/home.js"></script>
     </head>
-    <body class="home">
-     
-        <div class="page-mask">
-            
+    <body class="home">     
+        <div class="page-mask">            
             <div class="page-loader">
                 <div class="spinner"></div>
                 <fmt:message key="loading"/>
@@ -124,8 +122,7 @@
             </section>
             <!-- /Main Section -->
             <!-- Footer -->
-            <%@ include file="partials/footer.jsp" %>  
-            
+            <%@ include file="partials/footer.jsp" %>             
             <!-- Scroll To Top --> 
             <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
         </div>

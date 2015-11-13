@@ -195,15 +195,13 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row padding0-5">
-                                                    <div class="col-md-12">
-                                                        <span class="remember-box checkbox">
-                                                            <label for="profil_affaires">
-                                                                <input id="chkCompagnie" type="checkbox" name="profil_affaires">
-                                                                <fmt:message key="chkBusiness"/>
-                                                            </label>
-                                                        </span>
-                                                    </div>
+                                                <div class="col-md-12">
+                                                    <span class="remember-box checkbox">
+                                                        <label for="profil_affaires">
+                                                            <input id="chkCompagnie" type="checkbox" name="profil_affaires">
+                                                            <fmt:message key="chkBusiness"/>
+                                                        </label>
+                                                    </span>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group">
@@ -212,37 +210,23 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row padding0-5">
-                                                    <div class="col-md-12">
-                                                        <span class="remember-box checkbox">
-                                                            <label for="fournisseur_service">
-                                                                <input id="chkService" type="checkbox" name="fournisseur_service">
-                                                                <fmt:message key="chkService"/>
-                                                            </label>
-                                                        </span>
-                                                    </div>
+                                                <div class="col-md-12">
+                                                    <span class="remember-box checkbox">
+                                                        <label for="fournisseur_service">
+                                                            <input id="chkService" type="checkbox" name="fournisseur_service">
+                                                            <fmt:message key="chkService"/>
+                                                        </label>
+                                                    </span>
                                                 </div>
-                                                <div id="serviceSection">
-                                                    <div class="row">
-                                                        <div class="form-group">
-                                                            <div class="col-md-11 col-xs-11">
-                                                                <input class="form-control txtService" type="text" placeholder="<fmt:message key="plhService"/>" value="">
-                                                            </div>
-                                                            <div class="col-md-1 col-xs-1 padding0-5" style="display: flex;align-items: center;height: 4em;">
-                                                                <i class="fa fa-2x fa-remove clean" style='color: red;cursor:pointer;' onclick="removeService(event);"></i> 
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="form-group">
-                                                            <div class="col-md-2 col-md-push-9">
-                                                                <button id="btnAddService" class="btn btn-color push-bottom" style="width: 100%;" type="button" data-loading-text="Loading..."><i class="fa fa-2x fa-plus clean" style="color: white"></i></button>
-                                                            </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input id="txtService" class="form-control" type="text" placeholder="<fmt:message key="plhService"/>" value="">
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="row margin-top60">
-                                                    <div class="col-md-4 col-md-push-4">
+                                                <div class="row">
+                                                    <div class="col-md-3 pull-right">
                                                         <input id="btnRegister" class="btn btn-color push-bottom" style="width: 100%;" type="button" data-loading-text="Loading..." value="<fmt:message key="btnRegister"/>">
                                                     </div>
                                                 </div>
