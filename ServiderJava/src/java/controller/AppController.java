@@ -12,7 +12,9 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import hibernate.model.ModelCommentaire;
 import hibernate.model.Utilisateur;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +28,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class AppController {
+   
 
     @RequestMapping("/welcome")
     public ModelAndView helloWorld() {
@@ -48,8 +51,12 @@ public class AppController {
 
     @RequestMapping("/profil")
     public ModelAndView profil() {
+        Map<String, Object> map = new HashMap();
         Commentaire[] tabCommentaires = DBHelper.getInstance().getListeTousCommentaires();
-        return new ModelAndView("profil", "commentaires", tabCommentaires);
+        
+        map.put("commentaires", tabCommentaires);
+        
+        return new ModelAndView("profil", map);
     }
 
     @RequestMapping("/recuperation")
@@ -112,7 +119,7 @@ public class AppController {
         DBHelper helper = DBHelper.getInstance();
         return String.valueOf(helper.insererUtilisateur(new Utilisateur(Integer.parseInt(paysID),
                 Integer.parseInt(provinceID), Integer.parseInt(sexeID),
-                Integer.parseInt(langueID), sNomCompagnie, sNom, sPrenom,
+                Integer.parseInt(langueID), sNom, sPrenom,
                 sPassword, sCourriel, sAdresse, sCodePostal, sVille)));
     }
     

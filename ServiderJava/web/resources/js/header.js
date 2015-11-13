@@ -1,7 +1,7 @@
 
+
 $(document).ready(function () {
     var utilisateur;
-    
     if($.cookie("servider-user-id")){
         $.ajax({
             dataType: "json",

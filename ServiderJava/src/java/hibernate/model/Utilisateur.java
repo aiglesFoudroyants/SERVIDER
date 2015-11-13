@@ -21,7 +21,6 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Utilisateur")
 public class Utilisateur implements Serializable {
-    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -72,19 +71,22 @@ public class Utilisateur implements Serializable {
     @Column(name = "dLastConnected", nullable = true)
     private Date dLastConnected;
     @Column(name = "dlRatingClient", nullable = true)
-    private double dlRatingClient;
+    private Double dlRatingClient;
     @Column(name = "dlRatingService", nullable = true)
-    private double dlRatingService;
+    private Double dlRatingService;
     @Column(name = "sCheminImgProfile", nullable = true)
     private String sCheminImgProfile;
+    @Column(name = "lDescription", nullable = true)
+    private String lDescription;
 
-    public Utilisateur(int paysID, int provinceID, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, String sAdresse, String sCodePostal, String sVille) {
+    public Utilisateur(int paysID, int provinceID, int sexeID, int langueID,
+            String sNom, String sPrenom, String sPassword, String sCourriel,
+            String sAdresse, String sCodePostal, String sVille) {
         this.paysID = paysID;
         this.provinceID = provinceID;
         this.sexeID = sexeID;
         this.langueID = langueID;
         this.statusUtilisateurId = 1;
-        this.sNomCompagnie = sNomCompagnie;
         this.sNom = sNom;
         this.sPrenom = sPrenom;
         this.sPassword = sPassword;
@@ -93,11 +95,15 @@ public class Utilisateur implements Serializable {
         this.sCodePostal = sCodePostal;
         this.sVille = sVille;
     }
-    
-    
-    
 
-    public Utilisateur(int idUtilisateur, int paysID, int provinceID, int StatusUtilisateur, int sexeID, int langueID, String sNomCompagnie, String sNom, String sPrenom, String sPassword, String sCourriel, boolean bVerifCouriel, boolean bVerifFacebook, boolean bVerifLinkedIn, boolean bVerifTwitter, String sFacebook, String sLinkedIn, String sTwitter, String sTelephone, String sAdresse, String sCodePostal, String sVille, Date dLastConnected, double dlRaitingClient, double dlRaitingServices, String sCheminImgProfile) {
+    public Utilisateur(int idUtilisateur, int paysID, int provinceID,
+            int StatusUtilisateur, int sexeID, int langueID, String sNomCompagnie,
+            String sNom, String sPrenom, String sPassword, String sCourriel,
+            boolean bVerifCouriel, boolean bVerifFacebook, boolean bVerifLinkedIn,
+            boolean bVerifTwitter, String sFacebook, String sLinkedIn, String sTwitter,
+            String sTelephone, String sAdresse, String sCodePostal, String sVille,
+            Date dLastConnected, Double dlRatingClient, Double dlRatingServices,
+            String sCheminImgProfile, String lDescription) {
         this.idUtilisateur = idUtilisateur;
         this.paysID = paysID;
         this.provinceID = provinceID;
@@ -121,9 +127,10 @@ public class Utilisateur implements Serializable {
         this.sCodePostal = sCodePostal;
         this.sVille = sVille;
         this.dLastConnected = dLastConnected;
-        this.dlRatingClient = dlRaitingClient;
-        this.dlRatingService = dlRaitingServices;
+        this.dlRatingClient = dlRatingClient;
+        this.dlRatingService = dlRatingServices;
         this.sCheminImgProfile = sCheminImgProfile;
+        this.lDescription = lDescription;
     }
 
     public Utilisateur() {
@@ -317,16 +324,16 @@ public class Utilisateur implements Serializable {
         return dlRatingClient;
     }
 
-    public void setDlRaitingClient(double dlRaitingClient) {
-        this.dlRatingClient = dlRaitingClient;
+    public void setDlRatingClient(Double dlRatingClient) {
+        this.dlRatingClient = dlRatingClient;
     }
 
     public double getDlRaitingServices() {
         return dlRatingService;
     }
 
-    public void setDlRaitingServices(double dlRaitingServices) {
-        this.dlRatingService = dlRaitingServices;
+    public void setDlRatingServices(Double dlRatingService) {
+        this.dlRatingService = dlRatingService;
     }
 
     public String getsCheminImgProfile() {
@@ -336,5 +343,45 @@ public class Utilisateur implements Serializable {
     public void setsCheminImgProfile(String sCheminImgProfile) {
         this.sCheminImgProfile = sCheminImgProfile;
     }
-    
+
+    public int getStatusUtilisateurId() {
+        return statusUtilisateurId;
+    }
+
+    public void setStatusUtilisateurId(int statusUtilisateurId) {
+        this.statusUtilisateurId = statusUtilisateurId;
+    }
+
+    public boolean isbVerifCourriel() {
+        return bVerifCourriel;
+    }
+
+    public void setbVerifCourriel(boolean bVerifCourriel) {
+        this.bVerifCourriel = bVerifCourriel;
+    }
+
+    public String getsVille() {
+        return sVille;
+    }
+
+    public void setsVille(String sVille) {
+        this.sVille = sVille;
+    }
+
+    public Double getDlRatingService() {
+        return dlRatingService;
+    }
+
+    public void setDlRatingService(Double dlRatingService) {
+        this.dlRatingService = dlRatingService;
+    }
+
+    public String getlDescription() {
+        return lDescription;
+    }
+
+    public void setlDescription(String lDescription) {
+        this.lDescription = lDescription;
+    }
+
 }
