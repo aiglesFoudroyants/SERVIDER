@@ -112,6 +112,7 @@ public class DBHelper {
         ).addEntity(Utilisateur.class);
         utilisateur = (Utilisateur) query.uniqueResult();
         if (utilisateur != null) {
+            System.out.println("not null");
             idUser = utilisateur.getIdUtilisateur();
         }
 

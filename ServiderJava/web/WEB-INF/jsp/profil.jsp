@@ -86,7 +86,7 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
-        <script src="resources/js/home.js"></script>
+        <script src="resources/js/profil.js"></script>   
     </head>
     <body class="home">
         <div class="page-mask">
@@ -98,34 +98,31 @@
         <!-- Wrap -->
         <div class="wrap">
             <!-- Header -->      
-            <%@ include file="partials/header.jsp" %>      
+            <%@ include file="partials/header.jsp" %>   
             <!-- /Header --> 
             <!-- Main Section -->
-            
 
             <section id="main">
                 <div class="content-about margin-top60">
                     <div class="container">
                         <div class="row">
-
-                            <div class="posts-block col-md-3">  
-                                <h2>Carlos Gringo</h2>
+                            <div class="posts-block col-xs-12 col-sm-3">  
+                                <h3 id="lblNom"></h3>
                                 <img class="logo-color" src="resources/img/client1.jpg" alt="profil picture" >
-                                <div class = "btn contact col-md-12">
-                                    <input type="submit" value="<fmt:message key="btnContacter"/>" data-loading-text="Loading..." class="btn btn-color push-bottom col-md-12">
+                                <div class = "btn contact col-xs-12">
+                                    <input type="submit" value="<fmt:message key="btnContacter"/>" data-loading-text="Loading..." class="btn btn-color push-bottom col-xs-12">
                                 </div>
-                                <div class="row">                                   
-                                    <img  width="20px" height="20px" src="resources/img/offline.png" >
-                                    <p class="col-xs-7 col-xs-push-3">offline</p>
+                                <div class="row col-xs-12 col-xs-12"> 
+                                    <div class="col-xs-push-3 col-xs-3"> 
+                                        <img  width="20px" height="20px" src="resources/img/offline.png" >
+                                    </div>
+                                    <p class=" col-xs-6 col-xs-push-3 " >offline</p>
                                 </div>
                             </div>
-                            <div class="posts-block col-md-9">
-                                <h2>Bio</h2>
-                                <p>Carlos, de son vrai nom Yvan-Chrysostome Dolto, est un chanteur, acteur et fantaisiste français né le 20 février 1943 dans le 5e arrondissement de Paris1,2, et mort à Clichy le 17 janvier 2008. Incarnant la variété populaire, il fut un ami proche de Dorothée, d'Eddie Barclay, de Chantal Goya, de Sim, de Dave, d'Annie Cordy, de Johnny Hallyday, de Joe Dassin, de Jeane Manson, de Coluche et surtout de Sylvie Vartan qui lui permit de faire ses premiers pas sur scène à ses côtés.
-
-                                    Son vaste répertoire est enjoué et festif, avec souvent une connotation grivoise ludique, comme Le Tirelipimpon ou Papayou. Doté d'un fort embonpoint et d'un visage naturellement débonnaire et jovial, Carlos a rapidement adopté une allure propre (colliers de fleurs, chemises hawaïennes) similaire à celle d'un autre chanteur français, 
+                            <div class="posts-block col-xs-12 col-sm-9">                       
+                                <p id="lblDescription">
+                                    <fmt:message key="noDescription" />
                                 </p>
-
                             </div>
                         </div>
                         <!-- Star -->
