@@ -51,7 +51,6 @@
         </div>
         <!-- /Main Header -->
     </header>
-
     <section id="modals">
         <!-- Login Modal -->
         <div class="modal login fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
