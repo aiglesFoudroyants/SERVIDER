@@ -28,7 +28,6 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class AppController {
-   
 
     @RequestMapping("/welcome")
     public ModelAndView helloWorld() {
@@ -53,9 +52,9 @@ public class AppController {
     public ModelAndView profil() {
         Map<String, Object> map = new HashMap();
         Commentaire[] tabCommentaires = DBHelper.getInstance().getListeTousCommentaires();
-        
+
         map.put("commentaires", tabCommentaires);
-        
+
         return new ModelAndView("profil", map);
     }
 
@@ -122,11 +121,20 @@ public class AppController {
                 Integer.parseInt(langueID), sNom, sPrenom,
                 sPassword, sCourriel, sAdresse, sCodePostal, sVille)));
     }
-    
+
     @RequestMapping(value = "/getUtilisateur", method = RequestMethod.GET)
-    public @ResponseBody String getUtilisateur(@RequestParam String id){
+    public @ResponseBody
+    String getUtilisateur(@RequestParam String id) {
         DBHelper helper = DBHelper.getInstance();
         Gson gson = new Gson();
         return gson.toJson(helper.getUtilisateur(Integer.parseInt(id)));
+    }
+
+    @RequestMapping(value = "/getStatusUtilisateur", method = RequestMethod.GET)
+    public @ResponseBody
+    String getStatusUtilisateur(@RequestParam String id ) {
+        DBHelper helper = DBHelper.getInstance();
+        Gson gson = new Gson();
+        return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
     }
 }

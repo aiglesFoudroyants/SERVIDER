@@ -23,25 +23,31 @@ import javax.persistence.Table;
 public class StatusUtilisateur implements Serializable{
        @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "StatusUtilisateur", nullable = false)
-    private int StatusUtilisateur;
+    @Column(name = "idStatusUtilisateur", nullable = false)
+    private int idStatusUtilisateur;
     @Column(name = "sStatutFr", nullable = false)
     private String sStatutFr;
     @Column(name = "sStatutEn", nullable = false)
     private String sStatutEn;
 
+    public StatusUtilisateur() {
+    }
+
+    
+    
     public StatusUtilisateur(int StatusUtilisateur, String sStatutFr, String sStatutEn) {
-        this.StatusUtilisateur = StatusUtilisateur;
+        this.idStatusUtilisateur = StatusUtilisateur;
         this.sStatutFr = sStatutFr;
         this.sStatutEn = sStatutEn;
     }
 
-    public int getStatusUtilisateur() {
-        return StatusUtilisateur;
+    public int getIdStatusUtilisateur() {
+        return idStatusUtilisateur;
     }
+    
 
-    public void setStatusUtilisateur(int StatusUtilisateur) {
-        this.StatusUtilisateur = StatusUtilisateur;
+    public void setIdStatusUtilisateur(int idStatusUtilisateur) {
+        this.idStatusUtilisateur = idStatusUtilisateur;
     }
 
     public String getsStatutFr() {

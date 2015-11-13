@@ -26,6 +26,9 @@ public class Utilisateur implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idUtilisateur", nullable = false)
     private int idUtilisateur;
+    
+    
+    
     @Column(name = "paysId", nullable = false)
     private int paysID;
     @Column(name = "provinceID", nullable = false)

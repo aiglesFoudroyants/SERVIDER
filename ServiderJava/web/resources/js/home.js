@@ -9,7 +9,7 @@ $(document).ready(function () {
                 data: {entree: $("#search").val(), langue: $("#language  option:selected").val()},
                 success: function (data) {
                     $('input.suggest-user').removeClass('ui-autocomplete-loading');
-                    console.log("dataé " + data);
+                    console.log("data " + data);
                     response(data.split(","));
                 },
                 error: function (data) {
