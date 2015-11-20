@@ -116,7 +116,7 @@
                                     <div class="col-xs-push-3 col-xs-3"> 
                                         <img  width="20px" height="20px" src="resources/img/offline.png" >
                                     </div>
-                                    <p class=" col-xs-6 col-xs-push-3 " >offline</p>
+                                    <p id ="lblStatus"class=" col-xs-6 col-xs-push-3 " >bob</p>
                                 </div>
                             </div>
                             <div class="posts-block col-xs-12 col-sm-9">                       

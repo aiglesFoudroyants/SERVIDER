@@ -10,7 +10,7 @@ $(document).ready(function () {
                 success: function (data) {
                     $('input.suggest-user').removeClass('ui-autocomplete-loading');
                     data = $("<textarea/>").html(data).text();
-                    console.log("dataÃ© " + data);
+                    console.log("dataé " + data);
                     response(data.split(","));
                 },
                 error: function (data) {
