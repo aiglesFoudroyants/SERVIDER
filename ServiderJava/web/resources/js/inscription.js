@@ -38,6 +38,7 @@ function populateComboBoxes(){
 function populateCountry(){
     $.get("pays.htm",function(data){
         var select = $("#country");
+        data = $("<textarea/>").html(data).text();
         $(data).find("paysGroup").children("pays").each(function(){
             var pays = {
                 id: $(this).children("id"),
@@ -55,6 +56,7 @@ function populateCountry(){
 function populateGenre(){
     $.get("genre.htm",function(data){
         var select = $("#gender");
+        data = $("<textarea/>").html(data).text();
         $(data).find("genres").children("genre").each(function(){
             var genre = {
                 id: $(this).children("id"),
@@ -71,6 +73,7 @@ function populateGenre(){
 function populateLangue(){
     $.get("langue.htm",function(data){
         var select = $("#preferredLanguage");
+        data = $("<textarea/>").html(data).text();
         $(data).find("langues").children("langue").each(function(){
             var langue = {
                 id: $(this).children("id"),
@@ -89,6 +92,7 @@ function bindState(){
         $.get("province.htm",function(data){
             var select = $("#state");
             var paysId = $("#country  option:selected").val();
+            data = $("<textarea/>").html(data).text();
             select[0].innerHTML = stateHtml;
             if(paysId === "0"){
                 select.prop('disabled', true);
@@ -115,14 +119,15 @@ function bindState(){
 }
 
 function bindInscription(){
-    var data;
+    var user;
+    var services;
     $("#btnRegister").bind('click', function(){
-        data = {
+        user = {
             paysID: $("#country option:selected").val(), 
             provinceID: $("#state option:selected").val(),
             sexeID: $("#gender option:selected").val(), 
             langueID: $("#preferredLanguage option:selected").val(),
-            sNomCompagnie: $("#txtCompagnie").val(), 
+            sNomCompagnie: $("#chkCompagnie").is(':checked') ? $("#txtCompagnie").val() : "", 
             sNom: $("#txtNom").val(),
             sPrenom: $("#txtPrenom").val(), 
             sPassword: $("#txtPassword").val(),
@@ -131,8 +136,25 @@ function bindInscription(){
             sCodePostal: $("#txtCode").val(), 
             sVille: $("#txtVille").val()
         };
-        $.post('insertUtilisateur.htm',data).done(function(data){
-            alert("Inscription Réussi");
+        
+        services = [];
+               
+        if($("#chkService").is(':checked')){
+            $(".txtService").each(function(){
+                services.push($(this).val());
+            });
+        }
+        $.ajax({
+            dataType: "json",
+            type: 'POST',
+            url: 'insertUtilisateur.htm',
+            data: {user:JSON.stringify(user), services:JSON.stringify(services), langue: $("#language option:selected").val()},
+            success: function (data) {
+                alert("Inscription Réussi");
+            },
+            error: function (data) {
+                console.log("error ajax: ", data);
+            }
         });
     });
 }
@@ -158,6 +180,7 @@ function bindAutocompleteService(){
                 data: {entree: $(".txtService:first").val(), langue: $("#language  option:selected").val()},
                 success: function (data) {
                     $('input.suggest-user').removeClass('ui-autocomplete-loading');
+                    data = $("<textarea/>").html(data).text();
                     response(data.split(","));
                 },
                 error: function (data) {
@@ -178,7 +201,7 @@ function bindAdd(){
     $("#btnAddService").bind('click', function(){
         $("#btnAddService").parents('.row').prev('.row').after(serviceTemplate);
         $("#btnAddService").parents('.row').prev('.row').slideDown();
-        $("#serviceSection").children('.txtService:last').autocomplete({
+        $("#serviceSection").find('.txtService:last').autocomplete({
             source: function (request, response) {
                 $.ajax({
                     dataType: "text",
@@ -188,6 +211,7 @@ function bindAdd(){
                     data: {entree: $(".txtService:last").val(), langue: $("#language  option:selected").val()},
                     success: function (data) {
                         $('input.suggest-user').removeClass('ui-autocomplete-loading');
+                        data = $("<textarea/>").html(data).text();
                         response(data.split(","));
                     },
                     error: function (data) {
