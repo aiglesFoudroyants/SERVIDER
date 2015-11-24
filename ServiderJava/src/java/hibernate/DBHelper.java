@@ -217,7 +217,9 @@ public class DBHelper {
         return utilisateur;
     }
 
+
     public StatusUtilisateur getStatusUtilisateur(int id) {
+
         StatusUtilisateur statusUtilisateur = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -227,6 +229,34 @@ public class DBHelper {
         ).addEntity(StatusUtilisateur.class);
         statusUtilisateur = (StatusUtilisateur) query.uniqueResult();
 
+        
         return statusUtilisateur;
+    }    
+    public int[] getIdTypeServiceParNom(String[] nomServices, String langue){
+        System.out.println(langue);
+        int[] id = new int[nomServices.length];
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();     
+        for (int i = 0; i < nomServices.length; i ++) {
+            Query query = session.createSQLQuery(
+                "select * from typeService where sType"+langue+" = '"
+                + nomServices[i] + "';"
+                ).addEntity(TypeService.class);
+            id[i] = ((TypeService) query.uniqueResult()).getId();
+        }
+        return id;
+    }
+    
+    public int insererService (int utilisateurId, int typeServiceId) {
+        int id;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Service service = new Service(utilisateurId, typeServiceId);
+        id = (int) session.save(service);
+        session.getTransaction().commit();
+        session.close();
+
+        return id;
+
     }
 }

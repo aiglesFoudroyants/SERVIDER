@@ -12,6 +12,7 @@ import java.io.UnsupportedEncodingException;
 import hibernate.model.Utilisateur;
 import java.util.HashMap;
 import java.util.Map;
+import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,7 +61,7 @@ public class AppController {
     String getTousTypesService(@RequestParam String entree, @RequestParam String langue) throws UnsupportedEncodingException {
         DBHelper helper = DBHelper.getInstance();
         String typesServices = String.join(",", helper.getListeTousTypesService(entree, langue));
-        typesServices = new String(typesServices.getBytes("UTF-8"), "UTF-8");
+        typesServices = StringEscapeUtils.escapeHtml4(typesServices);
         return typesServices;
     }
 
@@ -75,43 +76,50 @@ public class AppController {
     public @ResponseBody
     String getAllPays() {
         DBHelper helper = DBHelper.getInstance();
-        return helper.getAllPays();
+        String pays = StringEscapeUtils.escapeHtml4(helper.getAllPays());
+        return pays;
     }
 
     @RequestMapping(value = "/province", method = RequestMethod.GET)
     public @ResponseBody
     String getAllProvinces() {
         DBHelper helper = DBHelper.getInstance();
-        return helper.getAllProvinces();
+        String provinces = StringEscapeUtils.escapeHtml4(helper.getAllProvinces());
+        return provinces;
     }
 
     @RequestMapping(value = "/genre", method = RequestMethod.GET)
     public @ResponseBody
     String getAllGenres() {
         DBHelper helper = DBHelper.getInstance();
-        return helper.getAllGenres();
+        String genres = StringEscapeUtils.escapeHtml4(helper.getAllGenres());
+        return genres;
     }
 
     @RequestMapping(value = "/langue", method = RequestMethod.GET)
     public @ResponseBody
     String getAllLangues() {
         DBHelper helper = DBHelper.getInstance();
-        return helper.getAllLangues();
+        String langues = StringEscapeUtils.escapeHtml4(helper.getAllLangues());
+        return langues;
     }
 
     @RequestMapping(value = "/insertUtilisateur", method = RequestMethod.POST)
     public @ResponseBody
-    String insertUtilisateur(@RequestParam String paysID, @RequestParam String provinceID,
-            @RequestParam String sexeID, @RequestParam String langueID,
-            @RequestParam String sNomCompagnie, @RequestParam String sNom,
-            @RequestParam String sPrenom, @RequestParam String sPassword,
-            @RequestParam String sCourriel, @RequestParam String sAdresse,
-            @RequestParam String sCodePostal, @RequestParam String sVille) {
+    String insertUtilisateur(@RequestParam String user, @RequestParam String services, @RequestParam String langue) {
         DBHelper helper = DBHelper.getInstance();
-        return String.valueOf(helper.insererUtilisateur(new Utilisateur(Integer.parseInt(paysID),
+        Gson gson = new Gson();
+        Utilisateur utilisateur = gson.fromJson(user, Utilisateur.class);
+        
+        utilisateur.setIdUtilisateur(helper.insererUtilisateur(utilisateur));
+        int[] idServices = helper.getIdTypeServiceParNom(gson.fromJson(services, String[].class), langue);
+        for (int idService : idServices) {
+            helper.insererService(utilisateur.getIdUtilisateur(), idService);
+        }
+        return null/* String.valueOf(helper.insererUtilisateur(new Utilisateur(Integer.parseInt(paysID),
                 Integer.parseInt(provinceID), Integer.parseInt(sexeID),
                 Integer.parseInt(langueID), sNom, sPrenom,
-                sPassword, sCourriel, sAdresse, sCodePostal, sVille)));
+                sPassword, sCourriel, sAdresse, sCodePostal, sVille)))*/;
     }
 
     @RequestMapping(value = "/getUtilisateur", method = RequestMethod.GET)
