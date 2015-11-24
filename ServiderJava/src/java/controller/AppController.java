@@ -9,11 +9,8 @@ import com.google.gson.Gson;
 import hibernate.DBHelper;
 import hibernate.model.Commentaire;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import hibernate.model.ModelCommentaire;
 import hibernate.model.Utilisateur;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,14 +45,9 @@ public class AppController {
         return new ModelAndView("inscription");
     }
 
-    @RequestMapping("/profil")
+    @RequestMapping(value = "/profil")
     public ModelAndView profil() {
-        Map<String, Object> map = new HashMap();
-        Commentaire[] tabCommentaires = DBHelper.getInstance().getListeTousCommentaires();
-
-        map.put("commentaires", tabCommentaires);
-
-        return new ModelAndView("profil", map);
+        return new ModelAndView("profil");
     }
 
     @RequestMapping("/recuperation")
@@ -132,9 +124,18 @@ public class AppController {
 
     @RequestMapping(value = "/getStatusUtilisateur", method = RequestMethod.GET)
     public @ResponseBody
-    String getStatusUtilisateur(@RequestParam String id ) {
+    String getStatusUtilisateur(@RequestParam String id) {
         DBHelper helper = DBHelper.getInstance();
         Gson gson = new Gson();
         return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
+    }
+
+    @RequestMapping(value = "/getCommentaires", method = RequestMethod.GET)
+    public @ResponseBody
+    String getCommentaires(@RequestParam String id, @RequestParam String serviceOrClient) {
+        int idAsInt = Integer.parseInt(id);
+        return new Gson().toJson(serviceOrClient.equals("service")
+                ? DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt)
+                : DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt));
     }
 }

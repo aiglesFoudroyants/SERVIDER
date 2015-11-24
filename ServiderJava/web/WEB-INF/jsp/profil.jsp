@@ -57,8 +57,8 @@
         <!--[if IE]>
         <link rel="stylesheet" href="resources/css/ie.css">
         <![endif]-->
-        
-        
+
+
         <!-- The Scripts -->
         <script src="resources/js/jquery.min.js"></script>
         <script src="resources/js/jquery-migrate-1.0.0.js"></script>
@@ -137,17 +137,9 @@
                                 </div>
                             </div>
                         </div>
-                        <c:forEach items="${commentaires}" var="item">
-                            <div class="row col-xs-12">
-                                <div class="media-photo-badge col-xs-2 " >
-                                    <img  class="circular-profil-image-comment" alt="shared.user_profile_image" data-pin-nopin="true" src="resources/img/team/team-member-1.jpg" title="image du profil" >
-                                    <p>${item.getsNom()}</p>
-                                </div> 
-                                <div class="media-photo-badge col-xs-10 col-xs-push-2 col-sm-push-0" >
-                                    <p>${item.getlCommentaire()}</p>
-                                </div> 
-                            </div>
-                        </c:forEach>
+                        <dib id="commentaires">
+                            
+                        </dib>
                         <!-- Star-->
                         <div class="star">
                             <div class="row">
@@ -168,13 +160,10 @@
                                     <div class="row">
                                         <div>
                                             <input class="form-control" type="text" value="" placeholder="Name" required>
-
                                         </div>
-
                                         <div >
                                             <textarea class="form-control" rows="3" cols="40" placeholder="Comment" required></textarea>
                                         </div>
-
                                     </div>
                                 </fieldset>
                                 <button class="btn btn-color pull-right" type="submit">Post Reply</button>
@@ -183,18 +172,8 @@
                             </form>
                         </div>
                         <!-- /Reply Section -->
-
                     </div>
-
-
-
-
-
             </section>
-
-
-
-
             <!-- /Main Section -->
 
             <!-- Footer -->            
