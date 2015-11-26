@@ -135,3 +135,13 @@ where utilisateur.idUtilisateur = 1;
 update utilisateur
 set statusUtilisateur = 3
 where utilisateur.idUtilisateur = 1;
+
+#selectioner la note d"un utilisateur en tant que client
+select dlRatingClient
+from utilisateur 
+where idUtilisateur=1;
+
+#selectioner la note d"un utilisateur en tant que fournisseur de service
+select dlRatingService
+from utilisateur 
+where idUtilisateur=1;
