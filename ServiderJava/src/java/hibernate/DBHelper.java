@@ -228,8 +228,6 @@ public class DBHelper {
                 + id + "';"
         ).addEntity(StatusUtilisateur.class);
         statusUtilisateur = (StatusUtilisateur) query.uniqueResult();
-
-        
         return statusUtilisateur;
     }    
     public int[] getIdTypeServiceParNom(String[] nomServices, String langue){
@@ -255,7 +253,6 @@ public class DBHelper {
         id = (int) session.save(service);
         session.getTransaction().commit();
         session.close();
-
         return id;
 
     }
