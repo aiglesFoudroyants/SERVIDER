@@ -39,6 +39,7 @@
         <!-- Switcher CSS -->
         <link href="resources/css/switcher.css" rel="stylesheet">
         <link href="resources/css/spectrum.css" rel="stylesheet">
+        <link href="resources/css/jquery.rating.css" rel="stylesheet">
         <!-- JQuery-ui -->
         <link rel="stylesheet" href="resources/css/jquery-ui.min.css">
         <link rel="stylesheet" href="resources/css/jquery-ui.structure.min.css">
@@ -86,7 +87,12 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
-        <script src="resources/js/profil.js"></script>   
+        <script src="resources/js/profil.js"></script>  
+
+        <script src="resources/js/ratingBar/jquery.MetaData.js"></script>   
+        <script src="resources/js/ratingBar/jquery.form.js"></script> 
+        <script src="resources/js/ratingBar/jquery.rating.js"></script>  
+        <script src="resources/js/ratingBar/jquery.rating.pack.js"></script>   
     </head>
     <body class="home">
         <div class="page-mask">
@@ -118,6 +124,13 @@
                                     </div>
                                     <p id ="lblStatus"class=" col-xs-6 col-xs-push-3 " >bob</p>
                                 </div>
+                                <div class="col-md-12">    <input name="star3" type="radio" class="star" disabled="disabled"/> 
+                                    <input name="star3" type="radio" class="star" disabled="disabled"/> 
+                                    <input name="star3" type="radio" class="star" disabled="disabled" checked="checked"/> 
+                                    <input name="star3" type="radio" class="star" disabled="disabled"/> 
+                                    <input name="star3" type="radio" class="star" disabled="disabled"/>
+                                </div>
+
                             </div>
                             <div class="posts-block col-xs-12 col-sm-9">                       
                                 <p id="lblDescription">
@@ -138,7 +151,7 @@
                             </div>
                         </div>
                         <dib id="commentaires">
-                            
+
                         </dib>
                         <!-- Star-->
                         <div class="star">
