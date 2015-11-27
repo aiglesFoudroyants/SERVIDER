@@ -52,10 +52,30 @@ public class Commentaire implements Serializable {
     private boolean bRecommendation;
     @Column(name = "dDateCommentaire", nullable = false)
     private Date dDateCommentaire;
-    @Column(name = "sNom", nullable = false)
+    @Column(name = "sNom", nullable = true)
     private String sNom;
+    @Column(name = "sPrenom", nullable = true)
+    private String sPrenom;
+    @Column(name = "sCheminImgProfile", nullable = true)
+    private String sCheminImgProfile;
 
     public Commentaire() {
+    }
+
+    public String getsCheminImageProfile() {
+        return sCheminImgProfile;
+    }
+
+    public void setsCheminImageProfile(String sCheminImageProfile) {
+        this.sCheminImgProfile = sCheminImageProfile;
+    }
+    
+    public String getsPrenom() {
+        return sPrenom;
+    }
+
+    public void setsPrenom(String sPrenom) {
+        this.sPrenom = sPrenom;
     }
 
     public int getIdCommentaire() {

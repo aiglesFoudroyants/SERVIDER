@@ -9,11 +9,8 @@ import com.google.gson.Gson;
 import hibernate.DBHelper;
 import hibernate.model.Commentaire;
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import hibernate.model.ModelCommentaire;
 import hibernate.model.Utilisateur;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.springframework.stereotype.Controller;
@@ -30,18 +27,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AppController {
 
-    @RequestMapping("/welcome")
-    public ModelAndView helloWorld() {
-        String message = "<br><div style='text-align:center;'>"
-                + "<h3>Bonjour tout le monde</h3>"
-                + "*******Ce message provient de AppController.java **********"
-                + "</div><br><br>";
-        return new ModelAndView("welcome", "message", message);
-    }
-
     @RequestMapping("/index")
     public ModelAndView index() {
         return new ModelAndView("index");
+    }
+    
+    @RequestMapping("/recherche")
+    public ModelAndView recherche(@RequestParam(required=true) String recherche) {
+        Map<String, Object> map = new HashMap();
+        map.put("recherche", recherche);
+        return new ModelAndView("recherche", map);
     }
 
     @RequestMapping("/inscription")
@@ -49,14 +44,9 @@ public class AppController {
         return new ModelAndView("inscription");
     }
 
-    @RequestMapping("/profil")
+    @RequestMapping(value = "/profil")
     public ModelAndView profil() {
-        Map<String, Object> map = new HashMap();
-        Commentaire[] tabCommentaires = DBHelper.getInstance().getListeTousCommentaires();
-
-        map.put("commentaires", tabCommentaires);
-
-        return new ModelAndView("profil", map);
+        return new ModelAndView("profil");
     }
 
     @RequestMapping("/recuperation")
@@ -118,7 +108,7 @@ public class AppController {
         DBHelper helper = DBHelper.getInstance();
         Gson gson = new Gson();
         Utilisateur utilisateur = gson.fromJson(user, Utilisateur.class);
-        
+        utilisateur.setStatusUtilisateur(1);
         utilisateur.setIdUtilisateur(helper.insererUtilisateur(utilisateur));
         int[] idServices = helper.getIdTypeServiceParNom(gson.fromJson(services, String[].class), langue);
         for (int idService : idServices) {
@@ -140,9 +130,18 @@ public class AppController {
 
     @RequestMapping(value = "/getStatusUtilisateur", method = RequestMethod.GET)
     public @ResponseBody
-    String getStatusUtilisateur(@RequestParam String id ) {
+    String getStatusUtilisateur(@RequestParam String id) {
         DBHelper helper = DBHelper.getInstance();
         Gson gson = new Gson();
         return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
+    }
+
+    @RequestMapping(value = "/getCommentaires", method = RequestMethod.GET)
+    public @ResponseBody
+    String getCommentaires(@RequestParam String id, @RequestParam String serviceOrClient) {
+        int idAsInt = Integer.parseInt(id);
+        return new Gson().toJson(serviceOrClient.equals("service")
+                ? DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt)
+                : DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt));
     }
 }
