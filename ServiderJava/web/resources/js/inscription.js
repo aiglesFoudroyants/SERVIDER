@@ -136,7 +136,6 @@ function bindInscription(){
             sCodePostal: $("#txtCode").val(), 
             sVille: $("#txtVille").val()
         };
-        
         services = [];
                
         if($("#chkService").is(':checked')){

@@ -30,18 +30,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AppController {
 
-    @RequestMapping("/welcome")
-    public ModelAndView helloWorld() {
-        String message = "<br><div style='text-align:center;'>"
-                + "<h3>Bonjour tout le monde</h3>"
-                + "*******Ce message provient de AppController.java **********"
-                + "</div><br><br>";
-        return new ModelAndView("welcome", "message", message);
-    }
-
     @RequestMapping("/index")
     public ModelAndView index() {
         return new ModelAndView("index");
+    }
+    
+    @RequestMapping("/recherche")
+    public ModelAndView recherche(@RequestParam(required=true) String recherche) {
+        Map<String, Object> map = new HashMap();
+        map.put("recherche", recherche);
+        return new ModelAndView("recherche", map);
     }
 
     @RequestMapping("/inscription")
@@ -118,7 +116,7 @@ public class AppController {
         DBHelper helper = DBHelper.getInstance();
         Gson gson = new Gson();
         Utilisateur utilisateur = gson.fromJson(user, Utilisateur.class);
-        
+        utilisateur.setStatusUtilisateur(1);
         utilisateur.setIdUtilisateur(helper.insererUtilisateur(utilisateur));
         int[] idServices = helper.getIdTypeServiceParNom(gson.fromJson(services, String[].class), langue);
         for (int idService : idServices) {
