@@ -38,15 +38,16 @@ public class DBHelper {
         return genererTableauLangue(listeTousTypesService, langue);
     }
 
-    public Commentaire[] getListeTousCommentaires() {
+    public Commentaire[] getListeTousCommentairesCLient(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Commentaire> listeCommentaires;
 
         session.beginTransaction();
-        Query query = session.createSQLQuery("select commentaire.*, utilisateur.sNom "
-                + " from Commentaire "
-                + " join utilisateur "
-                + " on utilisateur.idutilisateur = commentaire.commentateurid")
+        Query query = session.createSQLQuery("select c.*, u.sNom, u.sPrenom,"
+                + " u.sCheminImgProfile from commentaire c"
+                + " join utilisateur u on u.idUtilisateur = c.commentateurId"
+                + " where c.receveurId = " + id + " and c.bReceveurClientOuService = true"
+                + " order by c.dDateCommentaire;")
                 .addEntity(Commentaire.class);
         listeCommentaires = (List<Commentaire>) query.list();
         session.getTransaction().commit();
@@ -54,6 +55,22 @@ public class DBHelper {
         return listeCommentaires.toArray(new Commentaire[listeCommentaires.size()]);
     }
     
+    public Commentaire[] getListeTousCommentairesService(int id) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        List<Commentaire> listeCommentaires;
+
+        session.beginTransaction();
+        Query query = session.createSQLQuery("select c.*, u.sNom, u.sPrenom, "
+                + " u.sCheminImgProfile from commentaire c"
+                + " join utilisateur u on u.idUtilisateur = c.commentateurId"
+                + " where c.receveurId = " + id + " and c.bReceveurClientOuService = false"
+                + " order by c.dDateCommentaire;")
+                .addEntity(Commentaire.class);
+        listeCommentaires = (List<Commentaire>) query.list();
+        session.getTransaction().commit();
+        session.close();
+        return listeCommentaires.toArray(new Commentaire[listeCommentaires.size()]);
+    }
 
     private String[] genererTableauLangue(List<TypeService> listeTousTypesService, String langue) {
         String[] tabStringLangue = new String[listeTousTypesService.size()];
@@ -186,8 +203,8 @@ public class DBHelper {
 
         return id;
     }
-    
-    public Utilisateur getUtilisateur(int id){
+
+    public Utilisateur getUtilisateur(int id) {
         Utilisateur utilisateur;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -200,7 +217,9 @@ public class DBHelper {
         return utilisateur;
     }
 
-    public StatusUtilisateur getStatusUtilisateur(int id){
+
+    public StatusUtilisateur getStatusUtilisateur(int id) {
+
         StatusUtilisateur statusUtilisateur = null;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -209,7 +228,6 @@ public class DBHelper {
                 + id + "';"
         ).addEntity(StatusUtilisateur.class);
         statusUtilisateur = (StatusUtilisateur) query.uniqueResult();
-        
         return statusUtilisateur;
     }    
     public int[] getIdTypeServiceParNom(String[] nomServices, String langue){
@@ -235,7 +253,7 @@ public class DBHelper {
         id = (int) session.save(service);
         session.getTransaction().commit();
         session.close();
-
         return id;
+
     }
 }
