@@ -54,7 +54,7 @@ public class DBHelper {
         session.close();
         return listeCommentaires.toArray(new Commentaire[listeCommentaires.size()]);
     }
-    
+
     public Commentaire[] getListeTousCommentairesService(int id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         List<Commentaire> listeCommentaires;
@@ -217,7 +217,6 @@ public class DBHelper {
         return utilisateur;
     }
 
-
     public StatusUtilisateur getStatusUtilisateur(int id) {
 
         StatusUtilisateur statusUtilisateur = null;
@@ -229,23 +228,24 @@ public class DBHelper {
         ).addEntity(StatusUtilisateur.class);
         statusUtilisateur = (StatusUtilisateur) query.uniqueResult();
         return statusUtilisateur;
-    }    
-    public int[] getIdTypeServiceParNom(String[] nomServices, String langue){
+    }
+
+    public int[] getIdTypeServiceParNom(String[] nomServices, String langue) {
         System.out.println(langue);
         int[] id = new int[nomServices.length];
         Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();     
-        for (int i = 0; i < nomServices.length; i ++) {
+        session.beginTransaction();
+        for (int i = 0; i < nomServices.length; i++) {
             Query query = session.createSQLQuery(
-                "select * from typeService where sType"+langue+" = '"
-                + nomServices[i] + "';"
-                ).addEntity(TypeService.class);
+                    "select * from typeService where sType" + langue + " = '"
+                    + nomServices[i] + "';"
+            ).addEntity(TypeService.class);
             id[i] = ((TypeService) query.uniqueResult()).getId();
         }
         return id;
     }
-    
-    public int insererService (int utilisateurId, int typeServiceId) {
+
+    public int insererService(int utilisateurId, int typeServiceId) {
         int id;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -256,4 +256,34 @@ public class DBHelper {
         return id;
 
     }
+
+//    public double getNoteClientUtilisateur(int utilisateurId) {
+//        double note = -1;
+//
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
+//
+//        Query query = session.createSQLQuery(
+//                "select dlRatingClient \n"
+//                + "from utilisateur \n"
+//                + "where idUtilisateur="+utilisateurId+";"
+//        ).addEntity(Utilisateur.class);
+//
+//        return note;
+//    }
+//    
+//      public double getNoteServiceUtilisateur(int utilisateurId) {
+//        double note = -1;
+//
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
+//
+//        Query query = session.createSQLQuery(
+//                "select dlRatingService \n"
+//                + "from utilisateur \n"
+//                + "where idUtilisateur="+utilisateurId+";"
+//        ).addEntity(Utilisateur.class);
+//
+//        return note;
+//    }
 }

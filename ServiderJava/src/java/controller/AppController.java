@@ -137,6 +137,13 @@ public class AppController {
         Gson gson = new Gson();
         return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
     }
+//      @RequestMapping(value = "/getNoteClientUtilisateur", method = RequestMethod.GET)
+//    public @ResponseBody
+//    String getNoteClientUtilisateur(@RequestParam String id) {
+//        DBHelper helper = DBHelper.getInstance();
+//        Gson gson = new Gson();
+//        return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
+//    }
 
     @RequestMapping(value = "/getCommentaires", method = RequestMethod.GET)
     public @ResponseBody
@@ -146,4 +153,6 @@ public class AppController {
                 ? DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt)
                 : DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt));
     }
+    
+    
 }
