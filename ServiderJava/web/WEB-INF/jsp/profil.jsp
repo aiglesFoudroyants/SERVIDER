@@ -150,9 +150,15 @@
                                 </div>
                             </div>
                         </div>
-                        <dib id="commentaires">
+                        <div class="row"> 
+                            <p class="selectedTab col-md-3 col-md-push-3"><fmt:message key="commentTabClient"/> </p>
+                            <p class="selectedTab col-md-3 col-md-push-4"><fmt:message key="commentTabServices"/></p>
+                        </div>
 
-                        </dib>
+                        <div id="commentaires">
+
+                        </div>
+
                         <!-- Star-->
                         <div class="star">
                             <div class="row">
