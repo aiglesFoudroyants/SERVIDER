@@ -165,25 +165,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Star -->  
-                        <div class="reply col-md-push-3">
-                            <h3 class="title">Leave a reply</h3>
-                            <form class="reply" id="reply">
-                                <fieldset>
-                                    <div class="row">
-                                        <div>
-                                            <input class="form-control" type="text" value="" placeholder="Name" required>
-                                        </div>
-                                        <div >
-                                            <textarea class="form-control" rows="3" cols="40" placeholder="Comment" required></textarea>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <button class="btn btn-color pull-right" type="submit">Post Reply</button>
-                                <div class="clearfix">
-                                </div>
-                            </form>
-                        </div>
+                        <!-- Star -->                        
                         <!-- /Reply Section -->
                     </div>
             </section>

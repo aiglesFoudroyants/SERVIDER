@@ -1,0 +1,2 @@
+insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire, lreponse) 
+values(2,2,1,false,'Commentaire intelligent',3,3,5,3.6666,true,sysdate(), 'T\'es vraiment qu\'une grosse merde');
