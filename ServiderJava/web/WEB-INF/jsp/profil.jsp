@@ -150,15 +150,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row"> 
-                            <p class="selectedTab col-md-3 col-md-push-3"><fmt:message key="commentTabClient"/> </p>
-                            <p class="selectedTab col-md-3 col-md-push-4"><fmt:message key="commentTabServices"/></p>
+                        <div class="widget tabs">
+                            <div id="horizontal-tabs">
+                                <ul class="tabs">
+                                    <li id="tab1" class="current"> <fmt:message key="commentTabClient"/> </li>
+                                    <li id="tab2"><fmt:message key="commentTabServices"/></li>
+                                </ul>
+                                <div class="contents">
+                                    <div id="commentairesClient" class="tabscontent" style="display: block;"></div>
+                                    <div id="commentairesServices" class="tabscontent" style="display: none;"></div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div id="commentaires">
-
-                        </div>
-
                         <!-- Star-->
                         <div class="star">
                             <div class="row">

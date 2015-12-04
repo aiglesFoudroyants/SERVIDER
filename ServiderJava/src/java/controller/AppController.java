@@ -31,9 +31,9 @@ public class AppController {
     public ModelAndView index() {
         return new ModelAndView("index");
     }
-    
+
     @RequestMapping("/recherche")
-    public ModelAndView recherche(@RequestParam(required=true) String recherche) {
+    public ModelAndView recherche(@RequestParam(required = true) String recherche) {
         Map<String, Object> map = new HashMap();
         map.put("recherche", recherche);
         return new ModelAndView("recherche", map);
@@ -115,9 +115,9 @@ public class AppController {
             helper.insererService(utilisateur.getIdUtilisateur(), idService);
         }
         return null/* String.valueOf(helper.insererUtilisateur(new Utilisateur(Integer.parseInt(paysID),
-                Integer.parseInt(provinceID), Integer.parseInt(sexeID),
-                Integer.parseInt(langueID), sNom, sPrenom,
-                sPassword, sCourriel, sAdresse, sCodePostal, sVille)))*/;
+                 Integer.parseInt(provinceID), Integer.parseInt(sexeID),
+                 Integer.parseInt(langueID), sNom, sPrenom,
+                 sPassword, sCourriel, sAdresse, sCodePostal, sVille)))*/;
     }
 
     @RequestMapping(value = "/getUtilisateur", method = RequestMethod.GET)
@@ -135,22 +135,19 @@ public class AppController {
         Gson gson = new Gson();
         return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
     }
-//      @RequestMapping(value = "/getNoteClientUtilisateur", method = RequestMethod.GET)
-//    public @ResponseBody
-//    String getNoteClientUtilisateur(@RequestParam String id) {
-//        DBHelper helper = DBHelper.getInstance();
-//        Gson gson = new Gson();
-//        return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
-//    }
 
-    @RequestMapping(value = "/getCommentaires", method = RequestMethod.GET)
+    @RequestMapping(value = "/getCommentairesClient", method = RequestMethod.GET)
     public @ResponseBody
-    String getCommentaires(@RequestParam String id, @RequestParam String serviceOrClient) {
+    String getCommentairesClient(@RequestParam String id) {
         int idAsInt = Integer.parseInt(id);
-        return new Gson().toJson(serviceOrClient.equals("service")
-                ? DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt)
-                : DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt));
+        return new Gson().toJson(DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt));
     }
-    
-    
+
+    @RequestMapping(value = "/getCommentairesService", method = RequestMethod.GET)
+    public @ResponseBody
+    String getCommentairesService(@RequestParam String id) {
+        int idAsInt = Integer.parseInt(id);
+        return new Gson().toJson( DBHelper.getInstance().getListeTousCommentairesService(idAsInt));
+    }
+
 }
