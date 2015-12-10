@@ -110,7 +110,7 @@ public class AppController {
         Utilisateur utilisateur = gson.fromJson(user, Utilisateur.class);
         utilisateur.setStatusUtilisateur(1);
         utilisateur.setIdUtilisateur(helper.insererUtilisateur(utilisateur));
-        int[] idServices = helper.getIdTypeServiceParNom(gson.fromJson(services, String[].class), langue);
+        int[] idServices = helper.getIdsTypeServiceParNom(gson.fromJson(services, String[].class), langue);
         for (int idService : idServices) {
             helper.insererService(utilisateur.getIdUtilisateur(), idService);
         }
@@ -150,6 +150,13 @@ public class AppController {
         return new Gson().toJson(serviceOrClient.equals("service")
                 ? DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt)
                 : DBHelper.getInstance().getListeTousCommentairesCLient(idAsInt));
+    }
+    
+    @RequestMapping(value = "/getResultatRecherche", method = RequestMethod.GET)
+    public @ResponseBody
+    String getResultatRecherche(@RequestParam String entree, @RequestParam String langue) {
+        DBHelper helper =  DBHelper.getInstance();
+        return new Gson().toJson(helper.getRecherche(entree, langue));
     }
     
     
