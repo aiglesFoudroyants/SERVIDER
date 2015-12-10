@@ -17,8 +17,35 @@ htmlCommentaireReponse += '<p id="commentaireContenu"></p>';
 htmlCommentaireReponse += '</div> ';
 htmlCommentaireReponse += '</div>';
 
+var CLASS_CURRENT = "current";
+var ANIMATION_DURATION = 300;
+
 $(document).ready(function () {
     var utilisateur;
+
+    $("#tab1").bind("click", function (e) {
+        if (!$(e.target).hasClass(CLASS_CURRENT)) {
+            $("#tab2").removeClass(CLASS_CURRENT);
+            $("#tab1").addClass(CLASS_CURRENT);
+            $("#commentairesServices").hide(ANIMATION_DURATION);
+            $("#commentairesClient").show(ANIMATION_DURATION);
+        }
+    });
+
+    $("#tab2").bind("click", function (e) {
+        if (!$(e.target).hasClass(CLASS_CURRENT)) {
+            $("#tab1").removeClass(CLASS_CURRENT);
+            $("#tab2").addClass(CLASS_CURRENT);
+            $("#commentairesClient").hide(ANIMATION_DURATION);
+            $("#commentairesServices").show(ANIMATION_DURATION);
+        }
+    });
+
+    $("btnContact").bind("click", function () {
+        console.log("contacter");
+        $.post("nouveau_commentaire.htm", {idReceveur: 1, idContrat: 1,
+            bClientOuService: false, idTypeDeService: 1});
+    });
 
     if ($.cookie("servider-user-id")) {
         $.ajax({
@@ -34,14 +61,36 @@ $(document).ready(function () {
                 }
                 setStatusUtilisateur(utilisateur.statusUtilisateurId);
                 setCommentaires();
+                setEtoilesRating(utilisateur);
             },
             error: function (data) {
                 console.log("error ajax: ", data);
             }
         });
-
     }
 });
+
+function setEtoilesRating(utilisateur) {
+    if (utilisateur.dlRatingClient) {
+        $("#rating_etoiles_client").show();
+        setEtoiles('star1', utilisateur.dlRatingClient);
+    }
+    if (utilisateur.dlRatingService) {
+        $("#rating_etoiles_service").show();
+        setEtoiles('star2', utilisateur.dlRatingService);
+    }
+}
+
+function setEtoiles(nomEtoiles, nbEtoiles) {
+    var etoilesSelectionnees = $('input[name="' + nomEtoiles + '"]');
+    etoilesSelectionnees.rating('readOnly', false);
+    etoilesSelectionnees.rating('select', toInteger(nbEtoiles) - 1);
+    etoilesSelectionnees.rating('readOnly', true);
+}
+
+function toInteger(number) {
+    return Math.round(Number(number));
+}
 
 function setCommentaires() {
 

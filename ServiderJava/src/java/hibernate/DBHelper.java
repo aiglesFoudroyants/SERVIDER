@@ -7,7 +7,6 @@ package hibernate;
 
 import hibernate.model.*;
 import hibernate.model.Utilisateur;
-import java.util.Arrays;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -18,7 +17,7 @@ import org.hibernate.Session;
  */
 public class DBHelper {
 
-    private static DBHelper instance = new DBHelper();
+    private static final DBHelper instance = new DBHelper();
 
     public static DBHelper getInstance() {
         return instance;
@@ -89,7 +88,7 @@ public class DBHelper {
 
             tabStringLangue[i] = typeService;
         }
-        System.out.println("ICIIIIIIIIIIIIIIIIIIIIIII " + Arrays.toString(tabStringLangue));
+       
         return tabStringLangue;
     }
 
@@ -256,34 +255,4 @@ public class DBHelper {
         return id;
 
     }
-
-//    public double getNoteClientUtilisateur(int utilisateurId) {
-//        double note = -1;
-//
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//
-//        Query query = session.createSQLQuery(
-//                "select dlRatingClient \n"
-//                + "from utilisateur \n"
-//                + "where idUtilisateur="+utilisateurId+";"
-//        ).addEntity(Utilisateur.class);
-//
-//        return note;
-//    }
-//    
-//      public double getNoteServiceUtilisateur(int utilisateurId) {
-//        double note = -1;
-//
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//
-//        Query query = session.createSQLQuery(
-//                "select dlRatingService \n"
-//                + "from utilisateur \n"
-//                + "where idUtilisateur="+utilisateurId+";"
-//        ).addEntity(Utilisateur.class);
-//
-//        return note;
-//    }
 }
