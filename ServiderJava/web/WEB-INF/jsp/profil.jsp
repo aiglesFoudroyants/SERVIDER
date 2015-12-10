@@ -150,9 +150,18 @@
                                 </div>
                             </div>
                         </div>
-                        <dib id="commentaires">
-
-                        </dib>
+                        <div class="widget tabs">
+                            <div id="horizontal-tabs">
+                                <ul class="tabs">
+                                    <li id="tab1" class="current"> <fmt:message key="commentTabClient"/> </li>
+                                    <li id="tab2"><fmt:message key="commentTabServices"/></li>
+                                </ul>
+                                <div class="contents">
+                                    <div id="commentairesClient" class="tabscontent" style="display: block;"></div>
+                                    <div id="commentairesServices" class="tabscontent" style="display: none;"></div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Star-->
                         <div class="star">
                             <div class="row">
@@ -165,25 +174,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Star -->  
-                        <div class="reply col-md-push-3">
-                            <h3 class="title">Leave a reply</h3>
-                            <form class="reply" id="reply">
-                                <fieldset>
-                                    <div class="row">
-                                        <div>
-                                            <input class="form-control" type="text" value="" placeholder="Name" required>
-                                        </div>
-                                        <div >
-                                            <textarea class="form-control" rows="3" cols="40" placeholder="Comment" required></textarea>
-                                        </div>
-                                    </div>
-                                </fieldset>
-                                <button class="btn btn-color pull-right" type="submit">Post Reply</button>
-                                <div class="clearfix">
-                                </div>
-                            </form>
-                        </div>
+                        <!-- Star -->                        
                         <!-- /Reply Section -->
                     </div>
             </section>
