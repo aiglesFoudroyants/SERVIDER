@@ -247,16 +247,16 @@ public class DBHelper {
         session.close();
         return id;
     }
-    
+
     private int getIdTypeServiceParNom(String nomServices, String langue, Session session) {
         int id;
-        
+
         Query query = session.createSQLQuery(
-                    "select * from typeService where sType" + langue + " = '"
-                    + nomServices + "';"
-            ).addEntity(TypeService.class);
-            id = ((TypeService) query.uniqueResult()).getId();
-        
+                "select * from typeService where sType" + langue + " = '"
+                + nomServices + "';"
+        ).addEntity(TypeService.class);
+        id = ((TypeService) query.uniqueResult()).getId();
+
         return id;
     }
 
@@ -271,20 +271,26 @@ public class DBHelper {
         return id;
 
     }
-    
-    public List<Annonce> getRecherche(String entree, String langue){
+
+    public List<Annonce> getRecherche(String entree, String langue) {
         List<Annonce> annonces;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         int typeServiceId = getIdTypeServiceParNom(entree, langue, session);
         Query query = session.createSQLQuery(
                 "select A.* from Annonce A"
-                + "join Service S"
-                + "on A.serviceId == S.idService"
+                + " join Service S"
+                + " on A.serviceId = S.idService"
                 + " where S.typeServiceId = " + typeServiceId + ";"
         ).addEntity(Annonce.class);
-        
+
         annonces = (List<Annonce>) query.list();
+        for (Annonce annonce : annonces) {
+            annonce.setDlRating(getRatingAnnonce(session, annonce.getIdAnnonce()));
+        }
+
+        session.getTransaction().commit();
+        session.close();
         return annonces;
     }
 
@@ -317,4 +323,19 @@ public class DBHelper {
 //
 //        return note;
 //    }
+    private Double getRatingAnnonce(Session session, int idAnnonce) {
+        Double rating;
+
+        Query query = session.createSQLQuery(
+                "select avg(dlcritereavg)"
+                + " from contrat"
+                + " join commentaire "
+                + " on contrat.commentaireauserviceid "
+                + " = commentaire.idCommentaire "
+                + " where contrat.annonceId = " + idAnnonce + ";"
+        ).addEntity(TypeService.class);
+        rating = (Double) query.uniqueResult();
+
+        return rating;
+    }
 }

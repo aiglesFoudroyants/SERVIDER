@@ -37,6 +37,8 @@ public class Annonce implements Serializable {
     private String sTarif;
     @Column(name = "sAddresse", nullable = true)
     private String sAddresse;
+    
+    private Double dlRating;
 
     public Annonce() {
     }
@@ -95,6 +97,14 @@ public class Annonce implements Serializable {
 
     public void setsAddresse(String sAddresse) {
         this.sAddresse = sAddresse;
+    }
+
+    public Double getDlRating() {
+        return dlRating;
+    }
+
+    public void setDlRating(Double dlRating) {
+        this.dlRating = dlRating;
     }
     
     

@@ -86,6 +86,7 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
+        <script src="resources/js/recherche.js"></script>
         
         <script src="resources/js/ratingBar/jquery.MetaData.js"></script>   
         <script src="resources/js/ratingBar/jquery.form.js"></script> 
