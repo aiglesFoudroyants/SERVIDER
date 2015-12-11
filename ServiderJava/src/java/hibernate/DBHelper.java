@@ -7,6 +7,7 @@ package hibernate;
 
 import hibernate.model.*;
 import hibernate.model.Utilisateur;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.hibernate.Query;
@@ -18,7 +19,7 @@ import org.hibernate.Session;
  */
 public class DBHelper {
 
-    private static DBHelper instance = new DBHelper();
+    private static final DBHelper instance = new DBHelper();
 
     public static DBHelper getInstance() {
         return instance;
@@ -89,7 +90,7 @@ public class DBHelper {
 
             tabStringLangue[i] = typeService;
         }
-        System.out.println("ICIIIIIIIIIIIIIIIIIIIIIII " + Arrays.toString(tabStringLangue));
+       
         return tabStringLangue;
     }
 
@@ -213,6 +214,8 @@ public class DBHelper {
                 + id + "';"
         ).addEntity(Utilisateur.class);
         utilisateur = (Utilisateur) query.uniqueResult();
+        session.getTransaction().commit();
+        session.close();
 
         return utilisateur;
     }
@@ -227,21 +230,33 @@ public class DBHelper {
                 + id + "';"
         ).addEntity(StatusUtilisateur.class);
         statusUtilisateur = (StatusUtilisateur) query.uniqueResult();
+        session.getTransaction().commit();
+        session.close();
         return statusUtilisateur;
     }
 
-    public int[] getIdTypeServiceParNom(String[] nomServices, String langue) {
+    public int[] getIdsTypeServiceParNom(String[] nomServices, String langue) {
         System.out.println(langue);
         int[] id = new int[nomServices.length];
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         for (int i = 0; i < nomServices.length; i++) {
-            Query query = session.createSQLQuery(
-                    "select * from typeService where sType" + langue + " = '"
-                    + nomServices[i] + "';"
-            ).addEntity(TypeService.class);
-            id[i] = ((TypeService) query.uniqueResult()).getId();
+            id[i] = getIdTypeServiceParNom(nomServices[i], langue, session);
         }
+        session.getTransaction().commit();
+        session.close();
+        return id;
+    }
+    
+    private int getIdTypeServiceParNom(String nomServices, String langue, Session session) {
+        int id;
+        
+        Query query = session.createSQLQuery(
+                    "select * from typeService where sType" + langue + " = '"
+                    + nomServices + "';"
+            ).addEntity(TypeService.class);
+            id = ((TypeService) query.uniqueResult()).getId();
+        
         return id;
     }
 
@@ -257,33 +272,21 @@ public class DBHelper {
 
     }
 
-//    public double getNoteClientUtilisateur(int utilisateurId) {
-//        double note = -1;
-//
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//
-//        Query query = session.createSQLQuery(
-//                "select dlRatingClient \n"
-//                + "from utilisateur \n"
-//                + "where idUtilisateur="+utilisateurId+";"
-//        ).addEntity(Utilisateur.class);
-//
-//        return note;
-//    }
-//    
-//      public double getNoteServiceUtilisateur(int utilisateurId) {
-//        double note = -1;
-//
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//
-//        Query query = session.createSQLQuery(
-//                "select dlRatingService \n"
-//                + "from utilisateur \n"
-//                + "where idUtilisateur="+utilisateurId+";"
-//        ).addEntity(Utilisateur.class);
-//
-//        return note;
-//    }
+    
+    public List<Annonce> getRecherche(String entree, String langue){
+        List<Annonce> annonces;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        int typeServiceId = getIdTypeServiceParNom(entree, langue, session);
+        Query query = session.createSQLQuery(
+                "select A.* from Annonce A"
+                + "join Service S"
+                + "on A.serviceId == S.idService"
+                + " where S.typeServiceId = " + typeServiceId + ";"
+        ).addEntity(Annonce.class);
+        
+        annonces = (List<Annonce>) query.list();
+        return annonces;
+    }
+
 }

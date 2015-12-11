@@ -36,7 +36,7 @@ function populateComboBoxes(){
 }
 
 function populateCountry(){
-    $.get("pays.htm",function(data){
+    $.get("pays.htm", function(data){
         var select = $("#country");
         data = $("<textarea/>").html(data).text();
         $(data).find("paysGroup").children("pays").each(function(){

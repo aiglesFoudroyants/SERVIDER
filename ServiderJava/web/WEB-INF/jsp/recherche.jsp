@@ -12,7 +12,7 @@
     <!--<![endif]-->
     <head>
         <meta charset="utf-8">
-        <title>Servider | Profil</title>
+        <title><fmt:message key="pageTitleResearchResults"/></title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
         <!-- Mobile Metas -->
@@ -39,7 +39,6 @@
         <!-- Switcher CSS -->
         <link href="resources/css/switcher.css" rel="stylesheet">
         <link href="resources/css/spectrum.css" rel="stylesheet">
-        <link href="resources/css/jquery.rating.css" rel="stylesheet">
         <!-- JQuery-ui -->
         <link rel="stylesheet" href="resources/css/jquery-ui.min.css">
         <link rel="stylesheet" href="resources/css/jquery-ui.structure.min.css">
@@ -50,6 +49,7 @@
         <link rel="apple-touch-icon" sizes="72x72" href="resources/img/ico/apple-touch-icon-72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="resources/img/ico/apple-touch-icon-114.png">
         <link rel="apple-touch-icon" sizes="144x144" href="resources/img/ico/apple-touch-icon-144.png">
+        <link href="resources/css/jquery.rating.css" rel="stylesheet">
         <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -58,7 +58,6 @@
         <!--[if IE]>
         <link rel="stylesheet" href="resources/css/ie.css">
         <![endif]-->
-
 
         <!-- The Scripts -->
         <script src="resources/js/jquery.min.js"></script>
@@ -70,6 +69,7 @@
         <script src="resources/js/jquery.parallax.js"></script>
         <script src="resources/js/jquery.wait.js"></script>
         <script src="resources/js/fappear.js"></script> 
+        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
         <script src="resources/js/jquery.bxslider.min.js"></script>
         <script src="resources/js/jquery.prettyPhoto.js"></script>
         <script src="resources/js/superfish.js"></script>
@@ -86,14 +86,16 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
-        <script src="resources/js/profil.js"></script>  
-
+        
         <script src="resources/js/ratingBar/jquery.MetaData.js"></script>   
         <script src="resources/js/ratingBar/jquery.form.js"></script> 
         <script src="resources/js/ratingBar/jquery.rating.js"></script>  
-        <script src="resources/js/ratingBar/jquery.rating.pack.js"></script>   
+        <script src="resources/js/ratingBar/jquery.rating.pack.js"></script>
     </head>
     <body class="home">
+        <div id="valeur_recherche" style="display:none;">
+            ${recherche}
+        </div>
         <div class="page-mask">
             <div class="page-loader">
                 <div class="spinner"></div>
@@ -103,89 +105,71 @@
         <!-- Wrap -->
         <div class="wrap">
             <!-- Header -->      
-            <%@ include file="partials/header.jsp" %>   
+            <%@ include file="partials/header.jsp" %>      
             <!-- /Header --> 
             <!-- Main Section -->
 
             <section id="main">
-                <div class="content-about margin-top60">
-                    <div class="container">
-                        <div class="row">
-                            <div class="posts-block col-xs-12 col-sm-3">  
-                                <h3 id="lblNom"></h3>
-                                <img class="logo-color" src="resources/img/client1.jpg" alt="profil picture" >
-                                <div class = "btn contact col-xs-12">
-                                    <input id="btnContact" type="submit" value="<fmt:message key="btnContacter"/>" 
-                                           data-loading-text="Loading..." class="btn btn-color push-bottom col-xs-12">
-                                </div>                               
-                                <div class="row col-xs-12 col-xs-12"> 
-                                    <div class="col-xs-push-3 col-xs-3"> 
-                                        <img  width="20px" height="20px" src="resources/img/offline.png" >
-                                    </div>
-                                    <p id ="lblStatus"class=" col-xs-6 col-xs-push-3" ></p>
-                                </div>
-
-
-                            </div>
-                            <div class="posts-block col-xs-12 col-sm-9">                       
-                                <p id="lblDescription">
-                                    <fmt:message key="noDescription" />
-                                </p>
-                            </div>
-                        </div>
-                        <!-- Star -->
-                        <div class="star">
+                <div class="breadcrumb-wrapper">
+                    <div class="pattern-overlay">
+                        <div class="container">
                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="star-divider">
-                                        <div class="star-divider-icon">
-                                            <i class=" fa fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="widget tabs">
-                            <div id="horizontal-tabs">
-                                <ul class="tabs">
-                                    <li id="tab1" class="current"> <fmt:message key="commentTabClient"/></li>
-                                    <li id="tab2"> <fmt:message key="commentTabServices"/></li>
-                                </ul>
-                                <div class="contents">
-                                    <div id="commentairesClient" class="tabscontent" style="display: block;">
-                                        <div id="rating_etoiles_client" class="col-md-12 col-lg-push-1 col-xs-push-3 margin-bottom20 " style="display: none;">    
-                                            <input name="star1" type="radio" class="star" /> 
-                                            <input name="star1" type="radio" class="star" /> 
-                                            <input name="star1" type="radio" class="star"  /> 
-                                            <input name="star1" type="radio" class="star"  /> 
-                                            <input name="star1" type="radio" class="star" />
-                                        </div>
-                                    </div>
-                                    <div id="commentairesServices" class="tabscontent" style="display: none;">
-                                        <div id="rating_etoiles_service" class="col-md-12 col-xs-push-3 margin-bottom20" style="display: none;">    
-                                            <input name="star2" type="radio" class="star" /> 
-                                            <input name="star2" type="radio" class="star" /> 
-                                            <input name="star2" type="radio" class="star"  /> 
-                                            <input name="star2" type="radio" class="star"  /> 
-                                            <input name="star2" type="radio" class="star"/>
-                                        </div>
-                                    </div>
-                                </div>
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <h2 class="title"><fmt:message key="TitleResearchResults"/></h2>
+                                </div>                                
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-            <!-- /Main Section -->
+                <div class="content margin-top60 margin-bottom60">
+                    <div class="row">
+                        <div class="col-md-8 col-md-push-2">
+                            <div class="col-md-4 col-xs-12 col-sm-12" style="padding:10px;align-items: center;display: flex;">
+                                <div class="col-md-4 col-xs-4">
+                                    <fmt:message key="sortBy"/>
+                                </div>
+                                <div class="col-md-8 col-xs-8">
+                                    <select class="form-control" style="margin-bottom:0px !important">
+                                        <option><fmt:message key="price"/></option>
+                                        <option><fmt:message key="sproximity"/></option>
+                                        <option><fmt:message key="rating"/></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12 col-sm-12" style="padding:10px;align-items: center;display: flex; opacity:0;">
+                                <div class="col-md-4 col-xs-4">
+                                    <fmt:message key="dispoAvailable"/>
+                                </div>
+                                <div class="col-md-8 col-xs-8">
+                                    <select class="form-control" style="margin-bottom:0px !important">
+                                        <option><fmt:message key="dispoWeekdays"/></option>
+                                        <option><fmt:message key="dispoWeekend"/></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-xs-12 col-sm-12" style="padding:10px;padding-left:25px;padding-right:25px;align-items: center;display: flex;">
+                                <input id="search" class="form-control search-text-box" style="margin-bottom:0px !important" name="search" type="text" 
+                                       placeholder="<fmt:message key="searchBar"/>" value="" required="">                              
+                            </div>
+                        </div>
+                        <div id="annonces" class="col-md-8 col-md-push-2">
+                               
+                        </div>
 
-            <!-- Footer -->            
-            <%@ include file="partials/footer.jsp" %>  
-            <!-- /Footer -->
-            <!-- Scroll To Top --> 
-            <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+                    </div>
+                </div>
         </div>
-        <!-- /Wrap -->
-    </body>
+    </section>
+
+    <!-- /Main Section -->
+    <!-- Footer -->            
+    <%@ include file="partials/footer.jsp" %>  
+    <!-- /Footer -->
+    <!-- Scroll To Top --> 
+    <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+</div>
+<!-- /Wrap -->
+</body>
 </html>
 
 

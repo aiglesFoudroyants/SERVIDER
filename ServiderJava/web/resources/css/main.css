@@ -67,3 +67,9 @@
 #btnDisconnect,#btnDisconnectMobile{
     cursor: pointer;
 }
+
+.annonce{
+    border: 2px solid gainsboro;
+    min-height: 150px;
+    border-radius: 4px;
+}

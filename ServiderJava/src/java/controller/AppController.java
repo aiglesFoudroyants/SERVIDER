@@ -49,6 +49,19 @@ public class AppController {
         return new ModelAndView("profil");
     }
 
+    @RequestMapping(value = "/nouveau_commentaire")
+    public ModelAndView nouveau_commentaire(@RequestParam(required = true) String idReceveur,
+            @RequestParam(required = true) String idContrat,
+            @RequestParam(required = true) String bClientOuService,
+            @RequestParam(required = true) String idTypeDeService) {
+        Map<String, Object> map = new HashMap();
+        map.put("idReceveur", idReceveur);
+        map.put("idContrat", idContrat);
+        map.put("bClientOuService", bClientOuService);
+        map.put("idTypeDeService", idTypeDeService);
+        return new ModelAndView("nouveau_commentaire", map);
+    }
+
     @RequestMapping("/recuperation")
     public ModelAndView recuprationMotDePasse() {
         return new ModelAndView("recuperation");
@@ -110,7 +123,7 @@ public class AppController {
         Utilisateur utilisateur = gson.fromJson(user, Utilisateur.class);
         utilisateur.setStatusUtilisateur(1);
         utilisateur.setIdUtilisateur(helper.insererUtilisateur(utilisateur));
-        int[] idServices = helper.getIdTypeServiceParNom(gson.fromJson(services, String[].class), langue);
+        int[] idServices = helper.getIdsTypeServiceParNom(gson.fromJson(services, String[].class), langue);
         for (int idService : idServices) {
             helper.insererService(utilisateur.getIdUtilisateur(), idService);
         }
@@ -147,7 +160,16 @@ public class AppController {
     public @ResponseBody
     String getCommentairesService(@RequestParam String id) {
         int idAsInt = Integer.parseInt(id);
-        return new Gson().toJson( DBHelper.getInstance().getListeTousCommentairesService(idAsInt));
+        return new Gson().toJson(DBHelper.getInstance().getListeTousCommentairesService(idAsInt));
     }
 
+    
+    @RequestMapping(value = "/getResultatRecherche", method = RequestMethod.GET)
+    public @ResponseBody
+    String getResultatRecherche(@RequestParam String entree, @RequestParam String langue) {
+        DBHelper helper =  DBHelper.getInstance();
+        return new Gson().toJson(helper.getRecherche(entree, langue));
+    }
+    
+    
 }
