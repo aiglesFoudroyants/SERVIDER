@@ -93,6 +93,9 @@
         <script src="resources/js/ratingBar/jquery.rating.js"></script>  
         <script src="resources/js/ratingBar/jquery.rating.pack.js"></script>   
     </head>
+    <p id="lblSave" style="display: none;">
+        <fmt:message key="btnsavetxt"/>
+    </p> 
     <body class="home">
         <div class="page-mask">
             <div class="page-loader">
@@ -113,19 +116,22 @@
                         <div class="row">
                             <div class="posts-block col-xs-12 col-sm-3">  
                                 <h3 id="lblNom"></h3>
+
                                 <img class="logo-color" src="resources/img/client1.jpg" alt="profil picture" >
                                 <div class = "btn contact col-xs-12">
                                     <input id="btnContact" type="submit" value="<fmt:message key="btnContacter"/>" 
                                            data-loading-text="Loading..." class="btn btn-color push-bottom col-xs-12">
-                                </div>                               
-                                <div class="row col-xs-12 col-xs-12"> 
+                                </div>  
+                                <div class="btn contact col-xs-12" >
+                                    <input id="btnModifier" value="<fmt:message key="btnmodifier"/>"  
+                                           data-loading-text="Loading..." class="btn btn-color push-bottom col-xs-12" contenteditable="false">
+                                </div>
+                                <div class="row col-xs-12"> 
                                     <div class="col-xs-push-3 col-xs-3"> 
                                         <img  width="20px" height="20px" src="resources/img/offline.png" >
                                     </div>
                                     <p id ="lblStatus"class=" col-xs-6 col-xs-push-3" ></p>
                                 </div>
-
-
                             </div>
                             <div class="posts-block col-xs-12 col-sm-9">                       
                                 <p id="lblDescription">
