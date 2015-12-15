@@ -70,7 +70,6 @@
         <script src="resources/js/jquery.parallax.js"></script>
         <script src="resources/js/jquery.wait.js"></script>
         <script src="resources/js/fappear.js"></script> 
-        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
         <script src="resources/js/jquery.bxslider.min.js"></script>
         <script src="resources/js/jquery.prettyPhoto.js"></script>
         <script src="resources/js/superfish.js"></script>
@@ -116,20 +115,16 @@
                                 <h3 id="lblNom"></h3>
                                 <img class="logo-color" src="resources/img/client1.jpg" alt="profil picture" >
                                 <div class = "btn contact col-xs-12">
-                                    <input type="submit" value="<fmt:message key="btnContacter"/>" data-loading-text="Loading..." class="btn btn-color push-bottom col-xs-12">
-                                </div>
+                                    <input id="btnContact" type="submit" value="<fmt:message key="btnContacter"/>" 
+                                           data-loading-text="Loading..." class="btn btn-color push-bottom col-xs-12">
+                                </div>                               
                                 <div class="row col-xs-12 col-xs-12"> 
                                     <div class="col-xs-push-3 col-xs-3"> 
                                         <img  width="20px" height="20px" src="resources/img/offline.png" >
                                     </div>
-                                    <p id ="lblStatus"class=" col-xs-6 col-xs-push-3 " >bob</p>
+                                    <p id ="lblStatus"class=" col-xs-6 col-xs-push-3" ></p>
                                 </div>
-                                <div class="col-md-12">    <input name="star3" type="radio" class="star" disabled="disabled"/> 
-                                    <input name="star3" type="radio" class="star" disabled="disabled"/> 
-                                    <input name="star3" type="radio" class="star" disabled="disabled" checked="checked"/> 
-                                    <input name="star3" type="radio" class="star" disabled="disabled"/> 
-                                    <input name="star3" type="radio" class="star" disabled="disabled"/>
-                                </div>
+
 
                             </div>
                             <div class="posts-block col-xs-12 col-sm-9">                       
@@ -153,30 +148,33 @@
                         <div class="widget tabs">
                             <div id="horizontal-tabs">
                                 <ul class="tabs">
-                                    <li id="tab1" class="current"> <fmt:message key="commentTabClient"/> </li>
-                                    <li id="tab2"><fmt:message key="commentTabServices"/></li>
+                                    <li id="tab1" class="current"> <fmt:message key="commentTabClient"/></li>
+                                    <li id="tab2"> <fmt:message key="commentTabServices"/></li>
                                 </ul>
                                 <div class="contents">
-                                    <div id="commentairesClient" class="tabscontent" style="display: block;"></div>
-                                    <div id="commentairesServices" class="tabscontent" style="display: none;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Star-->
-                        <div class="star">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="star-divider">
-                                        <div class="star-divider-icon">
-                                            <i class=" fa fa-star"></i>
+                                    <div id="commentairesClient" class="tabscontent" style="display: block;">
+                                        <div id="rating_etoiles_client" class="col-md-12 col-lg-push-1 col-xs-push-3 margin-bottom20 " style="display: none;">    
+                                            <input name="star1" type="radio" class="star" /> 
+                                            <input name="star1" type="radio" class="star" /> 
+                                            <input name="star1" type="radio" class="star"  /> 
+                                            <input name="star1" type="radio" class="star"  /> 
+                                            <input name="star1" type="radio" class="star" />
+                                        </div>
+                                    </div>
+                                    <div id="commentairesServices" class="tabscontent" style="display: none;">
+                                        <div id="rating_etoiles_service" class="col-md-12 col-xs-push-3 margin-bottom20" style="display: none;">    
+                                            <input name="star2" type="radio" class="star" /> 
+                                            <input name="star2" type="radio" class="star" /> 
+                                            <input name="star2" type="radio" class="star"  /> 
+                                            <input name="star2" type="radio" class="star"  /> 
+                                            <input name="star2" type="radio" class="star"/>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Star -->                        
-                        <!-- /Reply Section -->
                     </div>
+                </div>
             </section>
             <!-- /Main Section -->
 
