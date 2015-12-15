@@ -41,6 +41,11 @@ $(document).ready(function () {
         }
     });
 
+    $("#btnModifier").bind("click", function (e) {
+        toggleModificationProfil(e);
+
+    });
+
     $("btnContact").bind("click", function () {
         console.log("contacter");
         $.post("nouveau_commentaire.htm", {idReceveur: 1, idContrat: 1,
@@ -69,6 +74,16 @@ $(document).ready(function () {
         });
     }
 });
+
+function toggleModificationProfil(e) {
+   
+    var lblDescription = $("#lblDescription");
+    lblDescription.css("border", "1px solid black");
+   $(e.target).val($("#lblSave").text().trim());
+    lblDescription.attr("contenteditable", true);
+    lblDescription.focus();
+    console.log(lblDescription);
+}
 
 function setEtoilesRating(utilisateur) {
     if (utilisateur.dlRatingClient) {
