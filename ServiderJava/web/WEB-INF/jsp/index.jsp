@@ -109,7 +109,12 @@
                         <div class="container">
                             <ul>
                                 <li class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                                    <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="<fmt:message key="searchBar"/>" value="" required="">
+                                    <div class="col-lg-10 col-md-10 col-sm-10" style="padding: 0 !important;">
+                                        <input id="search" class="form-control search-text-box" name="search" type="text" placeholder="<fmt:message key="searchBar"/>" value="" required="">
+                                    </div>
+                                    <div class="col-lg-2 col-md-2 col-sm-2" style="padding: 0 !important;">
+                                        <button id="btnSearch" class="form-control btn btn-color submit" type="submit"><i class="fa fa-search "></i></button>
+                                    </div>
                                 </li>
                                 <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-lg-push-0 col-md-push-0 col-sm-push-0 col-xs-push-2">
                                     <button class="form-control btn btn-color submit" type="submit"><fmt:message key="offerButton"/></button>

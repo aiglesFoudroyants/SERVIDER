@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Annonce implements Serializable {
     private String sTarif;
     @Column(name = "sAddresse", nullable = true)
     private String sAddresse;
-    
+    @Transient
     private Double dlRating;
 
     public Annonce() {

@@ -24,4 +24,7 @@ $(document).ready(function () {
             }
         }
     });
+    $("#btnSearch").bind("click", function(){
+        window.location = "recherche.htm?recherche=" + $("#search").val().trim();
+    });
 });

@@ -255,7 +255,8 @@ public class DBHelper {
                 "select * from typeService where sType" + langue + " = '"
                 + nomServices + "';"
         ).addEntity(TypeService.class);
-        id = ((TypeService) query.uniqueResult()).getId();
+        TypeService typeService = (TypeService) query.uniqueResult();
+        id = typeService != null ? typeService.getId() : -1;
 
         return id;
     }
@@ -305,7 +306,7 @@ public class DBHelper {
                 + " on contrat.commentaireauserviceid "
                 + " = commentaire.idCommentaire "
                 + " where contrat.annonceId = " + idAnnonce + ";"
-        ).addEntity(TypeService.class);
+        );
         rating = (Double) query.uniqueResult();
 
         return rating;

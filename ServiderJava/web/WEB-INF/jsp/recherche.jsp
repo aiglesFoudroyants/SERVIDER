@@ -125,7 +125,7 @@
                 <div class="content margin-top60 margin-bottom60">
                     <div class="row">
                         <div class="col-md-8 col-md-push-2">
-                            <div class="col-md-4 col-xs-12 col-sm-12" style="padding:10px;align-items: center;display: flex;">
+                            <div class="col-md-4 col-xs-12 col-sm-12" style="padding:10px;align-items: center;display: flex;; opacity:0;">
                                 <div class="col-md-4 col-xs-4">
                                     <fmt:message key="sortBy"/>
                                 </div>
@@ -148,7 +148,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-xs-12 col-sm-12" style="padding:10px;padding-left:25px;padding-right:25px;align-items: center;display: flex;">
+                            <div class="col-md-4 col-xs-12 col-sm-12" style="padding:10px;padding-left:25px;padding-right:25px;align-items: center;display: flex; opacity:0;">
                                 <input id="search" class="form-control search-text-box" style="margin-bottom:0px !important" name="search" type="text" 
                                        placeholder="<fmt:message key="searchBar"/>" value="" required="">                              
                             </div>
