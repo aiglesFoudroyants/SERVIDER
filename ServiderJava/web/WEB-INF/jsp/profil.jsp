@@ -72,6 +72,7 @@
         <script src="resources/js/fappear.js"></script> 
         <script src="resources/js/jquery.bxslider.min.js"></script>
         <script src="resources/js/jquery.prettyPhoto.js"></script>
+        <script src="resources/js/customJquerry.js"></script>
         <script src="resources/js/superfish.js"></script>
         <script src="resources/js/tweetMachine.js"></script>
         <script src="resources/js/tytabs.js"></script>
@@ -96,6 +97,9 @@
     <p id="lblSave" style="display: none;">
         <fmt:message key="btnsavetxt"/>
     </p> 
+    <p id="lblEdit" style="display: none;">
+        <fmt:message key="btnmodifier"/>
+    </p> 
     <body class="home">
         <div class="page-mask">
             <div class="page-loader">
@@ -115,7 +119,10 @@
                     <div class="container">
                         <div class="row">
                             <div class="posts-block col-xs-12 col-sm-3">  
-                                <h3 id="lblNom"></h3>
+
+                                <h3 id="lblPrenom" style="margin-bottom:0"></h3>
+                                <h3 id="lblNom" style="margin-top: 0"></h3>
+
 
                                 <img class="logo-color" src="resources/img/client1.jpg" alt="profil picture" >
                                 <div class = "btn contact col-xs-12">

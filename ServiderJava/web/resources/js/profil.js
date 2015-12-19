@@ -1,3 +1,4 @@
+var editMode = false;
 var htmlCommentaire = '<div class="row col-xs-12 commentaire">';
 htmlCommentaire += '<div class="media-photo-badge col-xs-2 " >';
 htmlCommentaire += '<img  class="circular-profil-image-comment" alt="shared.user_profile_image" data-pin-nopin="true" src="resources/img/team/pikachu.jpg" title="image du profil" >';
@@ -16,12 +17,13 @@ htmlCommentaireReponse += '<div class="media-photo-badge col-xs-10 col-xs-push-2
 htmlCommentaireReponse += '<p id="commentaireContenu"></p>';
 htmlCommentaireReponse += '</div> ';
 htmlCommentaireReponse += '</div>';
-
+var utilisateur;
 var CLASS_CURRENT = "current";
 var ANIMATION_DURATION = 300;
 
+
 $(document).ready(function () {
-    var utilisateur;
+
 
     $("#tab1").bind("click", function (e) {
         if (!$(e.target).hasClass(CLASS_CURRENT)) {
@@ -60,7 +62,9 @@ $(document).ready(function () {
             data: {id: $.cookie("servider-user-id")},
             success: function (data) {
                 utilisateur = data;
-                $("#lblNom").html(utilisateur.sPrenom + " " + utilisateur.sNom);
+                $("#lblNom").html(" " + utilisateur.sNom);
+                $("#lblPrenom").html(utilisateur.sPrenom);
+
                 if (utilisateur.lDescription) {
                     $("#lblDescription").html(utilisateur.lDescription);
                 }
@@ -76,13 +80,51 @@ $(document).ready(function () {
 });
 
 function toggleModificationProfil(e) {
-   
+    var btn = $(e.target);
     var lblDescription = $("#lblDescription");
-    lblDescription.css("border", "1px solid black");
-   $(e.target).val($("#lblSave").text().trim());
-    lblDescription.attr("contenteditable", true);
-    lblDescription.focus();
-    console.log(lblDescription);
+    var lblPrenom = $("#lblPrenom");
+    var lblNom = $("#lblNom");
+    if (editMode) {
+
+        btn.val($("#lblEdit").text().trim());
+        lblDescription.css("border", "none");
+        lblDescription.attr("contenteditable", false);
+        lblPrenom.css("border", "none");
+        lblPrenom.attr("contenteditable", false);
+        lblNom.css("border", "none");
+        lblNom.attr("contenteditable", false);
+        utilisateur.lDescription = lblDescription.text().trim();
+        utilisateur.sPrenom = lblPrenom.text().trim();
+        utilisateur.sNom = lblNom.text().trim();
+        sauvegarder();
+    } else {
+        btn.val($("#lblSave").text().trim());
+        lblDescription.css("border", "1px solid black");
+        lblDescription.attr("contenteditable", true);
+        lblPrenom.css("border", "1px solid black");
+        lblPrenom.attr("contenteditable", true);
+        lblNom.css("border", "1px solid black");
+        lblNom.attr("contenteditable", true);
+        lblDescription.focus();
+        lblDescription.selectText();
+    }
+    editMode = !editMode;
+
+}
+function sauvegarder() {
+    $.ajax({
+        dataType: "json",
+        type: 'POST',
+        url: 'updateUtilisateur.htm',
+        data: {user: JSON.stringify(utilisateur)},
+        success: function (data) {
+            alert("Mise a jour Réussi");
+        },
+        error: function (data) {
+            console.log("error ajax: ", data);
+        }
+    });
+
 }
 
 function setEtoilesRating(utilisateur) {

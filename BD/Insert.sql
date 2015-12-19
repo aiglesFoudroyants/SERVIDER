@@ -87,14 +87,18 @@ insert into service(utilisateurId, typeServiceId, bActif) values(2,1,true);
 insert into service(utilisateurId, typeServiceId, bActif) values(2,4,true);
 insert into service(utilisateurId, typeServiceId, bActif) values(3,3,true);
 insert into service(utilisateurId, typeServiceId, bActif) values(4,2,true);
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(1,1,true,'Réparation de tuyaux');
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(3,2,true,'Ne dépasse pas les limites de vitesses');
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(4,3,true,'Fils réparés bon!');
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(5,4,true,'Je néttoie de Belle Humeur');
+-- debut anonce
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'Réparation de tuyaux','40$','131 rue de tamere2');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'je suis canalisation man :D','40$','131 rue de tamere');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'Réparation de tuyaux','40$','131 rue de tamere');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(3,2,true,'Ne dépasse pas les limites de vitesses','30 capsules','666 Boston avenue');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(4,3,true,'Fils réparés bon!','wawawawawawawawa$','69 rue bob');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(5,4,true,'Je néttoie de Belle Humeur','le prix de fallout4','42 rue du bonheur');
+-- fin annonce
 insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(1, '2015-09-11 17:00','2015-09-14 8:00',false);
 insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(2, '2015-09-14 15:00','2015-09-14 17:00',true);
 insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(3, '2015-09-15 8:00','2015-09-14 11:00',true);
-insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(4, '2015-09-16 8:00','2015-09-16 17:00',true);
+insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,,bReserve) values(4, '2015-09-16 8:00','2015-09-16 17:00',true);
 insert into statuscontrat(sStatutFr,sStatutEn) values('Demande d''informations','Informations Request');
 insert into statuscontrat(sStatutFr,sStatutEn) values('Accepté','Accepted');
 insert into statuscontrat(sStatutFr,sStatutEn) values('Pré-approuvé','Preapprouved');
@@ -115,6 +119,8 @@ insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientO
 values(1,2,1,true,'Commentaire plus con',1,1,1,1,false,sysdate());
 insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire, lreponse) 
 values(2,2,1,false,'Commentaire intelligent',3,3,5,3.6666,true,sysdate(), 'T\'es vraiment qu\'une grosse merde, car je suis Gabrielle');
+insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire, lreponse)
+values(2,2,1,false,'Commentaire intelligent',3,3,5,3.6666,true,sysdate(), 'T\'es vraiment qu\'une grosse merde');
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(2,1,1,2,5,1);
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(1,2,2,2,6,2);
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(4,3,3,2,null,3);

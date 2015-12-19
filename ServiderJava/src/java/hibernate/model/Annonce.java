@@ -22,6 +22,7 @@ import javax.persistence.Transient;
 @Entity
 @Table(name = "Annonce")
 public class Annonce implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idAnnonce", nullable = false)
@@ -36,8 +37,14 @@ public class Annonce implements Serializable {
     private String sDescription;
     @Column(name = "sTarif", nullable = true)
     private String sTarif;
+
     @Column(name = "sAddresse", nullable = true)
     private String sAddresse;
+    @Column(name = "sTypeFr", nullable = false)
+    private String sTypeFr;
+    @Column(name = "sTypeEn", nullable = false)
+    private String sTypeEn;
+
     @Transient
     private Double dlRating;
 
@@ -107,6 +114,5 @@ public class Annonce implements Serializable {
     public void setDlRating(Double dlRating) {
         this.dlRating = dlRating;
     }
-    
-    
+
 }

@@ -131,7 +131,7 @@ function bindInscription(){
             sNom: $("#txtNom").val(),
             sPrenom: $("#txtPrenom").val(), 
             sPassword: $("#txtPassword").val(),
-            sCourriel: $("#txtConfirmerPass").val(), 
+            sCourriel: $("#txtCourriel").val(), 
             sAdresse: $("#txtAdresse").val(),
             sCodePostal: $("#txtCode").val(), 
             sVille: $("#txtVille").val()
