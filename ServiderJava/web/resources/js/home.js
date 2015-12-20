@@ -24,7 +24,20 @@ $(document).ready(function () {
             }
         }
     });
-    $("#btnSearch").bind("click", function(){
-        window.location = "recherche.htm?recherche=" + $("#search").val().trim();
+    $("#btnSearch").bind("click", function () {
+        $.ajax({
+            dataType: "text",
+            type: 'Get',
+            contentType: 'text/html; charset=UTF-8',
+            url: 'getResultatRechercheTypeID.htm',
+            data: {entree: $("#search").val(), langue: $("#language option:selected").val()},
+            success: function (data) {
+                window.location = "recherche.htm?recherche=" + data.trim();
+            },
+            error: function (data) {
+                console.log("error");
+
+            }
+        });
     });
 });

@@ -127,10 +127,17 @@ public class AppController {
         for (int idService : idServices) {
             helper.insererService(utilisateur.getIdUtilisateur(), idService);
         }
-        return null/* String.valueOf(helper.insererUtilisateur(new Utilisateur(Integer.parseInt(paysID),
-                 Integer.parseInt(provinceID), Integer.parseInt(sexeID),
-                 Integer.parseInt(langueID), sNom, sPrenom,
-                 sPassword, sCourriel, sAdresse, sCodePostal, sVille)))*/;
+        return "{}";
+    }
+
+    @RequestMapping(value = "/updateUtilisateur", method = RequestMethod.POST)
+    public @ResponseBody
+    String updateUtilisateur(@RequestParam String user) {
+        DBHelper helper = DBHelper.getInstance();
+        Gson gson = new Gson();
+        Utilisateur utilisateur = gson.fromJson(user, Utilisateur.class);
+        helper.updateUtilisateur(utilisateur);
+        return "{}";
     }
 
     @RequestMapping(value = "/getUtilisateur", method = RequestMethod.GET)
@@ -163,13 +170,18 @@ public class AppController {
         return new Gson().toJson(DBHelper.getInstance().getListeTousCommentairesService(idAsInt));
     }
 
-    
     @RequestMapping(value = "/getResultatRecherche", method = RequestMethod.GET)
     public @ResponseBody
-    String getResultatRecherche(@RequestParam String entree, @RequestParam String langue) {
-        DBHelper helper =  DBHelper.getInstance();
-        return new Gson().toJson(helper.getRecherche(entree, langue));
+    String getResultatRecherche(@RequestParam String TypeService, @RequestParam String langue) {
+        DBHelper helper = DBHelper.getInstance();
+        return new Gson().toJson(helper.getRecherche(Integer.parseInt(TypeService), langue));
     }
-    
-    
+
+    @RequestMapping(value = "/getResultatRechercheTypeID", method = RequestMethod.GET)
+    public @ResponseBody
+    String getResultatRechercheTypeID(@RequestParam String entree, @RequestParam String langue) {
+        DBHelper helper = DBHelper.getInstance();
+        return Integer.toString(helper.getIdTypeServiceParRecherche(entree, langue));
+    }
+
 }

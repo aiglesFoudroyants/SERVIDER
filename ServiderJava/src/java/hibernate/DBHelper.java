@@ -90,7 +90,7 @@ public class DBHelper {
 
             tabStringLangue[i] = typeService;
         }
-       
+
         return tabStringLangue;
     }
 
@@ -193,6 +193,14 @@ public class DBHelper {
         return xml.toString();
     }
 
+    public void updateUtilisateur(Utilisateur utilisateur) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.update(utilisateur);
+        session.getTransaction().commit();
+        session.close();
+    }
+
     public int insererUtilisateur(Utilisateur utilisateur) {
         int id;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -261,6 +269,19 @@ public class DBHelper {
         return id;
     }
 
+    public int getIdTypeServiceParRecherche(String nomServices, String langue) {
+        int id = -1;
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+//where the magic happen
+
+        id = getIdTypeServiceParNom(nomServices, langue, session);
+
+        session.getTransaction().commit();
+        session.close();
+        return id;
+    }
+
     public int insererService(int utilisateurId, int typeServiceId) {
         int id;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -273,16 +294,18 @@ public class DBHelper {
 
     }
 
-    
-    public List<Annonce> getRecherche(String entree, String langue){
+    public List<Annonce> getRecherche(int typeServiceId, String langue) {
         List<Annonce> annonces;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        int typeServiceId = getIdTypeServiceParNom(entree, langue, session);
+
         Query query = session.createSQLQuery(
-                "select A.* from Annonce A"
+                "select A.*,T.sTypeFr,T.sTypeEn"
+                + " from Annonce A"
                 + " join Service S"
                 + " on A.serviceId = S.idService"
+                + " join TypeService T"
+                + " on S.typeServiceId = T.idTypeService"
                 + " where S.typeServiceId = " + typeServiceId + ";"
         ).addEntity(Annonce.class);
 

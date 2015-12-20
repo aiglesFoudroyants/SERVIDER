@@ -33,6 +33,6 @@ $(document).ready(function () {
     
     $("#btnDisconnect,#btnDisconnectMobile").bind("click", function(){
         $.removeCookie('servider-user-id');
-        location.reload();
+        location="index.htm";
     });
 });
