@@ -213,6 +213,25 @@ public class DBHelper {
         return id;
     }
 
+    public int insererAnonce(int userId, int typeDeService, Annonce annonce) {
+        int serviceId;
+        System.out.println(userId);
+        System.out.println(typeDeService);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Service service = new Service();
+        service.setActif(true);
+        service.setTypeServiceId(typeDeService);
+        service.setUtilisateurId(userId);
+        serviceId = (int) session.save(service);
+        annonce.setServiceId(serviceId);
+        session.save(annonce);
+        session.getTransaction().commit();
+        session.close();
+
+        return serviceId;
+    }
+
     public Utilisateur getUtilisateur(int id) {
         Utilisateur utilisateur;
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -300,23 +319,32 @@ public class DBHelper {
         session.beginTransaction();
 
         Query query = session.createSQLQuery(
-                "select A.*,T.sTypeFr,T.sTypeEn"
-                + " from Annonce A"
-                + " join Service S"
-                + " on A.serviceId = S.idService"
-                + " join TypeService T"
-                + " on S.typeServiceId = T.idTypeService"
-                + " where S.typeServiceId = " + typeServiceId + ";"
+                "select *"
+                + " from Annonce;"
         ).addEntity(Annonce.class);
 
         annonces = (List<Annonce>) query.list();
         for (Annonce annonce : annonces) {
-            annonce.setDlRating(getRatingAnnonce(session, annonce.getIdAnnonce()));
+            annonce.setDlRaiting(getRatingAnnonce(session, annonce.getIdAnnonce()));
+            setTypeAnnonce(session, annonce);
         }
 
         session.getTransaction().commit();
         session.close();
         return annonces;
+    }
+
+    private void setTypeAnnonce(Session session, Annonce a) {
+        Query query = session.createSQLQuery(
+                "select t.stypeFr,t.stypeEn"
+                + " from service s"
+                + " join typeService t"
+                + " on s.typeServiceID "
+                + " = t.idTypeService"
+                + " where s.idService = " + a.getServiceId() + ";");
+        Object[] temp = (Object[]) query.uniqueResult();
+        a.setsTypeFr((String) temp[0]);
+        a.setsTypeEn((String) temp[1]);
     }
 
     private Double getRatingAnnonce(Session session, int idAnnonce) {

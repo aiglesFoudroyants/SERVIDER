@@ -91,7 +91,11 @@ insert into service(utilisateurId, typeServiceId, bActif) values(4,2,true);
 insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'Réparation de tuyaux','40$','131 rue de tamere2');
 insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'je suis canalisation man :D','40$','131 rue de tamere');
 insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'Réparation de tuyaux','40$','131 rue de tamere');
-insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(3,2,true,'Ne dépasse pas les limites de vitesses','30 capsules','666 Boston avenue');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(3,2,true,'Ne dépasse pas les limites de vitesse
+
+
+
+s','30 capsules','666 Boston avenue');
 insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(4,3,true,'Fils réparés bon!','wawawawawawawawa$','69 rue bob');
 insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(5,4,true,'Je néttoie de Belle Humeur','le prix de fallout4','42 rue du bonheur');
 -- fin annonce

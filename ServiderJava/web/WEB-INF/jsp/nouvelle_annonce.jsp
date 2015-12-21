@@ -8,9 +8,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
-        
-         <meta charset="utf-8">
+
+
+        <meta charset="utf-8">
         <title>Servider | Profil</title>
         <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
         <meta name="author" content="FIFOTHEMES.COM">
@@ -38,7 +38,6 @@
         <!-- Switcher CSS -->
         <link href="resources/css/switcher.css" rel="stylesheet">
         <link href="resources/css/spectrum.css" rel="stylesheet">
-        <link href="resources/css/jquery.rating.css" rel="stylesheet">
         <!-- JQuery-ui -->
         <link rel="stylesheet" href="resources/css/jquery-ui.min.css">
         <link rel="stylesheet" href="resources/css/jquery-ui.structure.min.css">
@@ -86,20 +85,79 @@
         <script src="resources/js/spectrum.js"></script>
         <script src="resources/js/switcher.js"></script>
         <script src="resources/js/custom.js"></script>
-        <script src="resources/js/profil.js"></script>  
-
-        <script src="resources/js/ratingBar/jquery.MetaData.js"></script>   
-        <script src="resources/js/ratingBar/jquery.form.js"></script> 
-        <script src="resources/js/ratingBar/jquery.rating.js"></script>  
-        <script src="resources/js/ratingBar/jquery.rating.pack.js"></script> 
-
+        <script src="resources/js/publish_an_offer.js"></script>  
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <!--le header-->
+        <%@ include file="partials/header.jsp" %>
+        <title><fmt:message key="titlepublishanoffer"/></title>
     </head>
-    <body>
-        <h1>${idReceveur}</h1>
-        <h1>${idContrat}</h1>
-        <h1>${bClientOuService}</h1>
-        <h1>${idTypeDeService}</h1>
-    </body>
+    <div class="wrap">
+
+
+        <section id="main">
+            <div class="main">
+                <div class="row vertical-center menu">
+                    <div class="container">
+                    
+
+                        <div class="content margin-top60 margin-bottom60">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="featured-boxes login">
+                                        <div class="col-md-8 col-md-push-2">
+                                            <div class="featured-box featured-box-secundary default info-content">
+                                                <h2 class="form-signin-heading"><fmt:message key="titlepublishanoffer"/></h2>
+                                                <div class="box-content">
+
+                                                    <div class="row">
+
+                                                        <div class="col-md-12">
+                                                            <input id="txtDescription" class="form-control" type="email" placeholder="<fmt:message key="description"/>" value="">
+                                                        </div> 
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <input id="txtPrix" class="form-control" type="email" placeholder="<fmt:message key="prix"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+
+                                                        <div class="col-md-12">
+                                                            <input id="txtAddres" class="form-control" type="email" placeholder="<fmt:message key="addres"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                    <div class="row padding0-5">
+                                                        <div class="col-md-12">
+                                                            <select id="typeDeService" class="form-control" >
+                                                                <option value="0">type de service</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <button id="buttonPublishOffer" class="form-control btn btn-color submit" type="submit"><fmt:message key="offerButton"/></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- /Main Content -->
+        </section>
+
+
+        <%@ include file="partials/footer.jsp" %>
+    </div>
+    <!-- Footer -->
+
 </html>

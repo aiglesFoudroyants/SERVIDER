@@ -19,7 +19,7 @@ import javax.persistence.Transient;
  *
  * @author gabriel
  */
-@Entity
+@Entity(name = "Annonce")
 @Table(name = "Annonce")
 public class Annonce implements Serializable {
 
@@ -40,13 +40,14 @@ public class Annonce implements Serializable {
 
     @Column(name = "sAddresse", nullable = true)
     private String sAddresse;
-    @Column(name = "sTypeFr", nullable = false)
-    private String sTypeFr;
-    @Column(name = "sTypeEn", nullable = false)
-    private String sTypeEn;
 
     @Transient
-    private Double dlRating;
+    private Double dlRaiting;
+
+    @Transient
+    private String sTypeFr;
+    @Transient
+    private String sTypeEn;
 
     public Annonce() {
     }
@@ -107,12 +108,28 @@ public class Annonce implements Serializable {
         this.sAddresse = sAddresse;
     }
 
-    public Double getDlRating() {
-        return dlRating;
+    public Double getDlRaiting() {
+        return dlRaiting;
     }
 
-    public void setDlRating(Double dlRating) {
-        this.dlRating = dlRating;
+    public void setDlRaiting(Double dlRaiting) {
+        this.dlRaiting = dlRaiting;
+    }
+
+    public String getsTypeFr() {
+        return sTypeFr;
+    }
+
+    public void setsTypeFr(String sTypeFr) {
+        this.sTypeFr = sTypeFr;
+    }
+
+    public String getsTypeEn() {
+        return sTypeEn;
+    }
+
+    public void setsTypeEn(String sTypeEn) {
+        this.sTypeEn = sTypeEn;
     }
 
 }

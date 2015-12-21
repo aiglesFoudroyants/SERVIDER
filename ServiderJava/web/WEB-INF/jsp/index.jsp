@@ -117,14 +117,15 @@
                                     </div>
                                 </li>
                                 <li class="col-lg-4 col-md-4 col-sm-4 col-xs-8 col-lg-push-0 col-md-push-0 col-sm-push-0 col-xs-push-2">
-                                    <button class="form-control btn btn-color submit" type="submit"><fmt:message key="offerButton"/></button>
+                                    <button id="btnOffre" class="form-control btn btn-color submit" type="submit"><fmt:message key="offerButton"/></button>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <!-- /Main Content -->
-            </section>
+            </section><!-- Footer -->
+           
             <!-- /Main Section -->
             <!-- Footer -->
             <%@ include file="partials/footer.jsp" %>             

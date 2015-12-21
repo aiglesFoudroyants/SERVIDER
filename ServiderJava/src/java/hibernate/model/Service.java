@@ -52,6 +52,16 @@ public class Service implements Serializable {
         this.id = id;
     }
 
+    public void setUtilisateurId(int utilisateurId) {
+        this.utilisateurId = utilisateurId;
+    }
+
+    public void setTypeServiceId(int typeServiceId) {
+        this.typeServiceId = typeServiceId;
+    }
+    
+    
+
     public int getUtilisateurId() {
         return utilisateurId;
     }

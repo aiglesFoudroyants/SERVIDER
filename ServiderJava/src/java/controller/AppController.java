@@ -7,6 +7,7 @@ package controller;
 
 import com.google.gson.Gson;
 import hibernate.DBHelper;
+import hibernate.model.Annonce;
 import hibernate.model.Commentaire;
 import java.io.UnsupportedEncodingException;
 import hibernate.model.Utilisateur;
@@ -42,6 +43,11 @@ public class AppController {
     @RequestMapping("/inscription")
     public ModelAndView inscription() {
         return new ModelAndView("inscription");
+    }
+
+    @RequestMapping("/nouvelle_annonce")
+    public ModelAndView nouvelle_annonce() {
+        return new ModelAndView("nouvelle_annonce");
     }
 
     @RequestMapping(value = "/profil")
@@ -154,6 +160,17 @@ public class AppController {
         DBHelper helper = DBHelper.getInstance();
         Gson gson = new Gson();
         return gson.toJson(helper.getStatusUtilisateur(Integer.parseInt(id)));
+    }
+
+    @RequestMapping(value = "/insertOffer", method = RequestMethod.GET)
+    public @ResponseBody
+    String insertOffer(@RequestParam String sAnnonce, @RequestParam String idTypeServiceString, @RequestParam String userId) {
+
+        DBHelper helper = DBHelper.getInstance();
+        Gson gson = new Gson();
+        Annonce annonce = gson.fromJson(sAnnonce, Annonce.class);
+        helper.insererAnonce(Integer.parseInt(userId), Integer.parseInt(idTypeServiceString), annonce);
+        return "{}";
     }
 
     @RequestMapping(value = "/getCommentairesClient", method = RequestMethod.GET)

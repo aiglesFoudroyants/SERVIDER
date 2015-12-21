@@ -40,4 +40,9 @@ $(document).ready(function () {
             }
         });
     });
+    $("#btnOffre").bind("click", function () {
+
+        window.location="nouvelle_annonce.htm";
+
+    });
 });
