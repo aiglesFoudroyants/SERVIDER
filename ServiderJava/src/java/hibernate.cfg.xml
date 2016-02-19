@@ -6,6 +6,20 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/serviderbd?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.connection.password">gr007,,</property>
+    <property name="hibernate.connection.password">George_@</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
+    <mapping class="hibernate.model.TypeService"/>
+    <mapping class="hibernate.model.Utilisateur"/>
+    <mapping class="hibernate.model.Pays"/>
+    <mapping class="hibernate.model.Province"/>
+    <mapping class="hibernate.model.Genre"/>
+    <mapping class="hibernate.model.Langue"/>
+    <mapping class="hibernate.model.Commentaire"/>
+    <mapping class="hibernate.model.StatusUtilisateur"/>
+    <mapping class="hibernate.model.Service"/>
+    <mapping class="hibernate.model.Annonce"/>
+    <mapping class="hibernate.model.AnnonceRecherche"/>
   </session-factory>
 </hibernate-configuration>

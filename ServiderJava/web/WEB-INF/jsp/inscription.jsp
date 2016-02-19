@@ -1,144 +1,271 @@
-<%-- 
-    Document   : inscription
-    Created on : 2015-09-24, 12:48:52
-    Author     : 1257837
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="/WEB-INF/jsp/include.jsp" %>
+<c:set var="language" value="${not empty param.language ? param.language : not empty language ? language : pageContext.request.locale}" scope="session" />
+<fmt:setLocale value="${language}" />
+<fmt:setBundle basename="localisation.messages"/>
 <!DOCTYPE html>
-<html>
+<!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->  
+<html lang="${language}"> 
+    
+    <!--<![endif]-->
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title><fmt:message key="pageTitleInscription"/></title>
+        <meta name="description" content="Gallaxy Responsive HTML5/CSS3 Template from FIFOTHEMES.COM">
+        <meta name="author" content="FIFOTHEMES.COM">
+        <!-- Mobile Metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Google Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Raleway:100,200,300,700,800,900' rel='stylesheet' type='text/css'>
+        <!-- Library CSS -->
         <link rel="stylesheet" href="resources/css/bootstrap.css">
         <link rel="stylesheet" href="resources/css/bootstrap-theme.css">
         <link rel="stylesheet" href="resources/css/fonts/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="resources/css/animations.css" media="screen">
+        <link rel="stylesheet" href="resources/css/superfish.css" media="screen">
+        <link rel="stylesheet" href="resources/css/revolution-slider/css/settings.css" media="screen">
+        <link rel="stylesheet" href="resources/css/revolution-slider/css/extralayers.css" media="screen">
+        <link rel="stylesheet" href="resources/css/prettyPhoto.css" media="screen">
         <!-- Theme CSS -->
         <link rel="stylesheet" href="resources/css/style.css">
         <link rel="stylesheet" href="resources/css/main.css">
         <!-- Skin -->
-        <link rel="stylesheet" href="resources/css/colors/green.css" class="colors">
+        <link rel="stylesheet" href="resources/css/colors/orange.css" class="colors">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="resources/css/theme-responsive.css">
         <!-- Switcher CSS -->
         <link href="resources/css/switcher.css" rel="stylesheet">
         <link href="resources/css/spectrum.css" rel="stylesheet">
+        <!-- JQuery-ui -->
+        <link rel="stylesheet" href="resources/css/jquery-ui.min.css">
+        <link rel="stylesheet" href="resources/css/jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="resources/css/jquery-ui.theme.min.css">
         <!-- Favicons -->
         <link rel="shortcut icon" href="resources/img/ico/favicon.ico">
         <link rel="apple-touch-icon" href="resources/img/ico/apple-touch-icon.png">
         <link rel="apple-touch-icon" sizes="72x72" href="resources/img/ico/apple-touch-icon-72.png">
         <link rel="apple-touch-icon" sizes="114x114" href="resources/img/ico/apple-touch-icon-114.png">
         <link rel="apple-touch-icon" sizes="144x144" href="resources/img/ico/apple-touch-icon-144.png">
-        <title>JSP Page</title>
+        <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+        <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="resources/js/respond.min.js"></script>
+        <![endif]-->
+        <!--[if IE]>
+        <link rel="stylesheet" href="resources/css/ie.css">
+        <![endif]-->
+        
+        <!-- The Scripts -->
+        <script src="resources/js/jquery.min.js"></script>
+        <script src="resources/js/jquery-migrate-1.0.0.js"></script>
+        <script src="resources/js/jquery-ui.js"></script>
+        <script src="resources/js/bootstrap.js"></script>
+        <script src="resources/js/revolution-slider/js/jquery.themepunch.plugins.min.js"></script> 
+        <script src="resources/js/revolution-slider/js/jquery.themepunch.revolution.min.js"></script>
+        <script src="resources/js/jquery.parallax.js"></script>
+        <script src="resources/js/jquery.wait.js"></script>
+        <script src="resources/js/fappear.js"></script> 
+        <!--script src="resources/js/modernizr-2.6.2.min.js"></script-->
+        <script src="resources/js/jquery.bxslider.min.js"></script>
+        <script src="resources/js/jquery.prettyPhoto.js"></script>
+        <script src="resources/js/superfish.js"></script>
+        <script src="resources/js/tweetMachine.js"></script>
+        <script src="resources/js/tytabs.js"></script>
+        <script src="resources/js/jquery.gmap.min.js"></script>
+        <script src="resources/js/jquery.sticky.js"></script>
+        <script src="resources/js/jquery.countTo.js"></script>
+        <script src="resources/js/jflickrfeed.js"></script>
+        <script src="resources/js/imagesloaded.pkgd.min.js"></script>
+        <script src="resources/js/waypoints.min.js"></script>
+        <script src="resources/js/wow.js"></script>
+        <script src="resources/js/jquery.fitvids.js"></script>
+        <script src="resources/js/spectrum.js"></script>
+        <script src="resources/js/switcher.js"></script>
+        <script src="resources/js/custom.js"></script>
+        <script src="resources/js/inscription.js"></script>
     </head>
-    <body>
-        <!-- Header -->
-        <header id="header">
-            <!-- Main Header -->
-            <div class="main-header">
-                <div class="container">
-                    <!-- Logo -->
-                    <div class="logo pull-left">
-                        <h1>
-                            <a href="index.html">
-                                <img class="logo-color" src="resources/img/logos/logo_green.png" alt="gallaxy" width="160" height="60">
-                            </a>
-                        </h1>
-                    </div>
-                    <!-- /Logo -->
-                    <!-- Mobile Menu -->
-                    <div class="mobile navbar-header">
-                        <a class="navbar-toggle" data-toggle="collapse" href=".navbar-collapse">
-                            <i class="fa fa-bars fa-2x"></i>
-                        </a> 
-                    </div>
-                    <!-- /Mobile Menu -->
-                    <!-- Menu Start -->
-                    <nav class="collapse navbar-collapse menu">
-                        <ul class="nav navbar-nav sf-menu">
-                            <li>
-                                <a href="#" data-toggle="modal" data-target="#loginModal" class="no-border">
-                                    <i class="fa fa-3x fa-user"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <!-- /Menu --> 
-                </div>
+    <body class="home">
+        <div class="page-mask">
+            <div class="page-loader">
+                <div class="spinner"></div>
+                Loading...
             </div>
-            <!-- /Main Header -->
-        </header>
-           <!-- inscription ici-->
-           
-           
-           
-        <h1>Hello World!</h1>
-        
-        
-         <!-- /inscription ici-->
-        <!-- Footer -->
-        <footer id="footer">
-            <div class="pattern-overlay">
-                <!-- Footer Top -->
-                <div class="footer-top">
-                    <div class="container">
-                        <div class="row">
-                            <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-one wow fadeIn">
-                                <h3 class="light">About</h3>
-                                <p> 
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. 
-                                </p>
-                                <a href="inscription.htm">page d'inscription</a>
-                            </section>
-                            <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-two wow fadeIn">
-                                <h3 class="light">Twitter Stream</h3>
-                                <ul id="tweets">
-                                </ul>
-                            </section>
-                            <section class="col-lg-4 col-md-4 col-xs-12 col-sm-4 footer-three wow fadeIn">
-                                <h3 class="light">Contact Us</h3>
-                                <ul class="contact-us">
-                                    <li>
-                                        <i class="fa fa-map-marker"></i>
-                                        <p> 
-                                            <strong class="contact-pad">Address:</strong> House: 325, Road: 2,<br> Mirpur DOHS <br>
-                                            Dhaka, Bangladesh 
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-phone"></i>
-                                        <p><strong>Phone:</strong> +880 111-111-111</p>
-                                    </li>
-                                    <li>
-                                        <i class="fa fa-envelope"></i>
-                                        <p><strong>Email:</strong><a href="mailto:support@fifothemes.com">support@fifothemes.com</a></p>
-                                    </li>
-                                </ul>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-                <!-- /Footer Top --> 
-                <!-- Footer Bottom -->
-                <div class="footer-bottom">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
-                                <p class="credits">&copy; Copyright 2014 by <a href="#">FIFOLAB</a>. All Rights Reserved. </p>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6 ">
-                                <ul class="social social-icons-footer-bottom">
-                                    <li class="facebook"><a href="#" data-toggle="tooltip" title="Facebook"><i class="fa fa-facebook"></i></a></li>
-                                    <li class="twitter"><a href="#" data-toggle="tooltip" title="Twitter"><i class="fa fa-twitter"></i></a></li>
-                                    <li class="linkedin"><a href="#" data-toggle="tooltip" title="LinkedIn"><i class="fa fa-linkedin"></i></a></li>
-                                </ul>
+        </div>
+        <!-- Wrap -->
+        <div class="wrap">
+            <!-- Header -->      
+            <%@ include file="partials/header.jsp" %>      
+            <!-- /Header --> 
+            <!-- Main Section -->
+
+
+            <section id="main">
+                <div class="breadcrumb-wrapper">
+                    <div class="pattern-overlay">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">
+                                    <h2 class="title"><fmt:message key="titleInscription"/></h2>
+                                </div>                                
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- /Footer Bottom -->
-            </div>
-        </footer>
+                <div class="content margin-top60 margin-bottom60">
+                    <div class="container">
+                        <div class="row">
+                            <div class="featured-boxes login">
+                                <div class="col-md-8 col-md-push-2">
+                                    <div class="featured-box featured-box-secundary default info-content">
+                                        <h2 class="form-signin-heading"><fmt:message key="titleInscription"/></h2>
+                                        <div class="box-content">
+                                            <form id="signup" th:action method="post" action="#">
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input id="txtCourriel" class="form-control" type="email" placeholder="<fmt:message key="plhEmail"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <input id="txtPassword" class="form-control" type="password" placeholder="<fmt:message key="plhPassword"/>" value="">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input id="txtConfirmerPass" class="form-control" type="password" placeholder="<fmt:message key="plhConfirmPassword"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <input id="txtPrenom" class="form-control" type="text" placeholder="<fmt:message key="plhFirstName"/>" value="">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <input id="txtNom"  class="form-control" type="text" placeholder="<fmt:message key="plhLastName"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <select id="gender" class="form-control">
+                                                                <option value="0"><fmt:message key="plhGender"/></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select id="preferredLanguage" class="form-control">
+                                                                <option value="0"><fmt:message key="plhPreferredLanguage"/></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input id="txtAdresse" class="form-control" type="text" placeholder="<fmt:message key="plhAddress"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                </div> 
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-6">
+                                                            <select id="country" class="form-control">
+                                                                <option value="0"><fmt:message key="plhCountry"/></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <select id="state" class="form-control">
+                                                                <option value="0"><fmt:message key="plhState"/></option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-8">
+                                                            <input id="txtVille" class="form-control" type="text" placeholder="<fmt:message key="plhCity"/>" value="">
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input id="txtCode" class="form-control" type="text" placeholder="<fmt:message key="plhPostal"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row padding0-5">
+                                                    <div class="col-md-12">
+                                                        <span class="remember-box checkbox">
+                                                            <label for="profil_affaires">
+                                                                <input id="chkCompagnie" type="checkbox" name="profil_affaires">
+                                                                <fmt:message key="chkBusiness"/>
+                                                            </label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <input id="txtCompagnie" class="form-control" type="text" placeholder="<fmt:message key="plhBusiness"/>" value="">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row padding0-5">
+                                                    <div class="col-md-12">
+                                                        <span class="remember-box checkbox">
+                                                            <label for="fournisseur_service">
+                                                                <input id="chkService" type="checkbox" name="fournisseur_service">
+                                                                <fmt:message key="chkService"/>
+                                                            </label>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div id="serviceSection">
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-11 col-xs-11">
+                                                                <input class="form-control txtService" type="text" placeholder="<fmt:message key="plhService"/>" value="">
+                                                            </div>
+                                                            <div class="col-md-1 col-xs-1 padding0-5" style="display: flex;align-items: center;height: 4em;">
+                                                                <i class="fa fa-2x fa-remove clean" style='color: red;cursor:pointer;' onclick="removeService(event);"></i> 
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="form-group">
+                                                            <div class="col-md-2 col-md-push-9">
+                                                                <button id="btnAddService" class="btn btn-color push-bottom" style="width: 100%;" type="button" data-loading-text="Loading..."><i class="fa fa-2x fa-plus clean" style="color: white"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row margin-top60">
+                                                    <div class="col-md-4 col-md-push-4">
+                                                        <input id="btnRegister" class="btn btn-color push-bottom" style="width: 100%;" type="button" data-loading-text="Loading..." value="<fmt:message key="btnRegister"/>">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- /Main Section -->
+            <!-- Footer -->            
+            <%@ include file="partials/footer.jsp" %>  
+            <!-- /Footer -->
+            <!-- Scroll To Top --> 
+            <a href="#" class="scrollup"><i class="fa fa-angle-up"></i></a>
+        </div>
+        <!-- /Wrap -->
     </body>
-
-
 </html>
+
+

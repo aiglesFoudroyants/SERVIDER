@@ -1,4 +1,4 @@
-insert into Pays(sNomFr, sNomEn, sAbreviation) values('Canada', 'Canada', 'CAN');
+﻿insert into Pays(sNomFr, sNomEn, sAbreviation) values('Canada', 'Canada', 'CAN');
 insert into Pays(sNomFr, sNomEn, sAbreviation) values('États-Unis', 'United States', 'USA');
 insert into Province (sNomFr, sNomEn,sAbreviation,paysId) values('Québec', 'Quebec', 'QC', 1);
 insert into Province (sNomFr, sNomEn,sAbreviation,paysId) values('Manitoba', 'Manitoba', 'MB', 1);
@@ -63,8 +63,8 @@ insert into province (sNomFr, sNomEn, sabreviation, paysid) values('Washington',
 insert into province (sNomFr, sNomEn, sabreviation, paysid) values('Virgine-Occidentale', 'West Virginia', 'WV', 2);
 insert into province (sNomFr, sNomEn, sabreviation, paysid) values('Wisconsin', 'Wisconsin', 'WI', 2);
 insert into province (sNomFr, sNomEn, sabreviation, paysid) values('Wyoming', 'Wyoming', 'WY', 2);
-insert into statusutilisateur(sStatutFr, sStatutEn) values('Connecté', 'Connected');
-insert into statusutilisateur(sStatutFr, sStatutEn) values('Déconnecté', 'Disconnecte');
+insert into statusutilisateur(sStatutFr, sStatutEn) values('Connecté', 'Online');
+insert into statusutilisateur(sStatutFr, sStatutEn) values('Déconnecté', 'Offline');
 insert into statusutilisateur(sStatutFr, sStatutEn) values('Inactif', 'Inactive');
 insert into sexe(sSexeFr, sSexeEn) values('Femme', 'Woman');
 insert into sexe(sSexeFr, sSexeEn) values('Homme', 'Man');
@@ -87,14 +87,22 @@ insert into service(utilisateurId, typeServiceId, bActif) values(2,1,true);
 insert into service(utilisateurId, typeServiceId, bActif) values(2,4,true);
 insert into service(utilisateurId, typeServiceId, bActif) values(3,3,true);
 insert into service(utilisateurId, typeServiceId, bActif) values(4,2,true);
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(1,1,true,'Réparation de tuyaux');
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(3,2,true,'Ne dépasse pas les limites de vitesses');
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(4,3,true,'Fils réparés bon!');
-insert into annonce(serviceId,utilisateurId,bActif,sDescription) values(5,4,true,'Je néttoie de Belle Humeur');
+-- debut anonce
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'Réparation de tuyaux','40$','131 rue de tamere2');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'je suis canalisation man :D','40$','131 rue de tamere');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(1,1,true,'Réparation de tuyaux','40$','131 rue de tamere');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(3,2,true,'Ne dépasse pas les limites de vitesse
+
+
+
+s','30 capsules','666 Boston avenue');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(4,3,true,'Fils réparés bon!','wawawawawawawawa$','69 rue bob');
+insert into annonce(serviceId,utilisateurId,bActif,sDescription,sTarif,sAddresse) values(5,4,true,'Je néttoie de Belle Humeur','le prix de fallout4','42 rue du bonheur');
+-- fin annonce
 insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(1, '2015-09-11 17:00','2015-09-14 8:00',false);
 insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(2, '2015-09-14 15:00','2015-09-14 17:00',true);
 insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(3, '2015-09-15 8:00','2015-09-14 11:00',true);
-insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,bReserve) values(4, '2015-09-16 8:00','2015-09-16 17:00',true);
+insert into indisponibilite(annonceId,dHeureDebut,dHeureFin,,bReserve) values(4, '2015-09-16 8:00','2015-09-16 17:00',true);
 insert into statuscontrat(sStatutFr,sStatutEn) values('Demande d''informations','Informations Request');
 insert into statuscontrat(sStatutFr,sStatutEn) values('Accepté','Accepted');
 insert into statuscontrat(sStatutFr,sStatutEn) values('Pré-approuvé','Preapprouved');
@@ -102,17 +110,21 @@ insert into statuscontrat(sStatutFr,sStatutEn) values('Annulé','Canceled');
 insert into statuscontrat(sStatutFr,sStatutEn) values('Impossible','Impossible');
 insert into statuscontrat(sStatutFr,sStatutEn) values('Refusé','Rejected');
 insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire) 
-values(1,2,1,false,'Commentaire intelligent',3,3,5,3.6666,true,sysdate());
+values(1,2,1,false,'Il me prend pour un esclave',3,3,5,3.6666,true,sysdate());
 insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire) 
-values(2,1,1,false,'Commentaire plus intelligent',1,2,3,2,false,sysdate());
+values(2,1,1,false,'client alcoolique',1,2,3,2,false,sysdate());
 insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire) 
-values(4,3,1,false,'Commentaire encore plus intelligent',3,3,3,3,true,sysdate());
+values(4,3,1,false,'Commentaire encore plus intelligent :D',3,3,3,3,true,sysdate());
 insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire) 
-values(3,4,1,false,'Commentaire le plus intelligent',5,5,1,3.6666,true,sysdate());
+values(3,4,1,false,'Commentaire le plus intelligent de l\'histoire de l\'humanité',5,5,1,3.6666,true,sysdate());
 insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire) 
-values(2,1,1,true,'Commentaire con',1,2,1,1.3333,false,sysdate());
+values(2,1,1,true,'Ce Client est vraiment con ahahahahahahahahaha',1,2,1,1.3333,false,sysdate());
 insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire) 
 values(1,2,1,true,'Commentaire plus con',1,1,1,1,false,sysdate());
+insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire, lreponse) 
+values(2,2,1,false,'Commentaire intelligent',3,3,5,3.6666,true,sysdate(), 'T\'es vraiment qu\'une grosse merde, car je suis Gabrielle');
+insert into commentaire(receveurId,commentateurId,typeServiceId,bReceveurClientOuService,lCommentaire,iCritere1,iCritere2,iCritere3,dlCritereAvg,bRecommendation,dDateCommentaire, lreponse)
+values(2,2,1,false,'Commentaire intelligent',3,3,5,3.6666,true,sysdate(), 'T\'es vraiment qu\'une grosse merde');
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(2,1,1,2,5,1);
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(1,2,2,2,6,2);
 insert into contrat(clientId,annonceurId,annonceId,statusContratId,commentaireAuClientId,commentaireAuServiceId) values(4,3,3,2,null,3);
